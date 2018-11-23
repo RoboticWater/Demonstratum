@@ -20,6 +20,8 @@ public class Human : MonoBehaviour
     public float viewDistance;
     [Range(0.0f, 360.0f)]
     public float viewAngle;
+    public float sightLengthError;
+    private float sightTimer;
 
     private NavMeshAgent agent;
     public HumanState state;
@@ -55,17 +57,18 @@ public class Human : MonoBehaviour
         switch(state) {
             case HumanState.Idle:
                 break;
-            case HumanState.Patrolling:
+            case HumanState.Patrole:
                 patrole();
                 break;
-            case HumanState.Chasing:
+            case HumanState.Chase:
+                chase();
                 break;
         }
     }
 
     void patrole() {
         if (playerInSight()) {
-            state = HumanState.Chasing;
+            state = HumanState.Chase;
             sight.color = Color.red;
             // Debug.DrawLine(sight.transform.position,
             //     GameManager.instance.player.transform.position, Color.green);
@@ -94,6 +97,10 @@ public class Human : MonoBehaviour
                 StartCoroutine(lookRoutine);
             }
         }
+    }
+
+    void chase() {
+        state = HumanState.Patrole;
     }
 
     private bool playerInSight() {
@@ -141,5 +148,5 @@ public class Human : MonoBehaviour
 
 public enum HumanState
 {
-    Idle, Patrolling, Chasing
+    Idle, Patrole, Chase
 }
