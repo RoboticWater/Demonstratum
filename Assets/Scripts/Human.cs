@@ -50,6 +50,7 @@ public class Human : MonoBehaviour
         sight = GetComponentInChildren<Light>();
         searchPosition = transform.position;
         lookRoutine = look();
+        sightTimer = sightLengthError;
     }
 
     void Update()
@@ -68,11 +69,15 @@ public class Human : MonoBehaviour
 
     void patrole() {
         if (playerInSight()) {
-            state = HumanState.Chase;
-            sight.color = Color.red;
+            sightTimer += Time.deltaTime;
+            if (sightTimer > sightLengthError) {
+                state = HumanState.Chase;
+                sightTimer = 0;
+            }
             // Debug.DrawLine(sight.transform.position,
             //     GameManager.instance.player.transform.position, Color.green);
         } else {
+            sightTimer = 0;
             Debug.DrawLine(sight.transform.position,
                 GameManager.instance.player.transform.position, Color.red);
             sight.color = new Color(1, 0.8628919f, 0, 1);
@@ -101,6 +106,7 @@ public class Human : MonoBehaviour
 
     void chase() {
         state = HumanState.Patrole;
+        sight.color = Color.red;
     }
 
     private bool playerInSight() {
