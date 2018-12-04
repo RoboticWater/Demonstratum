@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Assets.Scripts.Cam.Effects {
-	[ExecuteInEditMode]
+	// [ExecuteInEditMode]
 	[RequireComponent(typeof(Camera))]
 	[AddComponentMenu("Image Effects/Custom/Posterize")]
 	public class Posterize : MonoBehaviour {

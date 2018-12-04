@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Assets.Scripts.Cam.Effects {
-	[ExecuteInEditMode]
+	// [ExecuteInEditMode]
 	[RequireComponent(typeof(UnityEngine.Camera))]
 	[AddComponentMenu("Image Effects/Custom/Retro Pixel Max")]
 	public class RetroPixelMax : MonoBehaviour {
@@ -13,12 +13,14 @@ namespace Assets.Scripts.Cam.Effects {
 
 		private Material material {
 			get {
-				if (m_material == null) {
-					shader = Shader.Find("Oxysoft/RetroPixelMax");
-					m_material = new Material(shader) {hideFlags = HideFlags.DontSave};
-				}
-
 				return m_material;
+			}
+		}
+
+		private void Awake() {
+			if (m_material == null) {
+				shader = Shader.Find("Oxysoft/RetroPixelMax");
+				m_material = new Material(shader) {hideFlags = HideFlags.DontSave};
 			}
 		}
 
