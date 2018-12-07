@@ -11,26 +11,27 @@ public class Human : MonoBehaviour
     public float maxWaitTime;
     public float minLookTime;
     public float maxLookTime;
-    public float minlookDir;
+    public float minLookDir;
     public float maxLookDir;
     [Range(0.0f, 50.0f)] public float searchRadius;
     [Range(0.0f, 2.0f)] public float moveError;
     public float lookSpeed;
     public AnimationCurve lookCurve;
+    [Range(0.0f, 50.0f)]
     public float viewDistance;
-    [Range(0.0f, 360.0f)]
+    [Range(0.0f, 180.0f)]
     public float viewAngle;
     public float sightLengthError;
-    private float sightTimer;
 
     private NavMeshAgent agent;
     public HumanState state;
     private Vector3 searchPosition;
     private float waitTimer;
     private float lookTimer;
+    private float sightTimer;
     private bool moving;
     private float lookTarget;
-    public Light sight;
+    private Light sight;
 
     private IEnumerator lookRoutine;
 
@@ -97,7 +98,7 @@ public class Human : MonoBehaviour
             if (lookTimer <= 0) {
                 StopCoroutine(lookRoutine);
                 lookRoutine = look();
-                lookTarget += Random.Range(minlookDir, maxLookDir);
+                lookTarget += Random.Range(minLookDir, maxLookDir);
                 lookTimer = Random.Range(minLookTime, maxLookTime);
                 StartCoroutine(lookRoutine);
             }
@@ -105,7 +106,8 @@ public class Human : MonoBehaviour
     }
 
     void chase() {
-        state = HumanState.Patrole;
+        agent.SetDestination(GameManager.instance.player.transform.position);
+        // state = HumanState.Patrole;
         sight.color = Color.red;
     }
 

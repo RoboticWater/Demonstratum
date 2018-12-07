@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Assets.Scripts.Cam.Effects {
-	// [ExecuteInEditMode]
+	[ExecuteInEditMode]
 	[RequireComponent(typeof(UnityEngine.Camera))]
 	[AddComponentMenu("Image Effects/Custom/Dither")]
 	public class Dither : MonoBehaviour {
@@ -44,8 +44,13 @@ namespace Assets.Scripts.Cam.Effects {
 		}
 
 		private void OnDisable() {
+			#if UNITY_EDITOR
 			if (m_material)
 				DestroyImmediate(m_material);
+			#else
+			if (m_material)
+				Destroy(m_material);
+			#endif
 		}
 	}
 }

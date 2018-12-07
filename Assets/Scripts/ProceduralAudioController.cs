@@ -25,7 +25,7 @@ public class ProceduralAudioController : MonoBehaviour {
 	SinusWave amplitudeModulationOscillator;
 	SinusWave frequencyModulationOscillator;
 
-	public bool autoPlay;
+	public bool autoPlay = false;
 
 	[Header("Volume / Frequency")]
 	[Range(0.0f,1.0f)]

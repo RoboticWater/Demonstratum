@@ -38,8 +38,13 @@ namespace Assets.Scripts.Cam.Effects {
 		}
 
 		private void OnDisable() {
+			#if UNITY_EDITOR
 			if (m_material)
 				DestroyImmediate(m_material);
+			#else
+			if (m_material)
+				Destroy(m_material);
+			#endif
 		}
 	}
 }
