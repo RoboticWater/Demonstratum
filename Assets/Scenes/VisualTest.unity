@@ -2067,7 +2067,7 @@ MonoBehaviour:
   voiceSpeed: 0.1
   noteMaxVol: 0.5
   chordMaxVol: 0.8
-  voiceNotes: []
+  chordTime: 1.2
 --- !u!1 &1607779495
 GameObject:
   m_ObjectHideFlags: 0

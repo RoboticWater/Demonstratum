@@ -11,11 +11,13 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	public float voiceSpeed = 0.3f;
 	public float noteMaxVol = 0.5f;
 	public float chordMaxVol = 0.8f;
+	public float chordTime = 1f;
 
 
 	RectTransform rectTransform;
 
-	bool speaking;
+	VoiceState voiceState;
+	bool canSpeak = true;
 	int curNote;
 	VoiceNote[] voiceNotes;
 	float[] voiceVels;
@@ -29,21 +31,36 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
 	private void Update()
 	{
-		if (speaking)
+		switch (voiceState)
 		{
-			SetNote(audioControllers[curNote], voiceNotes[curNote].input.x, voiceNotes[curNote].input.y);
-			for (int i = 0; i < audioControllers.Length; i++)
-			{
-				audioControllers[i].masterVolume = Mathf.SmoothDamp(audioControllers[i].masterVolume, i == curNote ? noteMaxVol : 0, ref voiceVels[i], voiceSpeed);
-			}
+			case VoiceState.SpeakingNote:
+				SetNote(audioControllers[curNote], voiceNotes[curNote].input.x, voiceNotes[curNote].input.y);
+				for (int i = 0; i < audioControllers.Length; i++)
+				{
+					audioControllers[i].masterVolume = Mathf.SmoothDamp(audioControllers[i].masterVolume, i == curNote ? noteMaxVol : 0, ref voiceVels[i], voiceSpeed);
+				}
+				break;
+			case VoiceState.SpeakingChord:
+				for (int i = 0; i < audioControllers.Length; i++)
+				{
+					audioControllers[i].masterVolume = Mathf.SmoothDamp(audioControllers[i].masterVolume, chordMaxVol, ref voiceVels[i], voiceSpeed);
+				}
+				chordTime -= Time.deltaTime;
+				if (chordTime <= 0)
+				{
+					voiceState = VoiceState.Silent;
+					for (int i = audioControllers.Length - 1; i >= 0; i--)
+						RemoveVoiceNote(i);
+				}
+				break;
+			case VoiceState.Silent:
+				for (int i = 0; i < audioControllers.Length; i++)
+				{
+					audioControllers[i].masterVolume = Mathf.SmoothDamp(audioControllers[i].masterVolume, 0, ref voiceVels[i], voiceSpeed);
+				}
+				break;
 		}
-		else
-		{
-			for (int i = 0; i < audioControllers.Length; i++)
-			{
-				audioControllers[i].masterVolume = Mathf.SmoothDamp(audioControllers[i].masterVolume, 0, ref voiceVels[i], voiceSpeed);
-			}
-		}
+
 		if (Input.GetButtonDown("Undo"))
 		{
 			RemoveVoiceNote(--curNote);
@@ -52,18 +69,20 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
-		speaking = true;
+		if (!canSpeak)
+			return;
+		voiceState = VoiceState.SpeakingNote;
 		voiceNotes[curNote] = MakeVoiceNote(eventData.position - (Vector2)rectTransform.position);
 	}
 
 	public void OnDrag(PointerEventData eventData)
 	{
-		if (voiceNotes[curNote] == null)
+		if (voiceNotes[curNote] == null || !canSpeak)
 			return;
 		Vector2 localPos = eventData.position - (Vector2)rectTransform.position;
 		if (localPos.magnitude > rectTransform.sizeDelta.x / 2)
 		{
-			speaking = false;
+			voiceState = VoiceState.Silent;
 			RemoveVoiceNote(curNote);
 			return;
 		}
@@ -73,15 +92,15 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
 	public void OnPointerUp(PointerEventData eventData)
 	{
-		if (speaking)
+		if (voiceState == VoiceState.SpeakingNote)
 		{
-			speaking = false;
+			voiceState = VoiceState.Silent;
 			curNote++;
 			if (curNote == voiceNotes.Length)
 			{
-				for (int i = 0; i < voiceNotes.Length; i++)
-					RemoveVoiceNote(i);
 				curNote = 0;
+				canSpeak = false;
+				StartCoroutine(SpeakChord());
 			}
 		}
 	}
@@ -133,4 +152,16 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 			theta += Mathf.PI;
 		return new Vector2(theta, radius);
 	}
+
+	IEnumerator SpeakChord()
+	{
+		yield return new WaitForSeconds(0.4f);
+		voiceState = VoiceState.SpeakingChord;
+	}
+}
+
+
+public enum VoiceState
+{
+	Silent, SpeakingNote, SpeakingChord
 }
