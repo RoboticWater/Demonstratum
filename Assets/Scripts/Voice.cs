@@ -17,27 +17,32 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
 	bool speaking;
 	int curNote;
-	public VoiceNote[] voiceNotes;
-	float voiceVel;
-	float voiceVol;
+	VoiceNote[] voiceNotes;
+	float[] voiceVels;
 
 	private void Start()
 	{
 		rectTransform = GetComponent<RectTransform>();
 		voiceNotes = new VoiceNote[audioControllers.Length];
+		voiceVels = new float[audioControllers.Length];
 	}
 
 	private void Update()
 	{
 		if (speaking)
 		{
-			voiceVol = Mathf.SmoothDamp(voiceVol, noteMaxVol, ref voiceVel, voiceSpeed);
-			SpeakNote(audioControllers[curNote], voiceNotes[curNote].input.x, voiceNotes[curNote].input.y, voiceVol);
+			SetNote(audioControllers[curNote], voiceNotes[curNote].input.x, voiceNotes[curNote].input.y);
+			for (int i = 0; i < audioControllers.Length; i++)
+			{
+				audioControllers[i].masterVolume = Mathf.SmoothDamp(audioControllers[i].masterVolume, i == curNote ? noteMaxVol : 0, ref voiceVels[i], voiceSpeed);
+			}
 		}
-		else if (voiceVol > 0)
+		else
 		{
-			voiceVol = Mathf.SmoothDamp(voiceVol, 0, ref voiceVel, voiceSpeed);
-			SetVoiceVolume(voiceVol, true);
+			for (int i = 0; i < audioControllers.Length; i++)
+			{
+				audioControllers[i].masterVolume = Mathf.SmoothDamp(audioControllers[i].masterVolume, 0, ref voiceVels[i], voiceSpeed);
+			}
 		}
 		if (Input.GetButtonDown("Undo"))
 		{
@@ -81,20 +86,10 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 		}
 	}
 
-	void SpeakNote(ProceduralAudioController pac, float freq, float osc, float volume = 0.5f)
+	void SetNote(ProceduralAudioController pac, float freq, float osc)
 	{
-		pac.masterVolume = volume;
 		pac.mainFrequency = freq;
 		pac.frequencyModulationOscillatorIntensity = osc;
-	}
-
-	void SetVoiceVolume(float vol, bool keepZero = false)
-	{
-		foreach (ProceduralAudioController p in audioControllers)
-		{
-			if (!keepZero || p.masterVolume != 0)
-				p.masterVolume = vol;
-		}
 	}
 
 	void RemoveVoiceNote(int index)
