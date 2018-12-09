@@ -11,6 +11,7 @@ Shader "Custom/FlowingCloak"
         _Metallic ("Metallic", Range(0,1)) = 0.0
 				_EmissionMap ("Emission Map", 2D) = "black" {}
 				[HDR] _EmissionColor ("Emission Color", Color) = (0,0,0)
+				_Offset ("Offset", Float) = 1
     }
     SubShader
     {
@@ -38,6 +39,7 @@ Shader "Custom/FlowingCloak"
         half _Metallic;
         fixed4 _Color;
         fixed4 _EmissionColor;
+				float _Offset;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -49,7 +51,7 @@ Shader "Custom/FlowingCloak"
 				void vert (inout appdata_full v)
 				{
 					fixed4 c = tex2Dlod (_OffsetMap, float4(v.texcoord.xy,0,0));
-					v.vertex += c * float4(0.05 * v.normal * sin(_Time.x * 300 + v.vertex.x + 70 * v.texcoord.x),0);
+					v.vertex += c * float4(_Offset * v.normal * sin(_Time.x * 300 + v.vertex.x + 70 * v.texcoord.x),0);
 				}
 
         void surf (Input IN, inout SurfaceOutputStandard o)
