@@ -1,15 +1,16 @@
 Demonstratum is the most pretentious-sounding title I could come up witih on short notice to encapsulate this video game adaptation of Mary Shelley's *Frankenstein*. Conveniently, the term is also wildly apropos, evoking the antiquity of the setting, containing one of the many epithets of Frankenstein's monster, and being the latin for "that which was proven" and "that which was shown." Indeed, demonstrating is the central premise of the game. Your goal, upon waking up within the body of the demon, looking through its primitive eyes at an alien world, is first to run and then to learn, and you do this by imitation. Just as the monster learns by watching Felix teach Safie from afar, you learn by listening to the "humans" speak and attempting to match them on the voice pad while avoiding being seen.
 
-Of course, just as Shelley livens up the monster's year long education with a brisk and sentimental montage, I have to spice up 
-Unfortunately, games don't lend themselves as easily to montage. Continuity between actions and participating in extended procedure is what the medium excels at. So, rather than   
+Of course, just as Shelley livens up the monster's year long education with a brisk and sentimental montage, I have to spice up the learning myself. Unfortunately, games don't lend themselves as easily to montage. Continuity between actions and participating in extended procedure is what the medium excels at. So, I ramped up the tension by adding enemies which you have to avoid. Part of me feels as though this is too obvious. While *Frankenstein* does feature 
+, many game adaptations of stories seem like they're just the same narrative with more enemies to wrangle with
 
-The procedure of learning itself—
-was modeled loosely after machine learning. The directional indicators you see after producing an incorrect chord  function something like gradient descent, the algorithm used by neural networks to slowly, but intelligently tune their parameters. Critically, this fairly rote, mechanical feature is intertwined with Felix and Safie: the closer you are to them, the more accurate the indicators will be. 
+but the other part of me told me that I had a few weeks to make this project and I should just suck it up.  
+
+The procedure of learning itself—pressing on the voice pad and recieving the error indicators—was modeled loosely after machine learning. The directional indicators you see after producing an incorrect chord  function something like gradient descent, the algorithm used by neural networks to slowly, but intelligently tune their parameters. To weave this into the narrative of human development, this fairly rote, mechanical feature is intertwined with Felix and Safie: the closer you are to them, the more accurate the indicators will be. 
+
+The aesthetics were probably more of a time sink than I'd hoped, but
 
 I chose the sound
 The player's wobbly theremin-like voice was a deliberate nod to 
-
-Aesthetics are often a siren song for me, luring me away from designing critical game functions, but in this instance, I can't say the distraction wasn't fruitful. 
 
 The largely abstract environment 
 To Shelley's monster, the world is as strange as Shelley writes it, but to a player attempting to inhabit

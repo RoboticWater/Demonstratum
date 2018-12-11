@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-	[HideInInspector]
 	public Vector2[] curGoal;
 	public Goal[] goals;
 

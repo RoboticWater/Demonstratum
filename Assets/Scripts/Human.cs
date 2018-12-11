@@ -48,16 +48,6 @@ public class Human : MonoBehaviour
 
 	private IEnumerator lookRoutine;
 
-	// void OnInspectorGUI()
-	// {
-	//     EditorGUILayout.LabelField("Wait Time");
-	//     EditorGUILayout.MinMaxSlider(ref minWaitTime, ref maxWaitTime, 0, 30);
-	//     EditorGUILayout.LabelField("Look Time");
-	//     EditorGUILayout.MinMaxSlider(ref minLookTime, ref maxLookTime, 0, 5);
-	//     EditorGUILayout.LabelField("Look Time");
-	//     EditorGUILayout.MinMaxSlider(ref minLookTime, ref maxLookTime, -360, 360);
-	// }
-
 	void Start()
 	{
 		agent = GetComponent<NavMeshAgent>();

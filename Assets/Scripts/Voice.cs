@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
@@ -12,6 +13,8 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	public float noteMaxVol = 0.5f;
 	public float chordMaxVol = 0.8f;
 	public float chordLength = 1f;
+	public Image success;
+	public float noteError = 40f;
 	float chordTime;
 
 
@@ -77,6 +80,7 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 			return;
 		voiceState = VoiceState.SpeakingNote;
 		voiceNotes[curNote] = MakeVoiceNote(eventData.position - (Vector2)rectTransform.position);
+		UpdateNote(curNote, eventData.position);
 	}
 
 	public void OnDrag(PointerEventData eventData)
@@ -176,11 +180,33 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 		return v.y * new Vector2(Mathf.Cos(v.x), Mathf.Sin(v.x));
 	}
 
+	public bool CheckSuccess()
+	{
+		bool val = true;
+		foreach (VoiceNote v in voiceNotes)
+		{
+			val &= v.error.magnitude < noteError;
+		}
+		return val;
+	}
+
 	IEnumerator SpeakChord()
 	{
 		yield return new WaitForSeconds(0.4f);
-		foreach (VoiceNote v in voiceNotes)
-			v.drawError(0.5f, chordLength);
+		for (int i = 0; i < voiceNotes.Length; i++)
+		{
+			if (CheckSuccess())
+			{
+				if (i == 0)
+					voiceNotes[i].drawError(0, chordLength, success);
+				else
+					voiceNotes[i].drawError(0, chordLength);
+			}
+			else
+			{
+				voiceNotes[i].drawError(0.5f, chordLength);
+			}
+		}
 		voiceState = VoiceState.SpeakingChord;
 	}
 }
