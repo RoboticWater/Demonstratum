@@ -361,9 +361,9 @@ MonoBehaviour:
   - {fileID: 7181847173044968438}
   - {fileID: 6254908132965547518}
   - {fileID: 7766415001159747232}
-  teachRate: 5
-  noteLength: 0.5
-  notePause: 0.1
+  teachRate: 8
+  noteLength: 0.8
+  notePause: 0.6
   chordLength: 1
   speakCurve:
     serializedVersion: 2
@@ -398,6 +398,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  teachTimer: 0
+  student: {fileID: 0}
+  maxAttempts: 10
+  attempt: 1
 --- !u!1 &5148384676825716544
 GameObject:
   m_ObjectHideFlags: 0

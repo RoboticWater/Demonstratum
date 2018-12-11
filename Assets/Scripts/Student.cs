@@ -19,6 +19,8 @@ public class Student : MonoBehaviour
 		{
 			audioControllers[i].mainFrequency = goal[i].x + Random.Range(-40f, 40f) / Mathf.Pow(attempt, 2);
 			audioControllers[i].frequencyModulationOscillatorIntensity = goal[i].y + Random.Range(-3f, 3f) / Mathf.Pow(attempt, 2);
+			print(audioControllers[i].mainFrequency);
+			print(audioControllers[i].frequencyModulationOscillatorIntensity);
 		}
 
 	}
@@ -31,23 +33,22 @@ public class Student : MonoBehaviour
 		float perc = 0;
 		float lastTime = Time.realtimeSinceStartup;
 		Quaternion curLook = transform.rotation;
-		foreach (Vector2 note in GameManager.instance.levelManager.curGoal)
+		for (int i = 0; i < audioControllers.Length; i++)
 		{
 			time = 0;
+			lastTime = Time.realtimeSinceStartup;
 			do
 			{
 				time += Time.realtimeSinceStartup - lastTime;
 				lastTime = Time.realtimeSinceStartup;
 				perc = Mathf.Clamp01(time / noteLength);
-				foreach (ProceduralAudioController p in audioControllers)
-				{
-					p.masterVolume = Mathf.Lerp(0, 0.6f, speakCurve.Evaluate(perc));
-				}
+				audioControllers[i].masterVolume = Mathf.Lerp(0, 0.6f, speakCurve.Evaluate(perc));
 				yield return null;
 			} while (perc < 1);
 			yield return new WaitForSeconds(notePause);
 		}
 		time = 0;
+		lastTime = Time.realtimeSinceStartup;
 		do
 		{
 			time += Time.realtimeSinceStartup - lastTime;
