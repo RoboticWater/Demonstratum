@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
 		glitch._intensity = 1 - (health / 100f);
 	}
 
-	public void damage(float damage) {
+	public void damage(float damage)
+	{
 		health -= damage;
 	}
- }
+}

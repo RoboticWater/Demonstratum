@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 	public Hashtable sharedData;
 	public LevelManager levelManager;
 
+	public Color[] NOTE_COLORS = { Color.red, Color.blue, Color.green, Color.yellow };
+	public AnimationCurve NOTE_CURVE;
+
 	private void Awake()
 	{
 		if (instance == null)

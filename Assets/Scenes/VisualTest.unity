@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5195555, g: 0.51789397, b: 0.49888974, a: 1}
+  m_IndirectSpecularColor: {r: 0.51955545, g: 0.51789695, b: 0.49889684, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d35c5e9bda4b34a3abf3e5c0f8a0bbcd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.315
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d35c5e9bda4b34a3abf3e5c0f8a0bbcd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -845,9 +845,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curGoal:
-  - {x: 600, y: 5}
-  - {x: 440, y: 5}
-  - {x: 800, y: 5}
+  - {x: 440, y: 2}
+  - {x: 587.33, y: 8}
+  - {x: 698.46, y: 1}
 --- !u!1 &655052598
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,6 +1263,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 191660436}
   levelManager: {fileID: 626196613}
+  NOTE_COLORS:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  NOTE_CURVE:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.0071855783
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.0071682567
+      outSlope: -0.0071682567
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.60034895
+      outWeight: 0.59968984
+    - serializedVersion: 3
+      time: 1
+      value: -0.0071855783
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &965441858
 Transform:
   m_ObjectHideFlags: 0
@@ -2227,7 +2265,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: b4f62ff237c217a4db178f0a2617eb06, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2997,6 +3035,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3473247741745042696, guid: 7285ff3caaae7634ca48666ecf61c7de,
+        type: 3}
+      propertyPath: attackDist
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3473247741172954353, guid: 7285ff3caaae7634ca48666ecf61c7de,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3006,11 +3049,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3473247741745042696, guid: 7285ff3caaae7634ca48666ecf61c7de,
-        type: 3}
-      propertyPath: attackDist
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7285ff3caaae7634ca48666ecf61c7de, type: 3}

@@ -11,7 +11,8 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	public float voiceSpeed = 0.3f;
 	public float noteMaxVol = 0.5f;
 	public float chordMaxVol = 0.8f;
-	public float chordTime = 1f;
+	public float chordLength = 1f;
+	float chordTime;
 
 
 	RectTransform rectTransform;
@@ -27,6 +28,7 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 		rectTransform = GetComponent<RectTransform>();
 		voiceNotes = new VoiceNote[audioControllers.Length];
 		voiceVels = new float[audioControllers.Length];
+		chordTime = chordLength;
 	}
 
 	private void Update()
@@ -48,7 +50,9 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 				chordTime -= Time.deltaTime;
 				if (chordTime <= 0)
 				{
+					chordTime = chordLength;
 					voiceState = VoiceState.Silent;
+					canSpeak = true;
 					for (int i = audioControllers.Length - 1; i >= 0; i--)
 						RemoveVoiceNote(i);
 				}
@@ -61,7 +65,7 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 				break;
 		}
 
-		if (Input.GetButtonDown("Undo"))
+		if (Input.GetButtonDown("Undo") && canSpeak)
 		{
 			RemoveVoiceNote(--curNote);
 		}
@@ -86,8 +90,7 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 			RemoveVoiceNote(curNote);
 			return;
 		}
-		voiceNotes[curNote].transform.position = eventData.position;
-		voiceNotes[curNote].input = GetVoiceVect(eventData.position - (Vector2)rectTransform.position, rectTransform.sizeDelta);
+		UpdateNote(curNote, eventData.position);
 	}
 
 	public void OnPointerUp(PointerEventData eventData)
@@ -103,6 +106,13 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 				StartCoroutine(SpeakChord());
 			}
 		}
+	}
+
+	void UpdateNote(int note, Vector2 pos)
+	{
+		voiceNotes[note].transform.position = pos;
+		voiceNotes[note].input = GetVoiceVect(pos - (Vector2)rectTransform.position, rectTransform.sizeDelta);
+		voiceNotes[note].UpdateLine(GetActualDir(voiceNotes[note].input, GameManager.instance.levelManager.curGoal[note]));
 	}
 
 	void SetNote(ProceduralAudioController pac, float freq, float osc)
@@ -126,7 +136,8 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	{
 		GameObject noteObject = Instantiate(voiceNotePrefab, transform);
 		VoiceNote vn = noteObject.GetComponent<VoiceNote>();
-		vn.Instantiate(GetVoiceVect(pos, rectTransform.sizeDelta), GameManager.instance.levelManager.curGoal[curNote], curNote);
+		Vector2 input = GetVoiceVect(pos, rectTransform.sizeDelta);
+		vn.Instantiate(input, curNote);
 		vn.transform.localPosition = pos;
 		return vn;
 	}
@@ -134,7 +145,14 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	Vector2 GetVoiceVect(Vector2 pos, Vector2 sizeDelta)
 	{
 		Vector2 polar = FromCartesian(pos);
-		return new Vector2(Map(-Mathf.PI / 2, 3 * Mathf.PI / 2, 440, 783.99f, polar.x), Map(0, sizeDelta.x / 2, 10, 1, polar.y)); ;
+		return new Vector2(Map(-Mathf.PI / 2, 3 * Mathf.PI / 2, 400, 800, polar.x), Map(0, sizeDelta.x / 2, 10, 1, polar.y));
+	}
+
+	Vector2 GetActualDir(Vector2 input, Vector2 actual)
+	{
+		Vector2 mInput = new Vector2(Map(400, 800, -Mathf.PI / 2, 3 * Mathf.PI / 2, input.x), Map(10, 1, 0, rectTransform.sizeDelta.x / 2, input.y));
+		Vector2 mActual = new Vector2(Map(400, 800, -Mathf.PI / 2, 3 * Mathf.PI / 2, actual.x), Map(10, 1, 0, rectTransform.sizeDelta.x / 2, actual.y));
+		return ToCartesian(mActual) - ToCartesian(mInput);
 	}
 
 	float Map(float from, float to, float from2, float to2, float value)
@@ -153,9 +171,16 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 		return new Vector2(theta, radius);
 	}
 
+	public Vector3 ToCartesian(Vector2 v)
+	{
+		return v.y * new Vector2(Mathf.Cos(v.x), Mathf.Sin(v.x));
+	}
+
 	IEnumerator SpeakChord()
 	{
 		yield return new WaitForSeconds(0.4f);
+		foreach (VoiceNote v in voiceNotes)
+			v.drawError(0.5f, chordLength);
 		voiceState = VoiceState.SpeakingChord;
 	}
 }

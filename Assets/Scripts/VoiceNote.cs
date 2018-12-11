@@ -1,33 +1,38 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UI.Extensions;
 
 public class VoiceNote : MonoBehaviour
 {
-	public static Color[] NOTE_COLORS = { Color.red, Color.blue, Color.green, Color.yellow };
-	public static AnimationCurve NOTE_CURVE;
 	Image img;
-	LineRenderer line;
-	public Vector2 input, actual;
+	UILineRenderer line;
+	RectTransform rt;
+	public Vector2 input;
 
-	public void Instantiate(Vector2 input, Vector2 actual, int index)
+	public void Instantiate(Vector2 input, int index)
 	{
 		img = GetComponent<Image>();
-		line = GetComponent<LineRenderer>();
+		line = GetComponentInChildren<UILineRenderer>();
+		// rt = 
 		this.input = input;
-		this.actual = actual;
-		Color temp = NOTE_COLORS[index];
+		Color temp = GameManager.instance.NOTE_COLORS[index];
 		temp.a = 0;
-		line.startColor = temp;
-		line.endColor = temp;
+		line.color = temp;
 	}
 
-	void drawError(float degree)
+	public void UpdateLine(Vector2 error)
 	{
-		// TODO set line point positions
-		line.SetPosition(0, transform.position);
-		line.SetPosition(1, transform.position + (Vector3)(degree * (actual - input)));
-		StartCoroutine(drawErrorLine(degree));
+		line.Points[0] = new Vector2(0, 0);
+		line.Points[1] = error;
+		line.SetAllDirty();
+	}
+
+	public void drawError(float degree, float life)
+	{
+		line.Points[1] *= degree;
+		line.SetAllDirty();
+		StartCoroutine(drawErrorLine(life));
 	}
 
 	IEnumerator drawErrorLine(float life)
@@ -42,10 +47,9 @@ public class VoiceNote : MonoBehaviour
 			lastTime = Time.realtimeSinceStartup;
 			perc = Mathf.Clamp01(time / life);
 			// TODO set line visibility
-			Color temp = line.startColor;
-			temp.a = Mathf.Lerp(0, 1, NOTE_CURVE.Evaluate(perc));
-			line.startColor = temp;
-			line.endColor = temp;
+			Color temp = line.color;
+			temp.a = Mathf.Lerp(0, 1, GameManager.instance.NOTE_CURVE.Evaluate(perc));
+			line.color = temp;
 			yield return null;
 		} while (perc < 1);
 	}
