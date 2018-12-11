@@ -1283,12 +1283,12 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.5
       value: 1
-      inSlope: -0.0071682567
-      outSlope: -0.0071682567
+      inSlope: 0.0022201522
+      outSlope: 0.0022201522
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.60034895
-      outWeight: 0.59968984
+      inWeight: 0.99954414
+      outWeight: 0.7842574
     - serializedVersion: 3
       time: 1
       value: -0.0071855783
@@ -2304,7 +2304,7 @@ MonoBehaviour:
   voiceSpeed: 0.1
   noteMaxVol: 0.5
   chordMaxVol: 0.8
-  chordTime: 1.2
+  chordLength: 1
 --- !u!1 &1607779495
 GameObject:
   m_ObjectHideFlags: 0
