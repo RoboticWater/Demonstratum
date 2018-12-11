@@ -848,6 +848,19 @@ MonoBehaviour:
   - {x: 440, y: 2}
   - {x: 587.33, y: 8}
   - {x: 698.46, y: 1}
+  goals:
+  - notes:
+    - {x: 440, y: 3}
+    - {x: 570, y: 5}
+    - {x: 660, y: 3}
+  - notes:
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+  - notes:
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
+    - {x: 0, y: 0}
 --- !u!1 &655052598
 GameObject:
   m_ObjectHideFlags: 0
