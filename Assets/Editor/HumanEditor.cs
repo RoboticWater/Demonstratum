@@ -23,6 +23,8 @@ public class HumanEditor : Editor
 	SerializedProperty damage;
 	SerializedProperty projectilePrefab;
 	SerializedProperty chaseViewDistance;
+	SerializedProperty idleCol;
+	SerializedProperty chaseCol;
 
 	void OnEnable()
 	{
@@ -46,6 +48,8 @@ public class HumanEditor : Editor
 		damage = serializedObject.FindProperty("damage");
 		projectilePrefab = serializedObject.FindProperty("projectilePrefab");
 		chaseViewDistance = serializedObject.FindProperty("chaseViewDistance");
+		idleCol = serializedObject.FindProperty("idleCol");
+		chaseCol = serializedObject.FindProperty("chaseCol");
 		SceneView.onSceneGUIDelegate += OnSceneViewGUI;
 	}
 
@@ -74,6 +78,8 @@ public class HumanEditor : Editor
 		EditorGUILayout.PropertyField(damage);
 		EditorGUILayout.PropertyField(projectilePrefab);
 		EditorGUILayout.PropertyField(chaseViewDistance);
+		EditorGUILayout.PropertyField(idleCol);
+		EditorGUILayout.PropertyField(chaseCol);
 		serializedObject.ApplyModifiedProperties();
 	}
 

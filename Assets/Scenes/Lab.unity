@@ -5517,7 +5517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 1563324711}
   fadeTime: 0.5
-  nextLevel: VisualTest
+  nextLevel: Forest
 --- !u!65 &522358937
 BoxCollider:
   m_ObjectHideFlags: 0

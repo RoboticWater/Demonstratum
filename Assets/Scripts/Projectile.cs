@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Vector3 dir;
-    public float speed;
-    public float life;
-    public float damage;
+	public Vector3 dir;
+	public float speed;
+	public float life;
+	public float damage;
 
-    void Update()
-    {
-        life -= Time.deltaTime;
-        transform.position += dir * speed;
-        if (life <= 0) {
-            Destroy(this);
-        }
-    }
+	void Update()
+	{
+		life -= Time.deltaTime;
+		transform.position += dir * speed * Time.deltaTime;
+		if (life <= 0)
+		{
+			Destroy(this.gameObject);
+		}
+	}
 
-    private void OnCollisionEnter(Collision other) {
-        Player p = other.gameObject.GetComponent<Player>();
-        if (p != null) {
-            p.damage(damage);
-        }
-        if (life <= 0) {
-            Destroy(this);
-        }
-    }
+	private void OnTriggerEnter(Collider other)
+	{
+		Player p = other.gameObject.GetComponent<Player>();
+		if (p != null)
+		{
+			p.damage(damage);
+		}
+		Destroy(this.gameObject);
+	}
 }

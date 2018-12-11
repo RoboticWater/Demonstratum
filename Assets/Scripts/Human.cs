@@ -28,18 +28,23 @@ public class Human : MonoBehaviour
 	public float damage;
 	public GameObject projectilePrefab;
 	public float chaseViewDistance;
+	public Color idleCol;
+	public Color chaseCol;
+	public bool passive;
+	public Human[] alertOthers;
 
 	private NavMeshAgent agent;
 	public HumanState state;
 	private Vector3 searchPosition;
-	private float waitTimer;
+	private float waitTimer = 0.1f;
 	private float lookTimer;
 	private float sightTimer;
 	private bool moving;
 	private float lookTarget;
 	private Light sight;
 	private float fireTimer;
-	private Vector3 lastPlayerPos;
+	[HideInInspector] public Vector3 lastPlayerPos;
+	private Transform head;
 
 	private IEnumerator lookRoutine;
 
@@ -60,6 +65,8 @@ public class Human : MonoBehaviour
 		searchPosition = transform.position;
 		lookRoutine = look();
 		sightTimer = sightLengthError;
+		agent.SetDestination(transform.position);
+		head = transform.Find("Head");
 	}
 
 	void Update()
@@ -90,15 +97,11 @@ public class Human : MonoBehaviour
 				state = HumanState.Chase;
 				sightTimer = 0;
 			}
-			// Debug.DrawLine(sight.transform.position,
-			//     GameManager.instance.player.transform.position, Color.green);
 		}
 		else
 		{
 			sightTimer = 0;
-			Debug.DrawLine(sight.transform.position,
-					GameManager.instance.player.transform.position, Color.red);
-			sight.color = new Color(1, 0.8628919f, 0, 1);
+			sight.color = idleCol;
 		}
 
 		if (moving && Vector3.Distance(transform.position, agent.destination) < moveError)
@@ -107,7 +110,8 @@ public class Human : MonoBehaviour
 		}
 		else
 		{
-			waitTimer -= Time.deltaTime;
+			if (searchRadius > 0)
+				waitTimer -= Time.deltaTime;
 			lookTimer -= Time.deltaTime;
 			if (waitTimer <= 0)
 			{
@@ -129,6 +133,7 @@ public class Human : MonoBehaviour
 
 	void chase()
 	{
+		// head.LookAt(GameManager.instance.player.transform.position + Vector3.up * 0.5f);
 		Vector3 toPlayer = GameManager.instance.player.transform.position - sight.transform.position;
 		if (toPlayer.magnitude <= chaseViewDistance)
 		{
@@ -145,10 +150,17 @@ public class Human : MonoBehaviour
 				}
 			}
 		}
+		else
+		{
+			searchPosition = lastPlayerPos;
+			state = HumanState.Patrole;
+			return;
+		}
 		agent.SetDestination(lastPlayerPos);
-		sight.color = Color.red;
+		sight.color = chaseCol;
 		if (Vector3.Distance(GameManager.instance.player.transform.position, transform.position) < attackDist)
 		{
+			agent.isStopped = true;
 			state = HumanState.Attack;
 		}
 	}
@@ -172,7 +184,57 @@ public class Human : MonoBehaviour
 
 	void attack()
 	{
+		Vector3 direction = (GameManager.instance.player.transform.position - transform.position).normalized;
+		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 12);
 
+		Vector3 toPlayer = GameManager.instance.player.transform.position - head.transform.position;
+		if (toPlayer.magnitude > attackDist)
+		{
+			agent.SetDestination(GameManager.instance.player.transform.position);
+			agent.isStopped = false;
+			state = HumanState.Chase;
+			return;
+		}
+		else
+		{
+			RaycastHit hit;
+			if (Physics.Raycast(head.transform.position, toPlayer, out hit, attackDist))
+			{
+				if (hit.collider.gameObject.GetComponent<Player>() == null)
+				{
+					agent.SetDestination(GameManager.instance.player.transform.position);
+					agent.isStopped = false;
+					state = HumanState.Chase;
+					return;
+				}
+			}
+		}
+
+		fireTimer -= Time.deltaTime;
+		if (fireTimer <= 0)
+		{
+			fireTimer = fireRate;
+			GameObject projectile = Instantiate(projectilePrefab);
+			projectile.transform.position = head.transform.position + transform.forward * 0.5f;
+			Projectile p = projectile.GetComponent<Projectile>();
+			p.dir = GameManager.instance.player.transform.position - head.transform.position;
+			p.damage = damage;
+		}
+		// 
+		// if (toPlayer.magnitude <= chaseViewDistance)
+		// {
+		// 	RaycastHit hit;
+		// 	if (Physics.Raycast(head.transform.position, toPlayer, out hit, viewDistance))
+		// 	{
+		// 		if (hit.collider.gameObject.GetComponent<Player>() == null)
+		// 			state = HumanState.Chase;
+		// 	}
+		// }
+		// else
+		// {
+		// 	state = HumanState.Chase;
+		// }
 	}
 
 	IEnumerator look()

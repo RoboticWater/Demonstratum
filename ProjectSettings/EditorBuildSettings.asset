@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Lab.unity
     guid: b0258c25c4870004bafaf77f877ba714
   - enabled: 1
-    path: Assets/Scenes/VisualTest.unity
-    guid: 604a6cb6ebbf3a94a82e9b2273a2e681
+    path: Assets/Scenes/Forest.unity
+    guid: fe77bbc847525ee4a996d798fdbc1f6c
   m_configObjects: {}
