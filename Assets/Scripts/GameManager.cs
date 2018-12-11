@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 	public Player player;
 	public Hashtable sharedData;
 	public LevelManager levelManager;
+	public Teacher teacher;
+	public Student student;
 
 	public Color[] NOTE_COLORS = { Color.red, Color.blue, Color.green, Color.yellow };
 	public AnimationCurve NOTE_CURVE;

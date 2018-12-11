@@ -13,7 +13,7 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	public float noteMaxVol = 0.5f;
 	public float chordMaxVol = 0.8f;
 	public float chordLength = 1f;
-	public Image success;
+	public Image successRing;
 	public float noteError = 40f;
 	float chordTime;
 
@@ -193,12 +193,15 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	IEnumerator SpeakChord()
 	{
 		yield return new WaitForSeconds(0.4f);
+		bool success = CheckSuccess();
+		if (success)
+			GameManager.instance.levelManager.IncrementGoal();
 		for (int i = 0; i < voiceNotes.Length; i++)
 		{
-			if (CheckSuccess())
+			if (success)
 			{
 				if (i == 0)
-					voiceNotes[i].drawError(0, chordLength, success);
+					voiceNotes[i].drawError(0, chordLength, successRing);
 				else
 					voiceNotes[i].drawError(0, chordLength);
 			}
@@ -210,7 +213,6 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 		voiceState = VoiceState.SpeakingChord;
 	}
 }
-
 
 public enum VoiceState
 {

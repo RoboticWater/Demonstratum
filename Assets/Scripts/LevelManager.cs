@@ -6,15 +6,29 @@ public class LevelManager : MonoBehaviour
 {
 	public Vector2[] curGoal;
 	public Goal[] goals;
+	int curGoalIndex = 0;
+	public bool canIncrement = true;
 
 	private void Start()
 	{
 		curGoal = goals[0].notes;
 	}
 
-	public void SetCurGoal(int i)
+	public void IncrementGoal()
 	{
-		curGoal = goals[i].notes;
+		if (canIncrement)
+		{
+			curGoal = goals[++curGoalIndex].notes;
+			GameManager.instance.teacher.attempt = 1;
+		}
+		else
+			StartCoroutine(IncrementAsync());
+	}
+
+	IEnumerator IncrementAsync()
+	{
+		yield return new WaitUntil(() => canIncrement);
+		curGoal = goals[++curGoalIndex].notes;
 	}
 }
 
