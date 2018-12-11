@@ -9,9 +9,9 @@ Shader "Custom/FlowingCloak"
         _OffsetMap ("OffsetMap", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
-				_EmissionMap ("Emission Map", 2D) = "black" {}
-				[HDR] _EmissionColor ("Emission Color", Color) = (0,0,0)
-				_Offset ("Offset", Float) = 1
+        _EmissionMap ("Emission Map", 2D) = "black" {}
+        [HDR] _EmissionColor ("Emission Color", Color) = (0,0,0)
+        _Offset ("Offset", Float) = 1
     }
     SubShader
     {

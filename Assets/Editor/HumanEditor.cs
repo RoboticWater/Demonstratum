@@ -17,6 +17,10 @@ public class HumanEditor : Editor {
     SerializedProperty lookSpeed;
     SerializedProperty lookCurve;
     SerializedProperty state;
+    SerializedProperty attackDist;
+    SerializedProperty fireRate;
+    SerializedProperty damage;
+    SerializedProperty projectilePrefab;
 
     void OnEnable()
     {
@@ -34,6 +38,11 @@ public class HumanEditor : Editor {
         lookSpeed = serializedObject.FindProperty("lookSpeed");
         lookCurve = serializedObject.FindProperty("lookCurve");
         state = serializedObject.FindProperty("state");
+
+        attackDist = serializedObject.FindProperty("attackDist");
+        fireRate = serializedObject.FindProperty("fireRate");
+        damage = serializedObject.FindProperty("damage");
+        projectilePrefab = serializedObject.FindProperty("projectilePrefab");
         SceneView.onSceneGUIDelegate += OnSceneViewGUI;
     }
 
@@ -56,6 +65,10 @@ public class HumanEditor : Editor {
         EditorGUILayout.LabelField("Detection", EditorStyles.boldLabel);
         EditorGUILayout.PropertyField(viewAngle);
         EditorGUILayout.PropertyField(viewDistance);
+        EditorGUILayout.PropertyField(attackDist);
+        EditorGUILayout.PropertyField(fireRate);
+        EditorGUILayout.PropertyField(damage);
+        EditorGUILayout.PropertyField(projectilePrefab);
         serializedObject.ApplyModifiedProperties();
     }
 

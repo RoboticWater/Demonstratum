@@ -22,6 +22,11 @@ public class Human : MonoBehaviour
     [Range(0.0f, 180.0f)]
     public float viewAngle;
     public float sightLengthError;
+    [Range(0.0f, 50.0f)]
+    public float attackDist;
+    public float fireRate;
+    public float damage;
+    public GameObject projectilePrefab;
 
     private NavMeshAgent agent;
     public HumanState state;
@@ -32,6 +37,7 @@ public class Human : MonoBehaviour
     private bool moving;
     private float lookTarget;
     private Light sight;
+    private float fireTimer;
 
     private IEnumerator lookRoutine;
 
@@ -64,6 +70,9 @@ public class Human : MonoBehaviour
                 break;
             case HumanState.Chase:
                 chase();
+                break;
+            case HumanState.Attack:
+                attack();
                 break;
         }
     }
@@ -109,6 +118,9 @@ public class Human : MonoBehaviour
         agent.SetDestination(GameManager.instance.player.transform.position);
         // state = HumanState.Patrole;
         sight.color = Color.red;
+        if (Vector3.Distance(GameManager.instance.player.transform.position, transform.position) < attackDist) {
+            state = HumanState.Attack;
+        }
     }
 
     private bool playerInSight() {
@@ -123,6 +135,10 @@ public class Human : MonoBehaviour
             }
         }
         return inSight;
+    }
+
+    void attack() {
+
     }
 
     IEnumerator look() {
@@ -156,5 +172,5 @@ public class Human : MonoBehaviour
 
 public enum HumanState
 {
-    Idle, Patrole, Chase
+    Idle, Patrole, Chase, Attack
 }
