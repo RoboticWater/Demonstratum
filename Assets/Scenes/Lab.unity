@@ -5835,7 +5835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55efbff03b347045a5db13189666180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strikeProb: 0.001
+  strikeProb: 0.0015
   intensity: 6
   decay: 0.07
   lightPlane: {fileID: 1139591983}
@@ -7057,10 +7057,6 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 14300000, guid: d35c5e9bda4b34a3abf3e5c0f8a0bbcd, type: 3}
-      propertyPath: m_Radius
-      value: 0.38
-      objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d35c5e9bda4b34a3abf3e5c0f8a0bbcd, type: 3}
       propertyPath: canLook
       value: 1
@@ -7084,6 +7080,10 @@ PrefabInstance:
     - target: {fileID: 11400000, guid: d35c5e9bda4b34a3abf3e5c0f8a0bbcd, type: 3}
       propertyPath: m_UseHeadBob
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14300000, guid: d35c5e9bda4b34a3abf3e5c0f8a0bbcd, type: 3}
+      propertyPath: m_Radius
+      value: 0.38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d35c5e9bda4b34a3abf3e5c0f8a0bbcd, type: 3}

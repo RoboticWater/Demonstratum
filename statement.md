@@ -7,7 +7,7 @@ The procedure of learning itself—
 was modeled loosely after machine learning. The directional indicators you see after producing an incorrect chord  function something like gradient descent, the algorithm used by neural networks to slowly, but intelligently tune their parameters. Critically, this fairly rote, mechanical feature is intertwined with Felix and Safie: the closer you are to them, the more accurate the indicators will be. 
 
 I chose the sound
-Your wobbly theremin-like voice was 
+The player's wobbly theremin-like voice was a deliberate nod to 
 
 Aesthetics are often a siren song for me, luring me away from designing critical game functions, but in this instance, I can't say the distraction wasn't fruitful. 
 
