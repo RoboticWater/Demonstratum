@@ -269,4 +269,5 @@ MonoBehaviour:
   damage: 15
   projectilePrefab: {fileID: 4609093902080139651, guid: 7f7f6b6ee121342ff985a1643568a1d0,
     type: 3}
+  chaseViewDistance: 10
   state: 0

@@ -3053,6 +3053,11 @@ PrefabInstance:
       propertyPath: attackDist
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3473247741745042696, guid: 7285ff3caaae7634ca48666ecf61c7de,
+        type: 3}
+      propertyPath: chaseViewDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3473247741172954353, guid: 7285ff3caaae7634ca48666ecf61c7de,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
