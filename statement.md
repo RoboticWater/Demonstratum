@@ -1,18 +1,31 @@
-Demonstratum is the most pretentious-sounding title I could come up witih on short notice to encapsulate this video game adaptation of Mary Shelley's *Frankenstein*. Conveniently, the term is also wildly apropos, evoking the antiquity of the setting, containing one of the many epithets of Frankenstein's monster, and being the latin for "that which was proven" and "that which was shown." Indeed, demonstrating is the central premise of the game. Your goal, upon waking up within the body of the demon, looking through its primitive eyes at an alien world, is first to learn, and you do so by imitation. Just as the monster learns by watching Felix teach Safie from afar, you learn by listening to the "humans" speak and attempting to match them on the voice pad while avoiding being seen.
+# Playing the Game
 
-Of course, just as Shelley livens up the monster's year long education with a brisk and sentimental montage, I have to spice up the learning myself. Unfortunately, games don't lend themselves as easily to montage. Continuity between actions and participating in extended procedure is what the medium excels at. So, I ramped up the tension by adding enemies which you have to avoid. The procedure of learning itself—pressing on the voice pad and recieving the error indicators—was modeled loosely after machine learning. The directional indicators you see after producing an incorrect chord  function something like gradient descent, the algorithm used by neural networks to slowly, but intelligently tune their parameters. To weave this into the narrative of human development, this fairly rote, mechanical feature is intertwined with Felix and Safie: the closer you are to them, the more accurate the indicators will be. 
+## Launching
 
-The aesthetics were probably more of a time sink than I'd like, but the time was well-spent. I initially decided upon the pixelated effect primarily to show that the player character was a machine, but as I tweaked it more, the simplistic visuals worked perfectly for the themes of the game. To Shelley's monster, the world is as strange as Shelley writes it, but to a player attempting to inhabit the monster, a faithful rendition of reality would be perfectly natural, so the pixels put the players at some distance. The constant flickering gives the screen an anxious energy, and the abstract objects 
+Launch like any other app. **However, be sure to set the resolution to 1024x768 (or something close to it) in the launcher.** It may look stretched, but that's what the visual effect was coded to work with. Sorry for the inconvenience.
 
+## Controls
 
+w, a, s, d -> Move
 
-The largely abstract environment 
+mouse -> Look
 
-For a largely alienating aesthetic, the sound is rather grounded. The environment, from the ambient rain to the chirping birds is natural, even conforting contrasted with the harsh visuals. 
-The first thing that the monster noticed 
-And the sounds the player learns, though synthesized, are 
-It's only when 
+tab -> Enter speech mode
 
-As this is a prototype with a lot of moving parts, the game loop is far from complete, and the gameplay is far from tuned. I hope the intent of the intent of the mechanics remains apparent, even if their function is somewhat off.
+(In speech mode)
 
-There were also numerous features I couldn't even get to, but they're worth mentioning. Were I to elaboorate further, I would want to evolve the language learning  mechanic. Primarily, I would focus on providing actual uses for the chords that you learn. Once a "day" of learning has been completed, I'd want the player to have the chance to explore nature like the monster did in *Frankenstein*, and using their newfound speaking skills, they could commune with nature—stuff like make plants grow with their voice or unlocking different parts of the woods. Beyond that, I would build out the speech system. Upon learning a chord, it would be saved in an interface on the opposite side of the screen. The player could then build music (the metaphorical equivalent of sentences), and use the songs to further harmonize with nature, or possibly speak with the humans in the end and give the monster the happy ending he always deserved.
+click -> make sound
+
+release -> lock in note
+
+r -> undo note
+
+## Instructions
+
+Try to emulate all 4 chords spoken by the Teacher (blue light). To  do this, you will need to enter speech mode (press tab) and make **3 guesses** (click on the disk 3 in 3 places). Once 3 guesses are made, you will play the chord of all 3 put together. 
+
+Avoid being seen by *all* humans; they will try to kill you. If you are seen, run; you can lose them. Any health you lose will regenerate after a short time.
+
+## Questions
+
+If you're having trouble with anything, please feel free to contact me at jbritti3@gatech.edu.

@@ -77,7 +77,8 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 
 		if (Input.GetButtonDown("Undo") && canSpeak)
 		{
-			RemoveVoiceNote(--curNote);
+			curNote = (int)Mathf.Clamp(curNote - 1, 0, voiceNotes.Length + 5);
+			RemoveVoiceNote(curNote);
 		}
 	}
 

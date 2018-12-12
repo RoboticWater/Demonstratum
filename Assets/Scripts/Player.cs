@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using Kino;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class Player : MonoBehaviour
 	public float regen = 7;
 	public float regenDelay = 3;
 	public float regenTimer;
+
+
+	public Fade fade;
+	public float fadeTime;
+	public string nextLevel;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -46,6 +52,13 @@ public class Player : MonoBehaviour
 
 	void Death()
 	{
+		StartCoroutine(TransitionAnimation());
+	}
 
+	IEnumerator TransitionAnimation()
+	{
+		fade.FadeOut(fadeTime);
+		yield return new WaitForSeconds(fadeTime);
+		SceneManager.LoadScene("Forest");
 	}
 }
