@@ -25,6 +25,8 @@ public class HumanEditor : Editor
 	SerializedProperty chaseViewDistance;
 	SerializedProperty idleCol;
 	SerializedProperty chaseCol;
+	SerializedProperty passive;
+	SerializedProperty alertOthers;
 
 	void OnEnable()
 	{
@@ -50,6 +52,8 @@ public class HumanEditor : Editor
 		chaseViewDistance = serializedObject.FindProperty("chaseViewDistance");
 		idleCol = serializedObject.FindProperty("idleCol");
 		chaseCol = serializedObject.FindProperty("chaseCol");
+		passive = serializedObject.FindProperty("passive");
+		alertOthers = serializedObject.FindProperty("alertOthers");
 		SceneView.onSceneGUIDelegate += OnSceneViewGUI;
 	}
 
@@ -61,6 +65,8 @@ public class HumanEditor : Editor
 	public override void OnInspectorGUI()
 	{
 		serializedObject.Update();
+
+		EditorGUI.BeginChangeCheck();
 		EditorGUILayout.LabelField("Searching", EditorStyles.boldLabel);
 		EditorGUILayout.PropertyField(state);
 		EditorGUILayout.PropertyField(searchRadius);
@@ -80,7 +86,12 @@ public class HumanEditor : Editor
 		EditorGUILayout.PropertyField(chaseViewDistance);
 		EditorGUILayout.PropertyField(idleCol);
 		EditorGUILayout.PropertyField(chaseCol);
-		serializedObject.ApplyModifiedProperties();
+		EditorGUILayout.PropertyField(passive);
+		if (passive.boolValue)
+			EditorGUILayout.PropertyField(alertOthers, true);
+
+		if (EditorGUI.EndChangeCheck())
+			serializedObject.ApplyModifiedProperties();
 	}
 
 	private void OnSceneViewGUI(SceneView sv)

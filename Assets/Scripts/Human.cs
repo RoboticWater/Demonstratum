@@ -35,7 +35,7 @@ public class Human : MonoBehaviour
 
 	private NavMeshAgent agent;
 	public HumanState state;
-	private Vector3 searchPosition;
+	public Vector3 searchPosition;
 	private float waitTimer = 0.1f;
 	private float lookTimer;
 	private float sightTimer;
@@ -45,8 +45,10 @@ public class Human : MonoBehaviour
 	private float fireTimer;
 	[HideInInspector] public Vector3 lastPlayerPos;
 	private Transform head;
+	private bool moveToAttack = false;
 
 	private IEnumerator lookRoutine;
+	AudioSource glitchNoise;
 
 	void Start()
 	{
@@ -57,6 +59,7 @@ public class Human : MonoBehaviour
 		sightTimer = sightLengthError;
 		agent.SetDestination(transform.position);
 		head = transform.Find("Head");
+		glitchNoise = GetComponent<AudioSource>();
 	}
 
 	void Update()
@@ -83,6 +86,16 @@ public class Human : MonoBehaviour
 			searchPosition = Vector3.Lerp(transform.position, playerPos, 0.5f);
 	}
 
+	public void MoveToAttack()
+	{
+		state = HumanState.Chase;
+	}
+
+	public void goTo(Vector3 pos)
+	{
+		agent.SetDestination(pos);
+	}
+
 	void patrole()
 	{
 		if (playerInSight())
@@ -90,8 +103,17 @@ public class Human : MonoBehaviour
 			sightTimer += Time.deltaTime;
 			if (sightTimer > sightLengthError)
 			{
+				foreach (Human h in alertOthers)
+				{
+					h.MoveToAttack();
+				}
 				state = HumanState.Chase;
 				sightTimer = 0;
+				if (!glitchNoise.isPlaying)
+				{
+					glitchNoise.pitch = Random.Range(0.8f, 1.2f);
+					glitchNoise.Play();
+				}
 			}
 		}
 		else
@@ -129,7 +151,22 @@ public class Human : MonoBehaviour
 
 	void chase()
 	{
-		// head.LookAt(GameManager.instance.player.transform.position + Vector3.up * 0.5f);
+		if (passive)
+		{
+			state = HumanState.Patrole;
+			return;
+		}
+		if (moveToAttack)
+		{
+			agent.SetDestination(lastPlayerPos);
+			sight.color = chaseCol;
+			if (Vector3.Distance(GameManager.instance.player.transform.position, transform.position) < attackDist)
+			{
+				agent.isStopped = true;
+				state = HumanState.Attack;
+			}
+			return;
+		}
 		Vector3 toPlayer = GameManager.instance.player.transform.position - sight.transform.position;
 		if (toPlayer.magnitude <= chaseViewDistance)
 		{
@@ -180,6 +217,8 @@ public class Human : MonoBehaviour
 
 	void attack()
 	{
+		if (moveToAttack)
+			moveToAttack = false;
 		Vector3 direction = (GameManager.instance.player.transform.position - transform.position).normalized;
 		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 12);
@@ -217,20 +256,6 @@ public class Human : MonoBehaviour
 			p.dir = GameManager.instance.player.transform.position - head.transform.position;
 			p.damage = damage;
 		}
-		// 
-		// if (toPlayer.magnitude <= chaseViewDistance)
-		// {
-		// 	RaycastHit hit;
-		// 	if (Physics.Raycast(head.transform.position, toPlayer, out hit, viewDistance))
-		// 	{
-		// 		if (hit.collider.gameObject.GetComponent<Player>() == null)
-		// 			state = HumanState.Chase;
-		// 	}
-		// }
-		// else
-		// {
-		// 	state = HumanState.Chase;
-		// }
 	}
 
 	IEnumerator look()

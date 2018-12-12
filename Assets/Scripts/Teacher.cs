@@ -17,21 +17,35 @@ public class Teacher : MonoBehaviour
 	public int maxAttempts;
 	public int attempt = 1;
 	public Transform[] speechSpheres;
+	public Vector3 home;
+
+	Human human;
+	IEnumerator coroutine;
 
 
 	private void Start()
 	{
 		teachTimer = initialDelay;
+		human = GetComponent<Human>();
+		home = transform.position;
 	}
 
 	void Update()
 	{
+		if (human.state == HumanState.Attack || human.state == HumanState.Chase)
+		{
+			StopCoroutine(coroutine);
+			Silence();
+			GameManager.instance.levelManager.canIncrement = true;
+			speaking = false;
+		}
 		if (!speaking)
 		{
 			teachTimer -= Time.deltaTime;
 			if (teachTimer < 0)
 			{
-				StartCoroutine(TeachChord());
+				coroutine = TeachChord();
+				StartCoroutine(coroutine);
 			}
 		}
 	}
@@ -44,13 +58,22 @@ public class Teacher : MonoBehaviour
 			audioControllers[i].mainFrequency = goal[i].x;
 			audioControllers[i].frequencyModulationOscillatorIntensity = goal[i].y;
 		}
+	}
 
+	void Silence()
+	{
+		for (int i = 0; i < audioControllers.Length; i++)
+		{
+			audioControllers[i].masterVolume = 0;
+		}
 	}
 
 	IEnumerator TeachChord()
 	{
-		teachTimer = teachRate;
 		speaking = true;
+		human.goTo(home);
+		yield return new WaitUntil(() => Vector3.Distance(transform.position, home) < 2);
+		teachTimer = teachRate;
 		GameManager.instance.levelManager.canIncrement = false;
 		SetNotes();
 		float time = 0;
@@ -91,7 +114,7 @@ public class Teacher : MonoBehaviour
 			speechSpheres[3].localScale = new Vector3(val / 1.5F, val / 1.5F, val / 1.5F);
 			yield return null;
 		} while (perc < 1);
-		speechSpheres[3].gameObject.SetActive(true);
+		speechSpheres[3].gameObject.SetActive(false);
 		GameManager.instance.levelManager.canIncrement = true;
 		speaking = false;
 		yield return new WaitForSeconds(notePause);

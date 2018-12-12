@@ -66,7 +66,7 @@ public class Student : MonoBehaviour
 			speechSpheres[3].localScale = new Vector3(val / 1.5F, val / 1.5F, val / 1.5F);
 			yield return null;
 		} while (perc < 1);
-		speechSpheres[3].gameObject.SetActive(true);
+		speechSpheres[3].gameObject.SetActive(false);
 		GameManager.instance.levelManager.canIncrement = true;
 		speaking = false;
 	}

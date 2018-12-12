@@ -200,7 +200,7 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	void AlertNearestHuman()
 	{
 		Human nearest = GameManager.instance.humans[0];
-		float nearDist = Vector3.Distance(h.transform.position, transform.position);
+		float nearDist = Vector3.Distance(nearest.transform.position, transform.position);
 		foreach (Human h in GameManager.instance.humans)
 		{
 			float newDist = Vector3.Distance(h.transform.position, transform.position);
@@ -210,7 +210,7 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 				nearest = h;
 			}
 		}
-		h.Alert();
+		nearest.Alert(transform.position);
 	}
 
 	IEnumerator SpeakChord()
