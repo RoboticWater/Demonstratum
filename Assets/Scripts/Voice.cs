@@ -149,13 +149,13 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	Vector2 GetVoiceVect(Vector2 pos, Vector2 sizeDelta)
 	{
 		Vector2 polar = FromCartesian(pos);
-		return new Vector2(Map(-Mathf.PI / 2, 3 * Mathf.PI / 2, 400, 800, polar.x), Map(0, sizeDelta.x / 2, 10, 1, polar.y));
+		return new Vector2(Map(-Mathf.PI / 2, 3 * Mathf.PI / 2, 400, 900, polar.x), Map(0, sizeDelta.x / 2, 10, 1, polar.y));
 	}
 
 	Vector2 GetActualDir(Vector2 input, Vector2 actual)
 	{
-		Vector2 mInput = new Vector2(Map(400, 800, -Mathf.PI / 2, 3 * Mathf.PI / 2, input.x), Map(10, 1, 0, rectTransform.sizeDelta.x / 2, input.y));
-		Vector2 mActual = new Vector2(Map(400, 800, -Mathf.PI / 2, 3 * Mathf.PI / 2, actual.x), Map(10, 1, 0, rectTransform.sizeDelta.x / 2, actual.y));
+		Vector2 mInput = new Vector2(Map(400, 900, -Mathf.PI / 2, 3 * Mathf.PI / 2, input.x), Map(10, 1, 0, rectTransform.sizeDelta.x / 2, input.y));
+		Vector2 mActual = new Vector2(Map(400, 900, -Mathf.PI / 2, 3 * Mathf.PI / 2, actual.x), Map(10, 1, 0, rectTransform.sizeDelta.x / 2, actual.y));
 		return ToCartesian(mActual) - ToCartesian(mInput);
 	}
 

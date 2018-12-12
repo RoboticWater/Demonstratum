@@ -5851,21 +5851,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curGoal:
   - {x: 440, y: 2}
-  - {x: 587.33, y: 8}
-  - {x: 698.46, y: 1}
+  - {x: 659.25, y: 8}
+  - {x: 554.37, y: 1}
   goals:
   - notes:
-    - {x: 440, y: 3}
-    - {x: 570, y: 5}
-    - {x: 660, y: 3}
+    - {x: 830.61, y: 3}
+    - {x: 554.37, y: 5}
+    - {x: 698.46, y: 3}
   - notes:
-    - {x: 0, y: 0}
-    - {x: 0, y: 0}
-    - {x: 0, y: 0}
+    - {x: 622.25, y: 8}
+    - {x: 493.88, y: 4}
+    - {x: 739.99, y: 6}
   - notes:
-    - {x: 0, y: 0}
-    - {x: 0, y: 0}
-    - {x: 0, y: 0}
+    - {x: 440, y: 2}
+    - {x: 659.25, y: 8}
+    - {x: 554.37, y: 1}
   canIncrement: 1
 --- !u!1001 &635428401
 PrefabInstance:
@@ -19438,10 +19438,52 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1596846063035079081, guid: 2607922f75486d64ebbfb865d9a964f6,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596846063035079081, guid: 2607922f75486d64ebbfb865d9a964f6,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296355099941173350, guid: 2607922f75486d64ebbfb865d9a964f6,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296355099941173350, guid: 2607922f75486d64ebbfb865d9a964f6,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 94795681376237462, guid: 2607922f75486d64ebbfb865d9a964f6,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94795681376237462, guid: 2607922f75486d64ebbfb865d9a964f6,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 640042383, guid: 2607922f75486d64ebbfb865d9a964f6, type: 3}
       propertyPath: student
       value: 
       objectReference: {fileID: 1496230776}
+    - target: {fileID: 640042383, guid: 2607922f75486d64ebbfb865d9a964f6, type: 3}
+      propertyPath: initialDelay
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 640042383, guid: 2607922f75486d64ebbfb865d9a964f6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 640042383, guid: 2607922f75486d64ebbfb865d9a964f6, type: 3}
+      propertyPath: maxAttempts
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2607922f75486d64ebbfb865d9a964f6, type: 3}
 --- !u!1001 &2074286043
@@ -20375,6 +20417,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069616907618334832, guid: e243de721e555a14c9b315ff1c595dbb,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069616907618334832, guid: e243de721e555a14c9b315ff1c595dbb,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077971085485863177, guid: e243de721e555a14c9b315ff1c595dbb,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3077971085485863177, guid: e243de721e555a14c9b315ff1c595dbb,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893598168333235569, guid: e243de721e555a14c9b315ff1c595dbb,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893598168333235569, guid: e243de721e555a14c9b315ff1c595dbb,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e243de721e555a14c9b315ff1c595dbb, type: 3}
