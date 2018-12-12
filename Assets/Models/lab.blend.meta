@@ -12,6 +12,7 @@ ModelImporter:
     100012: Cube_006
     100014: Cube_007
     100016: //RootNode
+    100018: Cylinder
     400000: Cube
     400002: Cube_001
     400004: Cube_002
@@ -21,6 +22,7 @@ ModelImporter:
     400012: Cube_006
     400014: Cube_007
     400016: //RootNode
+    400018: Cylinder
     2100000: Material
     2300000: Cube
     2300002: Cube_001
@@ -30,6 +32,7 @@ ModelImporter:
     2300010: Cube_005
     2300012: Cube_006
     2300014: Cube_007
+    2300016: Cylinder
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
@@ -38,6 +41,7 @@ ModelImporter:
     3300010: Cube_005
     3300012: Cube_006
     3300014: Cube_007
+    3300016: Cylinder
     4300000: Cube_006
     4300002: Cube_007
     4300004: Cube_005
@@ -46,6 +50,7 @@ ModelImporter:
     4300010: Cube_002
     4300012: Cube_001
     4300014: Cube
+    4300016: Cylinder
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -82,6 +87,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -106,6 +112,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
@@ -120,7 +129,6 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1

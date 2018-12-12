@@ -77,6 +77,12 @@ public class Human : MonoBehaviour
 		}
 	}
 
+	public void Alert(Vector3 playerPos)
+	{
+		if (state == HumanState.Patrole)
+			searchPosition = Vector3.Lerp(transform.position, playerPos, 0.5f);
+	}
+
 	void patrole()
 	{
 		if (playerInSight())

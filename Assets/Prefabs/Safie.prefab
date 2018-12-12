@@ -1,62 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1496230776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713881421890230445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3597dfd4f5fd27f409803652a0d62aa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioControllers:
-  - {fileID: 4933385149053206761}
-  - {fileID: 7164364198253580076}
-  - {fileID: 4043662786128139449}
-  noteLength: 0.8
-  notePause: 0.4
-  chordLength: 1
-  speakCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.4922623
-      value: 1
-      inSlope: -0.009028623
-      outSlope: -0.009028623
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.9251497
-      outWeight: 0.5224962
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  speechSpheres:
-  - {fileID: 8223267602998123492}
-  - {fileID: 3284234861563432951}
-  - {fileID: 1418387459233855147}
-  - {fileID: 6309561140874119195}
 --- !u!1 &2588423359423613593
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +77,63 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1496230776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2713881421890230445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3597dfd4f5fd27f409803652a0d62aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioControllers:
+  - {fileID: 4933385149053206761}
+  - {fileID: 7164364198253580076}
+  - {fileID: 4043662786128139449}
+  noteLength: 0.8
+  notePause: 0.4
+  chordLength: 1
+  speakCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4922623
+      value: 1
+      inSlope: -0.009028623
+      outSlope: -0.009028623
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.9251497
+      outWeight: 0.5224962
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  speechSpheres:
+  - {fileID: 8223267602998123492}
+  - {fileID: 3284234861563432951}
+  - {fileID: 1418387459233855147}
+  - {fileID: 6309561140874119195}
 --- !u!1 &3207421396473304382
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -256,7 +256,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -377,7 +377,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -412,7 +412,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -610,7 +610,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -645,7 +645,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

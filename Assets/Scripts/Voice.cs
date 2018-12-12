@@ -34,8 +34,15 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 		chordTime = chordLength;
 	}
 
+	float ErrorFunc(float error)
+	{
+		error /= 12;
+		return 1 - (Mathf.Pow(2.71f, error) - Mathf.Pow(2.71f, -error)) / (Mathf.Pow(2.71f, error) + Mathf.Pow(2.71f, -error));
+	}
+
 	private void Update()
 	{
+
 		switch (voiceState)
 		{
 			case VoiceState.SpeakingNote:
@@ -190,9 +197,26 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 		return val;
 	}
 
+	void AlertNearestHuman()
+	{
+		Human nearest = GameManager.instance.humans[0];
+		float nearDist = Vector3.Distance(h.transform.position, transform.position);
+		foreach (Human h in GameManager.instance.humans)
+		{
+			float newDist = Vector3.Distance(h.transform.position, transform.position);
+			if (newDist < nearDist)
+			{
+				nearDist = newDist;
+				nearest = h;
+			}
+		}
+		h.Alert();
+	}
+
 	IEnumerator SpeakChord()
 	{
 		yield return new WaitForSeconds(0.4f);
+		AlertNearestHuman();
 		bool success = CheckSuccess();
 		if (success)
 			GameManager.instance.levelManager.IncrementGoal();
@@ -207,7 +231,8 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 			}
 			else
 			{
-				voiceNotes[i].drawError(0.5f, chordLength);
+				float error = ErrorFunc(Vector3.Distance(GameManager.instance.teacher.transform.position, player.transform.position));
+				voiceNotes[i].drawError(error, chordLength);
 			}
 		}
 		voiceState = VoiceState.SpeakingChord;

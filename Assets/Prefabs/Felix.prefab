@@ -163,7 +163,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -198,7 +198,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -396,7 +396,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -431,7 +431,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -499,6 +499,68 @@ MonoBehaviour:
   frequencyModulationOscillatorIntensity: 1
   amplitudeModulationRangeOut: 0
   frequencyModulationRangeOut: 0
+--- !u!114 &640042383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750230064359186525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedcb01a1d3cfed49a6b90f8c54ef5ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioControllers:
+  - {fileID: 7181847173044968438}
+  - {fileID: 6254908132965547518}
+  - {fileID: 7766415001159747232}
+  teachRate: 8
+  noteLength: 0.8
+  notePause: 0.6
+  chordLength: 1
+  speakCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4922623
+      value: 1
+      inSlope: -0.009028623
+      outSlope: -0.009028623
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.9251497
+      outWeight: 0.5224962
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  initialDelay: 0.8
+  student: {fileID: 0}
+  maxAttempts: 10
+  attempt: 1
+  speechSpheres:
+  - {fileID: 3559089592824513890}
+  - {fileID: 1297089836010269312}
+  - {fileID: 4394826484610672403}
+  - {fileID: 8816381824841579068}
 --- !u!1 &5148384676825716544
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +614,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 15
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -587,7 +649,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -809,68 +871,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &640042383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4750230064359186525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aedcb01a1d3cfed49a6b90f8c54ef5ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioControllers:
-  - {fileID: 7181847173044968438}
-  - {fileID: 6254908132965547518}
-  - {fileID: 7766415001159747232}
-  teachRate: 8
-  noteLength: 0.8
-  notePause: 0.6
-  chordLength: 1
-  speakCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.4922623
-      value: 1
-      inSlope: -0.009028623
-      outSlope: -0.009028623
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0.9251497
-      outWeight: 0.5224962
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  initialDelay: 20
-  student: {fileID: 0}
-  maxAttempts: 10
-  attempt: 1
-  speechSpheres:
-  - {fileID: 3559089592824513890}
-  - {fileID: 1297089836010269312}
-  - {fileID: 4394826484610672403}
-  - {fileID: 8816381824841579068}
 --- !u!1 &8507739089624361982
 GameObject:
   m_ObjectHideFlags: 0

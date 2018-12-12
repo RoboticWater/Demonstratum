@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 	public LevelManager levelManager;
 	public Teacher teacher;
 	public Student student;
+	public Human[] humans;
 
 	public Color[] NOTE_COLORS = { Color.red, Color.blue, Color.green, Color.yellow };
 	public AnimationCurve NOTE_CURVE;
