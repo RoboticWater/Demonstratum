@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
 				health += regen * Time.deltaTime;
 			}
 		}
+		if (health < 10)
+			Death();
 	}
 
 	public void damage(float damage)
