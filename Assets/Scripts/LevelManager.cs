@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class LevelManager : MonoBehaviour
 	public Goal[] goals;
 	int curGoalIndex = 0;
 	public bool canIncrement = true;
+
+
+	public Fade fade;
+	public float fadeTime;
+	public string nextLevel;
 
 	private void Start()
 	{
@@ -18,7 +24,13 @@ public class LevelManager : MonoBehaviour
 	{
 		if (canIncrement)
 		{
-			curGoal = goals[++curGoalIndex].notes;
+			++curGoalIndex;
+			if (curGoalIndex >= goals.Length)
+			{
+				EndGame();
+				return;
+			}
+			curGoal = goals[curGoalIndex].notes;
 			GameManager.instance.teacher.attempt = 1;
 		}
 		else
@@ -28,7 +40,27 @@ public class LevelManager : MonoBehaviour
 	IEnumerator IncrementAsync()
 	{
 		yield return new WaitUntil(() => canIncrement);
-		curGoal = goals[++curGoalIndex].notes;
+		++curGoalIndex;
+		if (curGoalIndex >= goals.Length)
+		{
+			EndGame();
+		}
+		else
+		{
+			curGoal = goals[curGoalIndex].notes;
+		}
+	}
+
+	void EndGame()
+	{
+		StartCoroutine(TransitionAnimation());
+	}
+
+	IEnumerator TransitionAnimation()
+	{
+		fade.FadeOut(fadeTime);
+		yield return new WaitForSeconds(fadeTime);
+		SceneManager.LoadScene("End");
 	}
 }
 

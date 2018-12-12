@@ -7,11 +7,14 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainScreen.unity
-    guid: d5d6f9ca891f6e84382dab7693fdcf8e
+    guid: 9842a1a29198c7240b78ab6c7c673864
   - enabled: 1
     path: Assets/Scenes/Lab.unity
     guid: b0258c25c4870004bafaf77f877ba714
   - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: fe77bbc847525ee4a996d798fdbc1f6c
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: d5d6f9ca891f6e84382dab7693fdcf8e
   m_configObjects: {}

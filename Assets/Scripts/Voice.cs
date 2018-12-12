@@ -200,17 +200,17 @@ public class Voice : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDra
 	void AlertNearestHuman()
 	{
 		Human nearest = GameManager.instance.humans[0];
-		float nearDist = Vector3.Distance(nearest.transform.position, transform.position);
+		float nearDist = Vector3.Distance(nearest.transform.position, player.transform.position);
 		foreach (Human h in GameManager.instance.humans)
 		{
-			float newDist = Vector3.Distance(h.transform.position, transform.position);
+			float newDist = Vector3.Distance(h.transform.position, player.transform.position);
 			if (newDist < nearDist)
 			{
 				nearDist = newDist;
 				nearest = h;
 			}
 		}
-		nearest.Alert(transform.position);
+		nearest.Alert(player.transform.position);
 	}
 
 	IEnumerator SpeakChord()

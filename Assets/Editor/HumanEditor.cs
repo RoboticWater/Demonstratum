@@ -98,7 +98,7 @@ public class HumanEditor : Editor
 	{
 		Handles.color = new Color(1, 0, 0, 1);
 		Human hu = target as Human;
-		Handles.DrawWireDisc(hu.transform.position, hu.transform.up, searchRadius.floatValue);
+		Handles.DrawWireDisc(hu.searchPosition, hu.transform.up, searchRadius.floatValue);
 		Handles.color = new Color(0, 1, 0, 0.2f);
 		Handles.DrawSolidArc(hu.transform.position, hu.transform.up, hu.transform.forward, viewAngle.floatValue, viewDistance.floatValue);
 		Handles.DrawSolidArc(hu.transform.position, hu.transform.up, hu.transform.forward, -viewAngle.floatValue, viewDistance.floatValue);
