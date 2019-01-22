@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5195555, g: 0.51789397, b: 0.49888974, a: 1}
+  m_IndirectSpecularColor: {r: 0.51955545, g: 0.51789695, b: 0.49889684, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17925,7 +17925,7 @@ GameObject:
   - component: {fileID: 1662613540}
   - component: {fileID: 1662613539}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AmbientSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
