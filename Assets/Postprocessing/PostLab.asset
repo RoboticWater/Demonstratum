@@ -242,7 +242,7 @@ MonoBehaviour:
     value: 0.19
   contrast:
     overrideState: 1
-    value: 7.1
+    value: 23.6
   mixerRedOutRedIn:
     overrideState: 0
     value: 138
@@ -272,7 +272,7 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0.13297872}
+    value: {x: 1, y: 1, z: 1, w: 0.07978723}
   gamma:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0.039893515}
