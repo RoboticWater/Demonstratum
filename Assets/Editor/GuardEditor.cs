@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Human))]
+[CustomEditor(typeof(Guard))]
 [CanEditMultipleObjects]
-public class HumanEditor : Editor
+public class GuardEditor : Editor
 {
 	SerializedProperty minWaitTime;
 	SerializedProperty maxWaitTime;
@@ -97,11 +97,11 @@ public class HumanEditor : Editor
 	private void OnSceneViewGUI(SceneView sv)
 	{
 		Handles.color = new Color(1, 0, 0, 1);
-		Human hu = target as Human;
-		Handles.DrawWireDisc(hu.searchPosition, hu.transform.up, searchRadius.floatValue);
+		Guard guard = target as Guard;
+		Handles.DrawWireDisc(guard.searchPosition, guard.transform.up, searchRadius.floatValue);
 		Handles.color = new Color(0, 1, 0, 0.2f);
-		Handles.DrawSolidArc(hu.transform.position, hu.transform.up, hu.transform.forward, viewAngle.floatValue, viewDistance.floatValue);
-		Handles.DrawSolidArc(hu.transform.position, hu.transform.up, hu.transform.forward, -viewAngle.floatValue, viewDistance.floatValue);
+		Handles.DrawSolidArc(guard.transform.position, guard.transform.up, guard.transform.forward, viewAngle.floatValue, viewDistance.floatValue);
+		Handles.DrawSolidArc(guard.transform.position, guard.transform.up, guard.transform.forward, -viewAngle.floatValue, viewDistance.floatValue);
 	}
 
 	private void MinMax(string label, SerializedProperty min, SerializedProperty max)

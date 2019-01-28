@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEditor;
 
-public class Human : MonoBehaviour
+public class Guard : MonoBehaviour
 {
 
 	public float minWaitTime;
@@ -31,7 +31,7 @@ public class Human : MonoBehaviour
 	public Color idleCol;
 	public Color chaseCol;
 	public bool passive;
-	public Human[] alertOthers;
+	public Guard[] alertOthers;
 
 	private NavMeshAgent agent;
 	public HumanState state;
@@ -103,7 +103,7 @@ public class Human : MonoBehaviour
 			sightTimer += Time.deltaTime;
 			if (sightTimer > sightLengthError)
 			{
-				foreach (Human h in alertOthers)
+				foreach (Guard h in alertOthers)
 				{
 					h.MoveToAttack();
 				}
@@ -160,21 +160,21 @@ public class Human : MonoBehaviour
 		{
 			agent.SetDestination(lastPlayerPos);
 			sight.color = chaseCol;
-			if (Vector3.Distance(GameManager.instance.player.transform.position, transform.position) < attackDist)
+			if (Vector3.Distance(GameManager.instance.Player.transform.position, transform.position) < attackDist)
 			{
 				agent.isStopped = true;
 				state = HumanState.Attack;
 			}
 			return;
 		}
-		Vector3 toPlayer = GameManager.instance.player.transform.position - sight.transform.position;
+		Vector3 toPlayer = GameManager.instance.Player.transform.position - sight.transform.position;
 		if (toPlayer.magnitude <= chaseViewDistance)
 		{
 			RaycastHit hit;
 			if (Physics.Raycast(sight.transform.position, toPlayer, out hit, viewDistance))
 			{
 				if (hit.collider.gameObject.GetComponent<Player>() != null)
-					lastPlayerPos = GameManager.instance.player.transform.position;
+					lastPlayerPos = GameManager.instance.Player.transform.position;
 				else
 				{
 					searchPosition = lastPlayerPos;
@@ -191,7 +191,7 @@ public class Human : MonoBehaviour
 		}
 		agent.SetDestination(lastPlayerPos);
 		sight.color = chaseCol;
-		if (Vector3.Distance(GameManager.instance.player.transform.position, transform.position) < attackDist)
+		if (Vector3.Distance(GameManager.instance.Player.transform.position, transform.position) < attackDist)
 		{
 			agent.isStopped = true;
 			state = HumanState.Attack;
@@ -200,7 +200,7 @@ public class Human : MonoBehaviour
 
 	private bool playerInSight()
 	{
-		Vector3 toPlayer = GameManager.instance.player.transform.position - sight.transform.position;
+		Vector3 toPlayer = GameManager.instance.Player.transform.position - sight.transform.position;
 		float angle = Vector2.Angle(new Vector2(toPlayer.x, toPlayer.z),
 				new Vector2(transform.forward.x, transform.forward.z));
 		bool inSight = false;
@@ -219,14 +219,14 @@ public class Human : MonoBehaviour
 	{
 		if (moveToAttack)
 			moveToAttack = false;
-		Vector3 direction = (GameManager.instance.player.transform.position - transform.position).normalized;
+		Vector3 direction = (GameManager.instance.Player.transform.position - transform.position).normalized;
 		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 12);
 
-		Vector3 toPlayer = GameManager.instance.player.transform.position - head.transform.position;
+		Vector3 toPlayer = GameManager.instance.Player.transform.position - head.transform.position;
 		if (toPlayer.magnitude > attackDist)
 		{
-			agent.SetDestination(GameManager.instance.player.transform.position);
+			agent.SetDestination(GameManager.instance.Player.transform.position);
 			agent.isStopped = false;
 			state = HumanState.Chase;
 			return;
@@ -238,7 +238,7 @@ public class Human : MonoBehaviour
 			{
 				if (hit.collider.gameObject.GetComponent<Player>() == null)
 				{
-					agent.SetDestination(GameManager.instance.player.transform.position);
+					agent.SetDestination(GameManager.instance.Player.transform.position);
 					agent.isStopped = false;
 					state = HumanState.Chase;
 					return;
@@ -253,7 +253,7 @@ public class Human : MonoBehaviour
 			GameObject projectile = Instantiate(projectilePrefab);
 			projectile.transform.position = head.transform.position + transform.forward * 0.5f;
 			Projectile p = projectile.GetComponent<Projectile>();
-			p.dir = GameManager.instance.player.transform.position - head.transform.position;
+			p.dir = GameManager.instance.Player.transform.position - head.transform.position;
 			p.damage = damage;
 		}
 	}
