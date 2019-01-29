@@ -7,10 +7,14 @@ public class LevelTransition : MonoBehaviour
 {
 	public string toLevel;
 	public int spawnPointID = 0;
-	public TransitionEffect outTransition; 
+	TransitionEffect outTransition;
+
+	private void Start() {
+		outTransition = GetComponent<TransitionEffect>();
+	}
 
 	private void OnTriggerEnter(Collider other) {
-		if (outTransition == null) {
+		if (outTransition != null) {
 			StartCoroutine(outTransition.Transition(() => {
 				GameManager.instance.SpawnPointID = spawnPointID;
 				SceneManager.LoadScene(toLevel);

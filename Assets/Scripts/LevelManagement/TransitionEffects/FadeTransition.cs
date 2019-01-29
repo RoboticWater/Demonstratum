@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FadeTransition : TransitionEffect
 {
-    public IEnumerator Transition(System.Action callback) {
+    public override IEnumerator Transition(System.Action callback) {
         yield return null;
         callback();
     }
