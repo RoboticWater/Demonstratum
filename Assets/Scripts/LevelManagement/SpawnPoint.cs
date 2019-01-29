@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     public void OrientActor(Transform actor) {
-        actor.position = transform.position + Vector3.up;
+        actor.position = transform.position + 0.9f * Vector3.up;
         actor.rotation = transform.rotation;
     }
 
