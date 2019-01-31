@@ -9,7 +9,7 @@ public class LevelTransition : MonoBehaviour
 	public int spawnPointID = 0;
 	TransitionEffect outTransition;
 
-	private void Start() {
+	private void Awake() {
 		outTransition = GetComponent<TransitionEffect>();
 	}
 

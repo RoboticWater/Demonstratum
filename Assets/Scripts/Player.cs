@@ -7,18 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-	FirstPersonController firstPerson;
-	public DigitalGlitch glitch;
+	
+	[Header("Health")]
 	public float health = 100;
 	public float regen = 7;
 	public float regenDelay = 3;
 	public float regenTimer;
-
-
-	public Fade fade;
-	public float fadeTime;
-	public string nextLevel;
-	// Start is called before the first frame update
+	
+	[Header("References")]
+	public MainUI UI;
+	public DigitalGlitch glitchEffect;
+	FirstPersonController firstPerson;
+	
+	
 	void Start()
 	{
 		firstPerson = GetComponent<FirstPersonController>();
@@ -33,17 +34,17 @@ public class Player : MonoBehaviour
 			firstPerson.m_MouseLook.SetCursorLock(!firstPerson.m_MouseLook.lockCursor);
 			firstPerson.canLook = !firstPerson.canLook;
 		}
-		glitch._intensity = Mathf.Clamp(1 - (health / 100f), 0, 1);
+		glitchEffect._intensity = Mathf.Clamp(1 - (health / 100f), 0, 1);
 		if (health < 100)
 		{
+			if (health <= 0)
+				Death();
 			regenTimer -= Time.deltaTime;
 			if (regenTimer < 0)
 			{
 				health += regen * Time.deltaTime;
 			}
 		}
-		if (health < 10)
-			Death();
 	}
 
 	public void damage(float damage)
@@ -52,15 +53,7 @@ public class Player : MonoBehaviour
 		health -= damage;
 	}
 
-	void Death()
-	{
-		StartCoroutine(TransitionAnimation());
-	}
-
-	IEnumerator TransitionAnimation()
-	{
-		fade.FadeOut(fadeTime);
-		yield return new WaitForSeconds(fadeTime);
-		SceneManager.LoadScene("Forest");
+	public void Death() {
+		//TODO death script
 	}
 }

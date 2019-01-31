@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
+	TransitionEffect inTransition;
+
+    private void Awake() {
+		inTransition = GetComponent<TransitionEffect>();
+	}
+
     public void OrientActor(Transform actor) {
         actor.position = transform.position + 0.9f * Vector3.up;
         actor.rotation = transform.rotation;
+        if (inTransition != null) {
+            print("hello");
+			StartCoroutine(inTransition.Transition(() => {}));
+		}
     }
 
     void OnDrawGizmos() {
