@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MainUI : MonoBehaviour
 {
     public Image fade;
+    public VoiceBar voiceBar;
     // Start is called before the first frame update
     void Start()
     {
