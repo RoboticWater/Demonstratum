@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 	{
 		firstPerson = GetComponent<FirstPersonController>();
 		regenTimer = regenDelay;
+		firstPerson.m_MouseLook.SetCursorLock(firstPerson.canLook);
+		UI.voiceBar.Visible = !firstPerson.canLook;
 	}
 
 	// Update is called once per frame
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
 		if (Input.GetButtonDown("Switch"))
 		{
 			firstPerson.m_MouseLook.SetCursorLock(!firstPerson.m_MouseLook.lockCursor);
+			UI.voiceBar.Visible = firstPerson.canLook;
 			firstPerson.canLook = !firstPerson.canLook;
 		}
 		glitchEffect._intensity = Mathf.Clamp(1 - (health / 100f), 0, 1);
