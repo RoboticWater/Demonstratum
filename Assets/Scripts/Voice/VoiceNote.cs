@@ -1,65 +1,44 @@
+﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UI.Extensions;
 
-public class VoiceNote : MonoBehaviour
+public class VoiceNote : ProceduralAudioController
 {
-	Image img;
-	UILineRenderer line;
-	RectTransform rt;
-	public Vector2 input, error;
-	int index;
+    public float volumeTime = 0.1f;
+    WaveType wave;
+    float volumeVelocity = 0;
+    float intensityTarget;
+    public bool Playing {
+        get { return useSawAudioWave | useSinusAudioWave | useSquareAudioWave; }
+    }
 
-	public void Instantiate(Vector2 input, int index)
-	{
-		img = GetComponent<Image>();
-		line = GetComponentInChildren<UILineRenderer>();
-		// rt = 
-		this.input = input;
-		Color temp = GameManager.instance.NOTE_COLORS[index];
-		temp.a = 0;
-		line.color = temp;
-		this.index = index;
-	}
+    public void SetWave(float intensity, WaveType wave) {
+        this.intensityTarget = intensity;
+        this.wave = wave;
+        useSawAudioWave = wave.HasFlag(WaveType.Saw);
+        useSinusAudioWave = wave.HasFlag(WaveType.Sine);
+        useSquareAudioWave = wave.HasFlag(WaveType.Square);
+    }
 
-	public void UpdateLine(Vector2 e)
-	{
-		line.Points[0] = new Vector2(0, 0);
-		line.Points[1] = e;
-		error = e;
-		line.SetAllDirty();
-	}
+    void Update() {
+        if (wave.HasFlag(WaveType.Sine))
+            sinusAudioWaveIntensity = Mathf.SmoothDamp(sinusAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
+        else if (wave.HasFlag(WaveType.Saw))
+            squareAudioWaveIntensity = Mathf.SmoothDamp(squareAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
+        else if (wave.HasFlag(WaveType.Square))
+            sawAudioWaveIntensity = Mathf.SmoothDamp(sawAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
+        if (sinusAudioWaveIntensity + squareAudioWaveIntensity + sawAudioWaveIntensity < 0.001f && intensityTarget == 0) {
+            gameObject.SetActive(false);
+        }
+    } 
 
-	public void drawError(float degree, float life, Image success = null)
-	{
-		line.Points[1] *= degree;
-		line.SetAllDirty();
-		StartCoroutine(drawErrorLine(life, success));
-	}
+    public void Silence() {
+        this.intensityTarget = 0;
+    }
+}
 
-	IEnumerator drawErrorLine(float life, Image success = null)
-	{
-		float time = 0;
-		float perc = 0;
-		float lastTime = Time.realtimeSinceStartup;
-		Quaternion curLook = transform.rotation;
-		do
-		{
-			time += Time.realtimeSinceStartup - lastTime;
-			lastTime = Time.realtimeSinceStartup;
-			perc = Mathf.Clamp01(time / life);
-			// TODO set line visibility
-			Color temp = line.color;
-			temp.a = Mathf.Lerp(0, 1, GameManager.instance.NOTE_CURVE.Evaluate(perc));
-			line.color = temp;
-			if (success != null)
-			{
-				temp = success.color;
-				temp.a = Mathf.Lerp(0, 1, GameManager.instance.NOTE_CURVE.Evaluate(perc)) / 3;
-				success.color = temp;
-			}
-			yield return null;
-		} while (perc < 1);
-	}
+[Flags] public enum WaveType
+{
+    None, Sine, Square, Saw
 }

@@ -13,6 +13,11 @@ namespace Assets.Scripts.Cam.Effects {
 			get { return (int) (verticalResolution * aspectRatio); }
 		}
 
+		protected void Start() {
+			if (!SystemInfo.supportsImageEffects)
+				enabled = false;
+		}
+
 		public void OnRenderImage(RenderTexture src, RenderTexture dest) {
 
 			RenderTexture scaled = RenderTexture.GetTemporary(horizontalResolution, verticalResolution);
