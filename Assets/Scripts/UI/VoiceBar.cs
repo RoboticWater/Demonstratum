@@ -5,8 +5,18 @@ using UnityEngine;
 public class VoiceBar : MonoBehaviour
 {
     CanvasGroup canvasGroup;
+    NoteLine[] noteLines;
+    [Header("Fade Effect")]
     public AnimationCurve effectCurve;
     public float effectTime = 0.5f;
+
+    [Header("Speaking")]
+    bool speaking;
+    public float lineTime = 0.8f;
+    public float lineRest = 0.05f;
+
+    [Header("References")]
+    public Transform noteLinesContainer;
 
     public bool Visible {
         get { return canvasGroup.alpha > 0.5f; }
@@ -17,16 +27,17 @@ public class VoiceBar : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        noteLines = noteLinesContainer.GetComponentsInChildren<NoteLine>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButton("Speak") && !speaking) {
+            StartCoroutine(Speak());
+        }
     }
 
     IEnumerator Fade(bool visible) {
@@ -42,5 +53,16 @@ public class VoiceBar : MonoBehaviour
 			yield return null;
 		} while (perc < 1);
         canvasGroup.alpha = visible ? 1 : 0;
+    }
+
+    IEnumerator Speak() {
+        speaking = true;
+        foreach (NoteLine nl in noteLines) {
+            nl.Play();
+            yield return new WaitForSeconds(lineTime);
+            nl.Stop();
+            yield return new WaitForSeconds(lineRest);
+        }
+        speaking = false;
     }
 }
