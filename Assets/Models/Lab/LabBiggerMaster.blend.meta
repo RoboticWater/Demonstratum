@@ -36,6 +36,8 @@ ModelImporter:
     100060: Plane
     100062: Plane_001
     100064: Plane_002
+    100066: Plane_003
+    100068: Cube_007
     400000: Cube
     400002: Cube_001
     400004: Cube_002
@@ -69,6 +71,8 @@ ModelImporter:
     400060: Plane
     400062: Plane_001
     400064: Plane_002
+    400066: Plane_003
+    400068: Cube_007
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
@@ -101,6 +105,8 @@ ModelImporter:
     2300058: Plane
     2300060: Plane_001
     2300062: Plane_002
+    2300064: Plane_003
+    2300066: Cube_007
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
@@ -133,6 +139,8 @@ ModelImporter:
     3300058: Plane
     3300060: Plane_001
     3300062: Plane_002
+    3300064: Plane_003
+    3300066: Cube_007
     4300000: Cube_006
     4300002: Cube_005
     4300004: Cube_004
@@ -165,6 +173,8 @@ ModelImporter:
     4300058: LabShelf
     4300060: LabWires
     4300062: LabOperationTable
+    4300064: Plane_003
+    4300066: Cube_007
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

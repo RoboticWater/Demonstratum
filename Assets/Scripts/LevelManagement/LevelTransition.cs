@@ -14,6 +14,10 @@ public class LevelTransition : MonoBehaviour
 	}
 
 	private void OnTriggerEnter(Collider other) {
+		Transition();
+	}
+
+	public void Transition() {
 		if (outTransition != null) {
 			StartCoroutine(outTransition.Transition(() => {
 				GameManager.instance.SpawnPointID = spawnPointID;

@@ -14,7 +14,6 @@ public class SpawnPoint : MonoBehaviour
         actor.position = transform.position + 0.9f * Vector3.up;
         actor.rotation = transform.rotation;
         if (inTransition != null) {
-            print("hello");
 			StartCoroutine(inTransition.Transition(() => {}));
 		}
     }
