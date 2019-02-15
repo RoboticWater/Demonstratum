@@ -878,6 +878,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9bdb32c73d8f93d479f24742fe906a74,
         type: 3}
+    - target: {fileID: 479790622326762061, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
+        type: 3}
+      propertyPath: m_Name
+      value: Chord (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 5056074514534953392, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -989,11 +994,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 9bdb32c73d8f93d479f24742fe906a74,
         type: 3}
-    - target: {fileID: 479790622326762061, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
-        type: 3}
-      propertyPath: m_Name
-      value: Chord (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 4237703049375280209, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
         type: 3}
       propertyPath: m_Sprite
@@ -1443,6 +1443,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: db07fec7cde9d79418f165c8de799510,
         type: 3}
+    - target: {fileID: 479790622326762061, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
+        type: 3}
+      propertyPath: m_Name
+      value: Chord (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 5056074514534953392, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1554,11 +1559,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: db07fec7cde9d79418f165c8de799510,
         type: 3}
-    - target: {fileID: 479790622326762061, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
-        type: 3}
-      propertyPath: m_Name
-      value: Chord (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 4237703049375280209, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
         type: 3}
       propertyPath: m_Enabled
@@ -1607,6 +1607,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 538058053018432393}
     m_Modifications:
+    - target: {fileID: 479790622326762061, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
+        type: 3}
+      propertyPath: m_Name
+      value: Chord
+      objectReference: {fileID: 0}
     - target: {fileID: 5056074514534953392, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1718,11 +1723,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: bd2a4b3465c235c41913b08a160171ae,
         type: 3}
-    - target: {fileID: 479790622326762061, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
-        type: 3}
-      propertyPath: m_Name
-      value: Chord
-      objectReference: {fileID: 0}
     - target: {fileID: 4237703049375280209, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
         type: 3}
       propertyPath: m_Sprite
