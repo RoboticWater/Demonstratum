@@ -193,10 +193,10 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 1
-    value: 3
+    value: 2
   toneCurveToeStrength:
     overrideState: 1
-    value: 0.248
+    value: 0.239
   toneCurveToeLength:
     overrideState: 1
     value: 0.372
@@ -239,10 +239,10 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: -0.11
+    value: -0.03
   contrast:
     overrideState: 1
-    value: -2
+    value: 40.8
   mixerRedOutRedIn:
     overrideState: 0
     value: 138
@@ -272,7 +272,7 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 1, y: 1, z: 1, w: 0.026595745}
+    value: {x: 0.99577093, y: 0.9968282, z: 1, w: 0.119680844}
   gamma:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0.039893515}
