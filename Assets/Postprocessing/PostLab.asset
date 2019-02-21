@@ -239,7 +239,7 @@ MonoBehaviour:
     value: 0
   postExposure:
     overrideState: 1
-    value: -0.11
+    value: -0.28
   contrast:
     overrideState: 1
     value: 14.6
