@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("References")]
     public Transform voiceNoteContainer;
+    public SoundReactor[] soundReactors;
 
     [Header("Prefabs")]
     public GameObject voiceNotePrefab;
@@ -65,6 +66,12 @@ public class AudioManager : MonoBehaviour
             newNotes.Add(voiceNote.GetComponent<VoiceNote>());
         }
         return newNotes;
+    }
+
+    public void SoundReactions(float intensity) {
+        foreach (SoundReactor s in soundReactors) {
+            s.OnSound(intensity);
+        }
     }
 
     public void SilenceAll() {
