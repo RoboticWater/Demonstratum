@@ -11,6 +11,8 @@ public class Lightning : MonoBehaviour
 	public GameObject lightPlane;
 	public float minIntensity = 1f;
 	public float maxIntensity = 1.2f;
+	public float minVolume = 0.08f;
+	public float maxVolume = 0.1f;
 	public bool startFiring;
 
 	Light l;
@@ -53,7 +55,7 @@ public class Lightning : MonoBehaviour
 		planeMat.color = new Color(1, 1, 1, i);
 		sources[curSource].Stop();
 		sources[curSource].pitch = Random.value < 0.2f ? Random.Range(0.8f, 1f) : Random.Range(0.5f, 0.8f);
-		sources[curSource].volume = i;
+		sources[curSource].volume = Random.Range(minVolume, maxVolume);
 		sources[curSource].Play();
 		curSource = ++curSource % sources.Length;
 	}

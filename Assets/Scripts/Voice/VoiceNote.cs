@@ -9,6 +9,13 @@ public class VoiceNote : ProceduralAudioController
     WaveType wave;
     float volumeVelocity = 0;
     float intensityTarget;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public bool Playing {
         get { return useSawAudioWave | useSinusAudioWave | useSquareAudioWave; }
     }
@@ -22,13 +29,17 @@ public class VoiceNote : ProceduralAudioController
     }
 
     void Update() {
+        float intensity = Mathf.SmoothDamp(audioSource.volume, intensityTarget, ref volumeVelocity, volumeTime);
+        audioSource.volume = intensity;
+        AudioManager.instance.SoundReactions(intensity);
+        
         if (wave.HasFlag(WaveType.Sine))
-            sinusAudioWaveIntensity = Mathf.SmoothDamp(sinusAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
+            sinusAudioWaveIntensity = 1;
         else if (wave.HasFlag(WaveType.Saw))
-            squareAudioWaveIntensity = Mathf.SmoothDamp(squareAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
+            squareAudioWaveIntensity = 1;//Mathf.SmoothDamp(squareAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
         else if (wave.HasFlag(WaveType.Square))
-            sawAudioWaveIntensity = Mathf.SmoothDamp(sawAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
-        if (sinusAudioWaveIntensity + squareAudioWaveIntensity + sawAudioWaveIntensity < 0.001f && intensityTarget == 0) {
+            sawAudioWaveIntensity = 1;//Mathf.SmoothDamp(sawAudioWaveIntensity, intensityTarget, ref volumeVelocity, volumeTime);
+        if (audioSource.volume < 0.001f && intensityTarget == 0) {
             gameObject.SetActive(false);
         }
     } 

@@ -34,7 +34,7 @@ public class Guard : MonoBehaviour
 	public Guard[] alertOthers;
 
 	private NavMeshAgent agent;
-	public HumanState state;
+	public GuardState state;
 	public Vector3 searchPosition;
 	private float waitTimer = 0.1f;
 	private float lookTimer;
@@ -64,52 +64,70 @@ public class Guard : MonoBehaviour
 
 	void Update()
 	{
+		// Runs fuction corresponding to current state
 		switch (state)
 		{
-			case HumanState.Idle:
+			case GuardState.Idle:
 				break;
-			case HumanState.Patrole:
+			case GuardState.Patrole:
 				patrole();
 				break;
-			case HumanState.Chase:
+			case GuardState.Chase:
 				chase();
 				break;
-			case HumanState.Attack:
+			case GuardState.Attack:
 				attack();
 				break;
 		}
 	}
 
+	/// <summary>
+	/// Alert this guard to search a position. This guard will then set their search position to that location and start searching there
+	/// </summary>
+	/// <param name="playerPos">The position of the player (it can be any position, but it'll probably be the player)</param>
 	public void Alert(Vector3 playerPos)
 	{
-		if (state == HumanState.Patrole)
+		if (state == GuardState.Patrole)
 			searchPosition = Vector3.Lerp(transform.position, playerPos, 0.5f);
 	}
 
-	public void MoveToAttack()
+	/// <summary>
+	/// Set this guard to immedately chase the player. The Guard will automatically be given their position
+	/// </summary>
+	public void MoveToChase()
 	{
-		state = HumanState.Chase;
+		lastPlayerPos = GameManager.instance.Player.transform.position;
+		state = GuardState.Chase;
 	}
 
+	/// <summary>
+	/// Tell this guard to go to a specific location. This command will be overwritten if the guard is chasing or beings to chase the player.
+	/// </summary>
+	/// <param name="pos"></param>
 	public void goTo(Vector3 pos)
 	{
 		agent.SetDestination(pos);
 	}
 
+	/// <summary>
+	/// The patrole loop:
+	/// The guard will walk randomly to positions in their search area and look around them.
+	/// When the player is in sight, they will play an alert noise, alert any guards that are connected to it (alertOthers), and set its state to chase
+	/// </summary>
 	void patrole()
 	{
-		if (playerInSight())
+		if (playerInSight())						// if the player is in sight
 		{
-			sightTimer += Time.deltaTime;
-			if (sightTimer > sightLengthError)
+			sightTimer += Time.deltaTime;			// sightTimer gives the player some wiggle room if spotted
+			if (sightTimer > sightLengthError)		// if the player is in sight for long enough, they are officially seen
 			{
-				foreach (Guard h in alertOthers)
+				foreach (Guard h in alertOthers)	// alert connected guards
 				{
-					h.MoveToAttack();
+					h.MoveToChase();
 				}
-				state = HumanState.Chase;
-				sightTimer = 0;
-				if (!glitchNoise.isPlaying)
+				state = GuardState.Chase;			// set current state to chase
+				sightTimer = 0;						// reset the sight timer for the next time you're in patrole
+				if (!glitchNoise.isPlaying)			// if you aren't making an alert noise, do so
 				{
 					glitchNoise.pitch = Random.Range(0.8f, 1.2f);
 					glitchNoise.Play();
@@ -119,28 +137,28 @@ public class Guard : MonoBehaviour
 		else
 		{
 			sightTimer = 0;
-			sight.color = idleCol;
+			sight.color = idleCol;	// set your vision color to be the idle (safe) color
 		}
 
-		if (moving && Vector3.Distance(transform.position, agent.destination) < moveError)
+		if (moving && Vector3.Distance(transform.position, agent.destination) < moveError)	// if you've moved close enough to your destination, allow yourself to find a new one
 		{
 			moving = false;
 		}
 		else
 		{
-			if (searchRadius > 0)
+			if (searchRadius > 0)				// if you have an area to search, decrement the wait timer so that you will eventually move positions
 				waitTimer -= Time.deltaTime;
-			lookTimer -= Time.deltaTime;
-			if (waitTimer <= 0)
+			lookTimer -= Time.deltaTime;		// decrement the look timer so you will eventually look another direction
+			if (waitTimer <= 0) 				// if you have waited the allotted time, then move to another position and reset the timer
 			{
-				StopCoroutine(lookRoutine);
+				StopCoroutine(lookRoutine);		// make sure to stop the looking animation, so it's not awkwardly looking when it moves 
 				setRandomTarget();
 				moving = true;
 				waitTimer = Random.Range(minWaitTime, maxWaitTime);
 			}
-			if (lookTimer <= 0)
-			{
-				StopCoroutine(lookRoutine);
+			if (lookTimer <= 0)					// if you have waited long enough, aim the eyes in a different direction
+			{									// this is done with a coroutine
+				StopCoroutine(lookRoutine);		// make sure to stop looking if you already are (this is purely a precaution)
 				lookRoutine = look();
 				lookTarget += Random.Range(minLookDir, maxLookDir);
 				lookTimer = Random.Range(minLookTime, maxLookTime);
@@ -149,11 +167,14 @@ public class Guard : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// The chase loop:
+	/// </summary>
 	void chase()
 	{
 		if (passive)
 		{
-			state = HumanState.Patrole;
+			state = GuardState.Patrole;
 			return;
 		}
 		if (moveToAttack)
@@ -163,7 +184,7 @@ public class Guard : MonoBehaviour
 			if (Vector3.Distance(GameManager.instance.Player.transform.position, transform.position) < attackDist)
 			{
 				agent.isStopped = true;
-				state = HumanState.Attack;
+				state = GuardState.Attack;
 			}
 			return;
 		}
@@ -178,7 +199,7 @@ public class Guard : MonoBehaviour
 				else
 				{
 					searchPosition = lastPlayerPos;
-					state = HumanState.Patrole;
+					state = GuardState.Patrole;
 					return;
 				}
 			}
@@ -186,7 +207,7 @@ public class Guard : MonoBehaviour
 		else
 		{
 			searchPosition = lastPlayerPos;
-			state = HumanState.Patrole;
+			state = GuardState.Patrole;
 			return;
 		}
 		agent.SetDestination(lastPlayerPos);
@@ -194,7 +215,7 @@ public class Guard : MonoBehaviour
 		if (Vector3.Distance(GameManager.instance.Player.transform.position, transform.position) < attackDist)
 		{
 			agent.isStopped = true;
-			state = HumanState.Attack;
+			state = GuardState.Attack;
 		}
 	}
 
@@ -228,7 +249,7 @@ public class Guard : MonoBehaviour
 		{
 			agent.SetDestination(GameManager.instance.Player.transform.position);
 			agent.isStopped = false;
-			state = HumanState.Chase;
+			state = GuardState.Chase;
 			return;
 		}
 		else
@@ -240,7 +261,7 @@ public class Guard : MonoBehaviour
 				{
 					agent.SetDestination(GameManager.instance.Player.transform.position);
 					agent.isStopped = false;
-					state = HumanState.Chase;
+					state = GuardState.Chase;
 					return;
 				}
 			}
@@ -291,7 +312,7 @@ public class Guard : MonoBehaviour
 	}
 }
 
-public enum HumanState
+public enum GuardState
 {
 	Idle, Patrole, Chase, Attack
 }
