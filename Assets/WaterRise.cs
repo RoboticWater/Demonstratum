@@ -8,7 +8,7 @@ public class WaterRise : MonoBehaviour
     public float riseEnd = 1;
     public AnimationCurve riseCurve;
     public float riseTime = 1;
-    public AudioSource audio;
+    public AudioSource audioSource;
     public float audioStart = 0;
     public float audioEnd = 1;
 
@@ -27,18 +27,18 @@ public class WaterRise : MonoBehaviour
         float startTime = Time.timeSinceLevelLoad;
         float perc;
         if (!off) {
-            audio.gameObject.SetActive(true);
+            audioSource.gameObject.SetActive(true);
         }
         do {
             perc = (Time.timeSinceLevelLoad - startTime) / riseTime;
             m.SetFloat("_Offset", Mathf.Lerp(riseStart, riseEnd, riseCurve.Evaluate(off ? 1- perc : perc)));
-            audio.volume = Mathf.Lerp(audioStart, audioEnd, riseCurve.Evaluate(off ? 1- perc : perc));
+            audioSource.volume = Mathf.Lerp(audioStart, audioEnd, riseCurve.Evaluate(off ? 1- perc : perc));
             yield return null;
         } while(perc < 1);
         m.SetFloat("_Offset", off ? riseStart : riseEnd);
-        audio.volume = off ? audioStart : audioEnd;
+        audioSource.volume = off ? audioStart : audioEnd;
         if (off) {
-            audio.gameObject.SetActive(false);
+            audioSource.gameObject.SetActive(false);
         }
     }
 

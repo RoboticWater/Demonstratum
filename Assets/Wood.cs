@@ -2,19 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class Wood : MonoBehaviour
 {
+    public float breakForce = 0.25f;
+    bool DoPhysics {
+        get {
+            return r.isKinematic && r.detectCollisions;
+        }
+        set {
+            r.isKinematic = !value;
+            r.detectCollisions = value;
+            if (value)
+                r.WakeUp();
+            else
+                r.Sleep();
+        }
+    }
     Material m;
-    // Start is called before the first frame update
+    Rigidbody r;
+    Collider c;
+    
     void Start()
     {
-        
+        r = GetComponent<Rigidbody>();
+        m = GetComponent<MeshRenderer>().material;
+        DoPhysics = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void Break() {
+        DoPhysics = true;
+        r.AddForce(Random.insideUnitSphere * (breakForce / 4) - GameManager.instance.Player.transform.forward * breakForce, ForceMode.Impulse);
     }
 
     public void Die() {

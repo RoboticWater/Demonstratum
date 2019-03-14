@@ -8,7 +8,7 @@ public class WaterSpout : MonoBehaviour
     public float spoutEnd = 0;
     public AnimationCurve spoutCurve;
     public float spoutTime = 1;
-    public AudioSource audio;
+    public AudioSource audioSource;
     public float audioStart = 0;
     public float audioEnd = 1;
     public float audioTimeOffset;
@@ -18,7 +18,7 @@ public class WaterSpout : MonoBehaviour
     private void Start() {
         m = GetComponent<MeshRenderer>().sharedMaterial;
         m.SetFloat("_Dissolve", spoutStart);
-        audio.time = audioTimeOffset;
+        audioSource.time = audioTimeOffset;
     }
     
     public void StartSpout() {
@@ -29,18 +29,18 @@ public class WaterSpout : MonoBehaviour
         float startTime = Time.timeSinceLevelLoad;
         float perc;
         if (!off) {
-            audio.gameObject.SetActive(true);
+            audioSource.gameObject.SetActive(true);
         }
         do {
             perc = (Time.timeSinceLevelLoad - startTime) / spoutTime;
             m.SetFloat("_Dissolve", Mathf.Lerp(spoutStart, spoutEnd, spoutCurve.Evaluate(off ? 1- perc : perc)));
-            audio.volume = Mathf.Lerp(audioStart, audioEnd, spoutCurve.Evaluate(off ? 1- perc : perc));
+            audioSource.volume = Mathf.Lerp(audioStart, audioEnd, spoutCurve.Evaluate(off ? 1- perc : perc));
             yield return null;
         } while(perc < 1);
-        audio.volume = off ? audioStart : audioEnd;
+        audioSource.volume = off ? audioStart : audioEnd;
         m.SetFloat("_Dissolve", off ? spoutStart : spoutEnd);
         if (off) {
-            audio.gameObject.SetActive(false);
+            audioSource.gameObject.SetActive(false);
         }
     }
 
