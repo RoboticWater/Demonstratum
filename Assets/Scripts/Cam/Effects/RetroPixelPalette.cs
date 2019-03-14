@@ -20,7 +20,7 @@ namespace Assets.Scripts.Cam.Effects {
 
 
 
-        protected void Start()
+        new protected void Start()
         {
             base.Start();
             BlendStops();
