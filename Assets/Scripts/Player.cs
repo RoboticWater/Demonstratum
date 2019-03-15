@@ -13,11 +13,13 @@ public class Player : MonoBehaviour
 	public float regen = 7;
 	public float regenDelay = 3;
 	public float regenTimer;
+	public float selectionRange = 10;
 	
 	[Header("References")]
 	public MainUI UI;
 	public DigitalGlitch glitchEffect;
 	FirstPersonController firstPerson;
+	Camera cam;
 	
 	
 	void Start()
@@ -46,6 +48,14 @@ public class Player : MonoBehaviour
 			if (regenTimer < 0)
 			{
 				health += regen * Time.deltaTime;
+			}
+		}
+		RaycastHit hit;
+		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange)) {
+			if (Input.GetButtonDown("Fire1")) {
+				Selector.Select();
+			} else (hit.collider.gameObject.GetComponent<Selector>()) {
+				Selector.Highlight();
 			}
 		}
 	}
