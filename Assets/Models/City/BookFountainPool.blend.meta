@@ -10,6 +10,7 @@ ModelImporter:
     100008: PoolWaterSpout
     100010: PoolWaterSpout_001
     100012: Cube_038
+    100014: BookFountainPoolExt
     400000: //RootNode
     400002: BookFountainPool
     400004: BookFountainWater
@@ -17,24 +18,28 @@ ModelImporter:
     400008: PoolWaterSpout
     400010: PoolWaterSpout_001
     400012: Cube_038
+    400014: BookFountainPoolExt
     2300000: BookFountainPool
     2300002: BookFountainWater
     2300004: BookFountainPool_Collider
     2300006: PoolWaterSpout
     2300008: PoolWaterSpout_001
     2300010: Cube_038
+    2300012: BookFountainPoolExt
     3300000: BookFountainPool
     3300002: BookFountainWater
     3300004: BookFountainPool_Collider
     3300006: PoolWaterSpout
     3300008: PoolWaterSpout_001
     3300010: Cube_038
+    3300012: BookFountainPoolExt
     4300000: BookFountainWater
     4300002: BookFountainPool
     4300004: BookFountainPool_Collider
     4300006: PoolWaterSpout_001
     4300008: PoolWaterSpout
     4300010: Cube_038
+    4300012: BookFountainPoolExt
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
