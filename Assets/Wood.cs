@@ -19,14 +19,14 @@ public class Wood : MonoBehaviour
                 r.Sleep();
         }
     }
-    Material m;
+    public Material material;
     Rigidbody r;
     Collider c;
     
     void Start()
     {
         r = GetComponent<Rigidbody>();
-        m = GetComponent<MeshRenderer>().material;
+        material = GetComponent<MeshRenderer>().material;
         DoPhysics = false;
     }
 
@@ -41,8 +41,8 @@ public class Wood : MonoBehaviour
 
     IEnumerator DeathSequence() {
         do {
-            m.SetFloat("_Dissolve", m.GetFloat("_Dissolve") - 0.1f);
+            material.SetFloat("_Dissolve", material.GetFloat("_Dissolve") - 0.1f);
             yield return null;
-        } while(m.GetFloat("_Dissolve") <= 0);
+        } while(material.GetFloat("_Dissolve") <= 0);
     }
 }

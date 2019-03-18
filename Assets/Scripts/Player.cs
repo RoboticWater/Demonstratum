@@ -19,8 +19,9 @@ public class Player : MonoBehaviour
 	public MainUI UI;
 	public DigitalGlitch glitchEffect;
 	FirstPersonController firstPerson;
-	Camera cam;
+	public Camera cam;
 	
+	Selector selected;
 	
 	void Start()
 	{
@@ -33,6 +34,9 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.GetButtonDown("Fire1") && selected != null) {
+			selected.Select();
+		}
 		if (Input.GetButtonDown("Switch"))
 		{
 			firstPerson.m_MouseLook.SetCursorLock(!firstPerson.m_MouseLook.lockCursor);
@@ -51,12 +55,15 @@ public class Player : MonoBehaviour
 			}
 		}
 		RaycastHit hit;
-		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange)) {
-			if (Input.GetButtonDown("Fire1")) {
-				Selector.Select();
-			} else (hit.collider.gameObject.GetComponent<Selector>()) {
-				Selector.Highlight();
-			}
+		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange, LayerMask.GetMask("PhysNoWorld"))) {
+			// Selector s = hit.collider.gameObject.GetComponents<Selector>()[0];
+			// if (selected != null && selected != s) {
+			// 	selected.SetHighlight(false);
+			// 	selected = s;
+			// }
+			// if (selected != null) {
+			// 	selected.SetHighlight(true);
+			// }
 		}
 	}
 

@@ -22,11 +22,14 @@ public class GameManager : MonoBehaviour
 		get { return player; }
 	}
 
+	private Dictionary<string, object> Storage;
+
 	public Color[] NOTE_COLORS = { Color.red, Color.blue, Color.green, Color.yellow };
 	public AnimationCurve NOTE_CURVE;
 
 	private void Awake()
 	{
+		Storage = new Dictionary<string, object>();
 		if (instance == null)
 			instance = this;
 		else if (instance != this)
@@ -50,5 +53,12 @@ public class GameManager : MonoBehaviour
 		level = Object.FindObjectOfType<LevelManager>();
 		level.spawnPoints[spawnPointID].OrientActor(player.transform);
 	}
-	
+
+	public void SetObject(string key, object value) {
+		Storage[key] = value;
+	}
+
+	public object GetObject(string key) {
+		return Storage.ContainsKey(key) ? Storage[key] : null;
+	}
 }
