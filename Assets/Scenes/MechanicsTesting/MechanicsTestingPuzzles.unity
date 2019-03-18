@@ -898,6 +898,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 8290682007435074126, guid: 8ad770bb15dc49644b36b10d5a384e12,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8290682007469138671, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: m_Layer
@@ -1188,6 +1193,7 @@ MonoBehaviour:
   - {fileID: 1089538899}
   - {fileID: 1432720812}
   - {fileID: 1381498666}
+  woodSelectorPrefab: {fileID: 0}
 --- !u!135 &537092383
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1815,12 +1821,6 @@ PrefabInstance:
 --- !u!1 &817728313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100096, guid: 2bab5268d69aa6446b30c8c8a5ffb3d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 758279911}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &817728314 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400096, guid: 2bab5268d69aa6446b30c8c8a5ffb3d1,
     type: 3}
   m_PrefabInstance: {fileID: 758279911}
   m_PrefabAsset: {fileID: 0}
@@ -2452,6 +2452,7 @@ MonoBehaviour:
   - {fileID: 817728317}
   - {fileID: 542952069}
   - {fileID: 1855527245}
+  woodSelectorPrefab: {fileID: 0}
 --- !u!1001 &1776470815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2723,63 +2724,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakForce: 0.25
---- !u!1 &2091511075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2091511076}
-  - component: {fileID: 2091511078}
-  - component: {fileID: 2091511077}
-  m_Layer: 13
-  m_Name: WoodSelector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2091511076
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091511075}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 817728314}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &2091511077
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091511075}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.01
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2091511078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091511075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf0c85b9eeedebd41a8e51dd8a8205fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3756758852163369249
 PrefabInstance:
   m_ObjectHideFlags: 0

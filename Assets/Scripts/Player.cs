@@ -50,14 +50,14 @@ public class Player : MonoBehaviour
 				health += regen * Time.deltaTime;
 			}
 		}
-		RaycastHit hit;
-		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange)) {
-			if (Input.GetButtonDown("Fire1")) {
-				Selector.Select();
-			} else (hit.collider.gameObject.GetComponent<Selector>()) {
-				Selector.Highlight();
-			}
-		}
+		// RaycastHit hit;
+		// if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange)) {
+		// 	// if (Input.GetButtonDown("Fire1")) {
+		// 	// 	Selector.Select();
+		// 	// } else (hit.collider.gameObject.GetComponent<Selector>()) {
+		// 	// 	Selector.Highlight();
+		// 	// }
+		// }
 	}
 
 	public void damage(float damage)
