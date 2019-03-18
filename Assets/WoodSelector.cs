@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class WoodSelector : Selector
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public Wood[] wood;
+    public float outlineWidth = 0.1f;
+
+    public override void SetHighlight(bool on) {
+        foreach (Wood w in wood) {
+            w.material.SetFloat("_OutlineWidth", on ? outlineWidth : 0);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public override void Select() {
         
     }
 }
