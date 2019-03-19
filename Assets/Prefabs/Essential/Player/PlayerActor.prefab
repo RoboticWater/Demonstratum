@@ -85,7 +85,7 @@ MonoBehaviour:
     lockCursor: 1
   m_UseFovKick: 1
   m_FovKick:
-    Camera: {fileID: 0}
+    Camera: {fileID: 683945353}
     originalFov: 0
     FOVIncrease: 3
     TimeToIncrease: 1
@@ -308,8 +308,10 @@ MonoBehaviour:
   regen: 7
   regenDelay: 3
   regenTimer: 0
+  selectionRange: 10
   UI: {fileID: 0}
   glitchEffect: {fileID: 683945354}
+  cam: {fileID: 683945353}
 --- !u!1 &683945352
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +329,7 @@ GameObject:
   - component: {fileID: 2281808240385602055}
   - component: {fileID: 8566911541392328705}
   - component: {fileID: 683945354}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -561,7 +563,7 @@ GameObject:
   - component: {fileID: 1351403727}
   - component: {fileID: 1351403728}
   - component: {fileID: 1351403729}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Voice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +719,7 @@ GameObject:
   - component: {fileID: 1384269235}
   - component: {fileID: 1384269234}
   - component: {fileID: 1384269233}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Voice (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,7 +875,7 @@ GameObject:
   - component: {fileID: 1489212694}
   - component: {fileID: 1489212693}
   - component: {fileID: 1489212692}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Voice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1027,7 +1029,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2007200795}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Voices
   m_TagString: Untagged
   m_Icon: {fileID: 0}

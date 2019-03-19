@@ -9,6 +9,7 @@ public class FurnaceFire : MonoBehaviour
 
     public float fireStartSize = 0.1f;
     public float fireEndSize = 0.1f;
+    public float fireGrowSpeed = 0.05f;
 
     public float lightRandom = 0.1f;
     public float lightSpeed = 0.1f;
@@ -18,12 +19,14 @@ public class FurnaceFire : MonoBehaviour
     public float maxAreaSize = 8.15f;
     float intensityTarget = 1;
 
-    ParticleSystem fire;
+    public ParticleSystem fire;
     public Light light;
-
-    private void Start()
-    {
-        fire = GetComponent<ParticleSystem>();
+    AudioSource audioSource;
+    
+    private void Start() {
+       fire.transform.localScale = new Vector3(fireStartSize, fireStartSize, fireStartSize);
+       light.range = minAreaSize;
+       audioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate() {
@@ -31,16 +34,22 @@ public class FurnaceFire : MonoBehaviour
         if (Random.Range(0.0f, 1.0f) < lightRandom) {
             light.intensity = Random.Range(0.8f, 1); 
         }
+        fire.transform.localScale = Vector3.Lerp(fire.transform.localScale, 
+            new Vector3(fireEndSize, fireEndSize, fireEndSize) * (float) curWood / totalWood + 
+            new Vector3(fireStartSize, fireStartSize, fireStartSize), fireGrowSpeed);
+        light.range = Mathf.Lerp(light.range, minAreaSize + maxAreaSize * (float) curWood / totalWood, fireGrowSpeed);
+        audioSource.volume = Mathf.Lerp(audioSource.volume, 0.1f + (float) curWood / totalWood, fireGrowSpeed);
     }
 
     private void OnTriggerEnter(Collider other) {
         Wood w = other.GetComponent<Wood>();
         if (w != null) {
-            curWood += 1;
-            float fireSize = Mathf.Lerp(fireStartSize, fireEndSize, (float) totalWood / curWood);
-            fire.transform.localScale = new Vector3(fireSize, fireSize, fireSize);
-            light.range = Mathf.Lerp(minAreaSize, maxAreaSize, (float) totalWood / curWood);
+            curWood += 1;            
             w.Die();
+            var main = fire.main;
+            main.startSizeMultiplier = 2.2f;
+            fire.Emit(20);
+            main.startSizeMultiplier = 1;
         }
     }
 }

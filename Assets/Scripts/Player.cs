@@ -19,8 +19,10 @@ public class Player : MonoBehaviour
 	public MainUI UI;
 	public DigitalGlitch glitchEffect;
 	FirstPersonController firstPerson;
-	Camera cam;
+	public Camera cam;
 	
+	Selector selected;
+	[HideInInspector]public Selector holding;
 	
 	void Start()
 	{
@@ -33,6 +35,13 @@ public class Player : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.GetButtonDown("Fire1")) {
+			if (holding) {
+				holding.Select();
+			} else if (selected != null) {
+				selected.Select();
+			}
+		}
 		if (Input.GetButtonDown("Switch"))
 		{
 			firstPerson.m_MouseLook.SetCursorLock(!firstPerson.m_MouseLook.lockCursor);
@@ -50,14 +59,21 @@ public class Player : MonoBehaviour
 				health += regen * Time.deltaTime;
 			}
 		}
-		// RaycastHit hit;
-		// if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange)) {
-		// 	// if (Input.GetButtonDown("Fire1")) {
-		// 	// 	Selector.Select();
-		// 	// } else (hit.collider.gameObject.GetComponent<Selector>()) {
-		// 	// 	Selector.Highlight();
-		// 	// }
-		// }
+		RaycastHit hit;
+		Debug.DrawRay(cam.transform.position, cam.transform.forward * 10, new Color(1,0,0));
+		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange, LayerMask.GetMask("PhysNoWorld"))) {
+			Selector[] selectors = hit.collider.gameObject.GetComponents<Selector>();
+			if (selected != selectors[0]) {
+				if (selected) {
+					selected.SetHighlight(false);
+				}
+				selected = selectors[0];
+				selected.SetHighlight(true);
+			}
+		} else if (selected) {
+			selected.SetHighlight(false);
+			selected = null;
+		}
 	}
 
 	public void damage(float damage)
