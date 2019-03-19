@@ -6,7 +6,7 @@ using UnityEngine;
 public class Wood : MonoBehaviour
 {
     public float breakForce = 0.25f;
-    bool DoPhysics {
+    public bool DoPhysics {
         get {
             return r.isKinematic && r.detectCollisions;
         }
@@ -19,15 +19,24 @@ public class Wood : MonoBehaviour
                 r.Sleep();
         }
     }
-    Material m;
+    public float dissolveTime = 1;
+    public bool dead;
+    public float deathOffset;
+    public bool brokenOnStart;
+    [HideInInspector] public Material material;
     Rigidbody r;
     Collider c;
-    
+    AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         r = GetComponent<Rigidbody>();
-        m = GetComponent<MeshRenderer>().material;
+        material = GetComponent<MeshRenderer>().material;
         DoPhysics = false;
+        if (brokenOnStart) {
+            DoPhysics = true;
+        }
     }
 
     public void Break() {
@@ -36,13 +45,25 @@ public class Wood : MonoBehaviour
     }
 
     public void Die() {
+        if (dead)
+            return;
+        dead = true;
         StartCoroutine(DeathSequence());
     }
 
     IEnumerator DeathSequence() {
+        yield return new WaitForSeconds(deathOffset);
+        audioSource.pitch = Random.Range(0.8f, 1.8f);
+        audioSource.Play();
+        yield return new WaitForSeconds(0.8f);
+        float startTime = Time.timeSinceLevelLoad;
+        float perc = 0;
         do {
-            m.SetFloat("_Dissolve", m.GetFloat("_Dissolve") - 0.1f);
+            perc = (Time.timeSinceLevelLoad - startTime) / dissolveTime;
+            material.SetFloat("_Dissolve", perc);
             yield return null;
-        } while(m.GetFloat("_Dissolve") <= 0);
+        } while(perc < 1);
+        material.SetFloat("_Dissolve", 1);
+        Destroy(this.gameObject);
     }
 }

@@ -8,25 +8,41 @@ ModelImporter:
     100004: //RootNode
     100006: FurnaceColumn
     100008: FrunaceGroundWall
+    100010: Icosphere_003
+    100012: Coals
+    100014: FurnaceCollider
     400000: BoolFurnace
     400002: FrunaceGround
     400004: //RootNode
     400006: FurnaceColumn
     400008: FrunaceGroundWall
+    400010: Icosphere_003
+    400012: Coals
+    400014: FurnaceCollider
     2300000: BoolFurnace
     2300002: FrunaceGround
     2300004: FurnaceColumn
     2300006: FrunaceGroundWall
+    2300008: Icosphere_003
+    2300010: Coals
+    2300012: FurnaceCollider
     3300000: BoolFurnace
     3300002: FrunaceGround
     3300004: FurnaceColumn
     3300006: FrunaceGroundWall
+    3300008: Icosphere_003
+    3300010: Coals
+    3300012: FurnaceCollider
     4300000: BoolFurnace
     4300002: FrunaceGround
     4300004: FurnaceColumn
     4300006: FrunaceGroundWall
+    4300008: Icosphere_003
+    4300010: FurnaceCollider
+    4300012: Coals
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 0
