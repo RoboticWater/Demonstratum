@@ -180,8 +180,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 759480294343509470}
   - {fileID: 5984732931565071387}
+  - {fileID: 759480294343509470}
   m_Father: {fileID: 5984732931661783423}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -284,7 +284,7 @@ RectTransform:
   - {fileID: 538058053018432393}
   - {fileID: 4612802348704757786}
   m_Father: {fileID: 5984732931439200714}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -649,12 +649,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5984732931439200714}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 470, y: -638.2}
-  m_SizeDelta: {x: 20, y: 239.6}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6072021167933611726
 CanvasRenderer:
@@ -1582,6 +1582,12 @@ PrefabInstance:
       objectReference: {fileID: 5887474104637784437}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b, type: 3}
+--- !u!224 &1241461490570613585 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5056074514534953392, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6273591652599407329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5887474104637784437 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 478723923407807380, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
@@ -1594,12 +1600,6 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &1241461490570613585 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5056074514534953392, guid: 33bf6e781c99f8c40bbb6c26d0fa8d3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 6273591652599407329}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6518533279510128934
 PrefabInstance:
   m_ObjectHideFlags: 0

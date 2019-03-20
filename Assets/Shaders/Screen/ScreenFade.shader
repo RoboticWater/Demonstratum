@@ -13,23 +13,10 @@
             "Queue"="Transparent"
             "IgnoreProjector"="True"
             "RenderType"="Transparent"
-            "PreviewType"="Plane"
-            "CanUseSpriteAtlas"="True"
-        }
-
-        Stencil
-        {
-            Ref [_Stencil]
-            Comp [_StencilComp]
-            Pass [_StencilOp]
-            ReadMask [_StencilReadMask]
-            WriteMask [_StencilWriteMask]
         }
 
         Cull Off
         Lighting Off
-        ZWrite Off
-        ZTest [unity_GUIZTestMode]
         Blend SrcAlpha OneMinusSrcAlpha
         // ColorMask [_ColorMask]
 
@@ -66,9 +53,7 @@
 
             sampler2D _MainTex;
             fixed4 _Color;
-            fixed4 _TextureSampleAdd;
-            float4 _ClipRect;
-            float4 _MainTex_ST;
+            fixed4 _MainTex_ST;
             float _Fade;
 
             v2f vert(appdata_t v)
@@ -87,17 +72,9 @@
 
             fixed4 frag(v2f IN) : SV_Target
             {
-                fixed4 color = saturate((tex2D(_MainTex, IN.texcoord) + _TextureSampleAdd) + _Fade) * IN.color;
-                color.a = saturate(color.a * 50);
-                // clip (IN.color.a - 1);
-                // color.a *= 50;
-                // #ifdef UNITY_UI_CLIP_RECT
-                // color.a *= UnityGet2DClipping(IN.worldPosition.xy, _ClipRect);
-                // #endif
-
-                // #ifdef UNITY_UI_ALPHACLIP
-                // #endif
-
+                fixed4 color = saturate((tex2D(_MainTex, IN.texcoord)) + _Fade) * IN.color;
+                clip(color.a - 0.5);
+                color.a = 1;
                 return color;
             }
         ENDCG

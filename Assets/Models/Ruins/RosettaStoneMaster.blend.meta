@@ -39,6 +39,64 @@ ModelImporter:
     100066: Plane_004
     100068: StairsIn
     100070: StairsIn_001
+    100072: Candle
+    100074: Candle_001
+    100076: Candle_002
+    100078: EndRoom
+    100080: EndRoomDoor
+    100082: EndRoomEntrance
+    100084: EndRoomEntranceIndicator
+    100086: EntranceDebris
+    100088: EntranceDebris_001
+    100090: EntranceDebris_002
+    100092: EntranceDoor
+    100094: EntranceFrame
+    100096: EntranceMarker
+    100098: EntranceMarker_001
+    100100: EntranceMound
+    100102: EntranceStairs
+    100104: EntranceStairsHousing
+    100106: EntranceStep
+    100108: EntranceStep_001
+    100110: EntranceStep_002
+    100112: EntranceStoop
+    100114: EntranceToRuins
+    100116: Grass0
+    100118: Grass1
+    100120: Grass2
+    100122: LightBlocker
+    100124: LightBowl
+    100126: RosettaRoom
+    100128: RosettaRoomEntrance
+    100130: RosettaStone
+    100132: RuinsAnteChamber
+    100134: RuinsCol
+    100136: RuinsCol_001
+    100138: RuinsCol_002
+    100140: RuinsCol_003
+    100142: RuinsCol_004
+    100144: RuinsCol_005
+    100146: RuinsCol_006
+    100148: RuinsCol_007
+    100150: RuinsCol_008
+    100152: RuinsCol_009
+    100154: RuinsCol_010
+    100156: RuinsCol_011
+    100158: RuinsCol_012
+    100160: RuinsCol_013
+    100162: RuinsCol_014
+    100164: RuinsCol_015
+    100166: RuinsCol_016
+    100168: RuinsCol_017
+    100170: RuinsCol_018
+    100172: RuinsCol_019
+    100174: StairsEndRoom
+    100176: StairsEndRoom_001
+    100178: Tree0
+    100180: Tree1
+    100182: Water
+    100184: WaterRoom
+    100186: WaterRoom_001
     400000: Cube
     400002: Plane
     400004: //RootNode
@@ -75,6 +133,64 @@ ModelImporter:
     400066: Plane_004
     400068: StairsIn
     400070: StairsIn_001
+    400072: Candle
+    400074: Candle_001
+    400076: Candle_002
+    400078: EndRoom
+    400080: EndRoomDoor
+    400082: EndRoomEntrance
+    400084: EndRoomEntranceIndicator
+    400086: EntranceDebris
+    400088: EntranceDebris_001
+    400090: EntranceDebris_002
+    400092: EntranceDoor
+    400094: EntranceFrame
+    400096: EntranceMarker
+    400098: EntranceMarker_001
+    400100: EntranceMound
+    400102: EntranceStairs
+    400104: EntranceStairsHousing
+    400106: EntranceStep
+    400108: EntranceStep_001
+    400110: EntranceStep_002
+    400112: EntranceStoop
+    400114: EntranceToRuins
+    400116: Grass0
+    400118: Grass1
+    400120: Grass2
+    400122: LightBlocker
+    400124: LightBowl
+    400126: RosettaRoom
+    400128: RosettaRoomEntrance
+    400130: RosettaStone
+    400132: RuinsAnteChamber
+    400134: RuinsCol
+    400136: RuinsCol_001
+    400138: RuinsCol_002
+    400140: RuinsCol_003
+    400142: RuinsCol_004
+    400144: RuinsCol_005
+    400146: RuinsCol_006
+    400148: RuinsCol_007
+    400150: RuinsCol_008
+    400152: RuinsCol_009
+    400154: RuinsCol_010
+    400156: RuinsCol_011
+    400158: RuinsCol_012
+    400160: RuinsCol_013
+    400162: RuinsCol_014
+    400164: RuinsCol_015
+    400166: RuinsCol_016
+    400168: RuinsCol_017
+    400170: RuinsCol_018
+    400172: RuinsCol_019
+    400174: StairsEndRoom
+    400176: StairsEndRoom_001
+    400178: Tree0
+    400180: Tree1
+    400182: Water
+    400184: WaterRoom
+    400186: WaterRoom_001
     2300000: Cube
     2300002: Plane
     2300004: Sphere
@@ -110,6 +226,64 @@ ModelImporter:
     2300064: Plane_004
     2300066: StairsIn
     2300068: StairsIn_001
+    2300070: Candle
+    2300072: Candle_001
+    2300074: Candle_002
+    2300076: EndRoom
+    2300078: EndRoomDoor
+    2300080: EndRoomEntrance
+    2300082: EndRoomEntranceIndicator
+    2300084: EntranceDebris
+    2300086: EntranceDebris_001
+    2300088: EntranceDebris_002
+    2300090: EntranceDoor
+    2300092: EntranceFrame
+    2300094: EntranceMarker
+    2300096: EntranceMarker_001
+    2300098: EntranceMound
+    2300100: EntranceStairs
+    2300102: EntranceStairsHousing
+    2300104: EntranceStep
+    2300106: EntranceStep_001
+    2300108: EntranceStep_002
+    2300110: EntranceStoop
+    2300112: EntranceToRuins
+    2300114: Grass0
+    2300116: Grass1
+    2300118: Grass2
+    2300120: LightBlocker
+    2300122: LightBowl
+    2300124: RosettaRoom
+    2300126: RosettaRoomEntrance
+    2300128: RosettaStone
+    2300130: RuinsAnteChamber
+    2300132: RuinsCol
+    2300134: RuinsCol_001
+    2300136: RuinsCol_002
+    2300138: RuinsCol_003
+    2300140: RuinsCol_004
+    2300142: RuinsCol_005
+    2300144: RuinsCol_006
+    2300146: RuinsCol_007
+    2300148: RuinsCol_008
+    2300150: RuinsCol_009
+    2300152: RuinsCol_010
+    2300154: RuinsCol_011
+    2300156: RuinsCol_012
+    2300158: RuinsCol_013
+    2300160: RuinsCol_014
+    2300162: RuinsCol_015
+    2300164: RuinsCol_016
+    2300166: RuinsCol_017
+    2300168: RuinsCol_018
+    2300170: RuinsCol_019
+    2300172: StairsEndRoom
+    2300174: StairsEndRoom_001
+    2300176: Tree0
+    2300178: Tree1
+    2300180: Water
+    2300182: WaterRoom
+    2300184: WaterRoom_001
     3300000: Cube
     3300002: Plane
     3300004: Sphere
@@ -145,6 +319,64 @@ ModelImporter:
     3300064: Plane_004
     3300066: StairsIn
     3300068: StairsIn_001
+    3300070: Candle
+    3300072: Candle_001
+    3300074: Candle_002
+    3300076: EndRoom
+    3300078: EndRoomDoor
+    3300080: EndRoomEntrance
+    3300082: EndRoomEntranceIndicator
+    3300084: EntranceDebris
+    3300086: EntranceDebris_001
+    3300088: EntranceDebris_002
+    3300090: EntranceDoor
+    3300092: EntranceFrame
+    3300094: EntranceMarker
+    3300096: EntranceMarker_001
+    3300098: EntranceMound
+    3300100: EntranceStairs
+    3300102: EntranceStairsHousing
+    3300104: EntranceStep
+    3300106: EntranceStep_001
+    3300108: EntranceStep_002
+    3300110: EntranceStoop
+    3300112: EntranceToRuins
+    3300114: Grass0
+    3300116: Grass1
+    3300118: Grass2
+    3300120: LightBlocker
+    3300122: LightBowl
+    3300124: RosettaRoom
+    3300126: RosettaRoomEntrance
+    3300128: RosettaStone
+    3300130: RuinsAnteChamber
+    3300132: RuinsCol
+    3300134: RuinsCol_001
+    3300136: RuinsCol_002
+    3300138: RuinsCol_003
+    3300140: RuinsCol_004
+    3300142: RuinsCol_005
+    3300144: RuinsCol_006
+    3300146: RuinsCol_007
+    3300148: RuinsCol_008
+    3300150: RuinsCol_009
+    3300152: RuinsCol_010
+    3300154: RuinsCol_011
+    3300156: RuinsCol_012
+    3300158: RuinsCol_013
+    3300160: RuinsCol_014
+    3300162: RuinsCol_015
+    3300164: RuinsCol_016
+    3300166: RuinsCol_017
+    3300168: RuinsCol_018
+    3300170: RuinsCol_019
+    3300172: StairsEndRoom
+    3300174: StairsEndRoom_001
+    3300176: Tree0
+    3300178: Tree1
+    3300180: Water
+    3300182: WaterRoom
+    3300184: WaterRoom_001
     4300000: Plane
     4300002: Sphere_003
     4300004: Sphere_002
@@ -180,6 +412,64 @@ ModelImporter:
     4300064: Cube_006
     4300066: Cube_007
     4300068: StairsIn
+    4300070: WaterRoom_001
+    4300072: StairsEndRoom_001
+    4300074: RuinsCol_019
+    4300076: RuinsCol_018
+    4300078: RuinsCol_017
+    4300080: RuinsCol_016
+    4300082: RuinsCol_015
+    4300084: RuinsCol_014
+    4300086: RuinsCol_013
+    4300088: RuinsCol_012
+    4300090: RuinsCol_011
+    4300092: RuinsCol_010
+    4300094: RuinsCol_009
+    4300096: RuinsCol_008
+    4300098: RuinsCol_007
+    4300100: RuinsCol_005
+    4300102: EndRoomEntranceIndicator
+    4300104: EndRoomDoor
+    4300106: EndRoomEntrance
+    4300108: EndRoom
+    4300110: LightBlocker
+    4300112: Candle_001
+    4300114: Candle
+    4300116: Candle_002
+    4300118: LightBowl
+    4300120: RosettaRoom
+    4300122: RosettaStone
+    4300124: RosettaRoomEntrance
+    4300126: StairsEndRoom
+    4300128: RuinsCol_001
+    4300130: RuinsCol
+    4300132: RuinsCol_003
+    4300134: RuinsCol_004
+    4300136: RuinsCol_002
+    4300138: RuinsCol_006
+    4300140: WaterRoom
+    4300142: Water
+    4300144: EntranceDebris
+    4300146: EntranceDebris_001
+    4300148: EntranceDebris_002
+    4300150: EntranceDoor
+    4300152: EntranceFrame
+    4300154: EntranceMarker
+    4300156: EntranceMarker_001
+    4300158: EntranceMound
+    4300160: EntranceStairs
+    4300162: EntranceStairsHousing
+    4300164: EntranceStep
+    4300166: EntranceStep_001
+    4300168: EntranceStep_002
+    4300170: EntranceStoop
+    4300172: EntranceToRuins
+    4300174: Grass0
+    4300176: Grass1
+    4300178: Grass2
+    4300180: RuinsAnteChamber
+    4300182: Tree0
+    4300184: Tree1
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

@@ -7,8 +7,10 @@ public class BookFountainPool : ChordListener
     public WaterSpout[] spouts;
     public WaterRise water;
     public float riseDelay = 0.3f;
+    int waterLevel = 0;
 
     private void OnTriggerEnter(Collider other) {
+        waterLevel = 1;
         StartCoroutine(StartWater());
     }
 
@@ -18,5 +20,9 @@ public class BookFountainPool : ChordListener
         }
         yield return new WaitForSeconds(riseDelay);
         water.StartRise();
+    }
+    
+    public override void Save() {
+        GameManager.instance.SetObject(this, "_waterLevel", waterLevel);
     }
 }

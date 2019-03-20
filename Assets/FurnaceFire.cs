@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FurnaceFire : MonoBehaviour
+public class FurnaceFire : Persistent
 {
     public int totalWood = 5;
     public int curWood;
@@ -24,9 +24,18 @@ public class FurnaceFire : MonoBehaviour
     AudioSource audioSource;
     
     private void Start() {
-       fire.transform.localScale = new Vector3(fireStartSize, fireStartSize, fireStartSize);
-       light.range = minAreaSize;
-       audioSource = GetComponent<AudioSource>();
+        fire.transform.localScale = new Vector3(fireStartSize, fireStartSize, fireStartSize);
+        light.range = minAreaSize;
+        audioSource = GetComponent<AudioSource>();
+
+        object curWood = GameManager.instance.GetObject(this, "_curWood");
+        if (curWood != null) {
+            this.curWood = (int) curWood;
+            fire.transform.localScale = new Vector3(fireEndSize, fireEndSize, fireEndSize) * (float) this.curWood / totalWood + 
+                new Vector3(fireStartSize, fireStartSize, fireStartSize);
+            light.range = minAreaSize + maxAreaSize * (float) this.curWood / totalWood;
+            audioSource.volume = 0.1f + (float) this.curWood / totalWood;
+        }
     }
 
     private void FixedUpdate() {
@@ -44,12 +53,17 @@ public class FurnaceFire : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         Wood w = other.GetComponent<Wood>();
         if (w != null) {
-            curWood += 1;            
+            curWood += 1;
+            GameManager.instance.SetObject(this, "_curWood", curWood);           
             w.Die();
             var main = fire.main;
             main.startSizeMultiplier = 2.2f;
             fire.Emit(20);
             main.startSizeMultiplier = 1;
         }
+    }
+
+    public override void Save() {
+        GameManager.instance.SetObject(this, "_curWood", curWood);
     }
 }

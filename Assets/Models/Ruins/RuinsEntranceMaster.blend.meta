@@ -1033,6 +1033,27 @@ ModelImporter:
     102054: Plane_997
     102056: Plane_998
     102058: Plane_999
+    102060: EntranceDebris
+    102062: EntranceDebris_001
+    102064: EntranceDebris_002
+    102066: EntranceDoor
+    102068: EntranceFrame
+    102070: EntranceMarker
+    102072: EntranceMarker_001
+    102074: EntranceMound
+    102076: EntranceStairs
+    102078: EntranceStairsHousing
+    102080: EntranceStep
+    102082: EntranceStep_001
+    102084: EntranceStep_002
+    102086: EntranceStoop
+    102088: EntranceToRuins
+    102090: Grass0
+    102092: Grass1
+    102094: Grass2
+    102096: RuinsAnteChamber
+    102098: Tree0
+    102100: Tree1
     400000: Cube
     400002: Cube_001
     400004: Cube_003
@@ -2063,6 +2084,27 @@ ModelImporter:
     402054: Plane_997
     402056: Plane_998
     402058: Plane_999
+    402060: EntranceDebris
+    402062: EntranceDebris_001
+    402064: EntranceDebris_002
+    402066: EntranceDoor
+    402068: EntranceFrame
+    402070: EntranceMarker
+    402072: EntranceMarker_001
+    402074: EntranceMound
+    402076: EntranceStairs
+    402078: EntranceStairsHousing
+    402080: EntranceStep
+    402082: EntranceStep_001
+    402084: EntranceStep_002
+    402086: EntranceStoop
+    402088: EntranceToRuins
+    402090: Grass0
+    402092: Grass1
+    402094: Grass2
+    402096: RuinsAnteChamber
+    402098: Tree0
+    402100: Tree1
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_003
@@ -3092,6 +3134,27 @@ ModelImporter:
     2302052: Plane_997
     2302054: Plane_998
     2302056: Plane_999
+    2302058: EntranceDebris
+    2302060: EntranceDebris_001
+    2302062: EntranceDebris_002
+    2302064: EntranceDoor
+    2302066: EntranceFrame
+    2302068: EntranceMarker
+    2302070: EntranceMarker_001
+    2302072: EntranceMound
+    2302074: EntranceStairs
+    2302076: EntranceStairsHousing
+    2302078: EntranceStep
+    2302080: EntranceStep_001
+    2302082: EntranceStep_002
+    2302084: EntranceStoop
+    2302086: EntranceToRuins
+    2302088: Grass0
+    2302090: Grass1
+    2302092: Grass2
+    2302094: RuinsAnteChamber
+    2302096: Tree0
+    2302098: Tree1
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_003
@@ -4121,6 +4184,27 @@ ModelImporter:
     3302052: Plane_997
     3302054: Plane_998
     3302056: Plane_999
+    3302058: EntranceDebris
+    3302060: EntranceDebris_001
+    3302062: EntranceDebris_002
+    3302064: EntranceDoor
+    3302066: EntranceFrame
+    3302068: EntranceMarker
+    3302070: EntranceMarker_001
+    3302072: EntranceMound
+    3302074: EntranceStairs
+    3302076: EntranceStairsHousing
+    3302078: EntranceStep
+    3302080: EntranceStep_001
+    3302082: EntranceStep_002
+    3302084: EntranceStoop
+    3302086: EntranceToRuins
+    3302088: Grass0
+    3302090: Grass1
+    3302092: Grass2
+    3302094: RuinsAnteChamber
+    3302096: Tree0
+    3302098: Tree1
     4300000: Plane_011
     4300002: Plane_010
     4300004: Plane_009
@@ -5150,6 +5234,27 @@ ModelImporter:
     4302052: Plane_522
     4302054: Plane_521
     4302056: Plane_520
+    4302058: Grass2
+    4302060: Grass1
+    4302062: Grass0
+    4302064: Tree0
+    4302066: Tree1
+    4302068: EntranceStep
+    4302070: EntranceStep_001
+    4302072: EntranceStep_002
+    4302074: EntranceDebris
+    4302076: EntranceDebris_001
+    4302078: EntranceDebris_002
+    4302080: EntranceStoop
+    4302082: EntranceStairsHousing
+    4302084: RuinsAnteChamber
+    4302086: EntranceToRuins
+    4302088: EntranceMarker
+    4302090: EntranceMarker_001
+    4302092: EntranceStairs
+    4302094: EntranceMound
+    4302096: EntranceFrame
+    4302098: EntranceDoor
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
