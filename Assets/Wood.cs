@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
-public class Wood : MonoBehaviour
+public class Wood : Persistent
 {
     public float breakForce = 0.25f;
     public bool DoPhysics {
         get {
-            return r.isKinematic && r.detectCollisions;
+            return !r.isKinematic && r.detectCollisions;
         }
         set {
             r.isKinematic = !value;
@@ -37,6 +37,22 @@ public class Wood : MonoBehaviour
         if (brokenOnStart) {
             DoPhysics = true;
         }
+
+        object dead = GameManager.instance.GetObject(this, "_dead");
+        if (dead != null) {   
+            Destroy(this.gameObject);
+        } else {
+            object pos = GameManager.instance.GetObject(this, "_pos");
+            if (pos != null) {
+                transform.position = (Vector3) pos;
+                DoPhysics = true;
+            }
+            object rot = GameManager.instance.GetObject(this, "_rot");
+            if (rot != null) {
+                transform.rotation = (Quaternion) rot;
+                DoPhysics = true;
+            }
+        }
     }
 
     public void Break() {
@@ -48,6 +64,7 @@ public class Wood : MonoBehaviour
         if (dead)
             return;
         dead = true;
+        GameManager.instance.SetObject(this, "_dead", true);
         StartCoroutine(DeathSequence());
     }
 
@@ -65,5 +82,17 @@ public class Wood : MonoBehaviour
         } while(perc < 1);
         material.SetFloat("_Dissolve", 1);
         Destroy(this.gameObject);
+    }
+
+    private void OnDestroy() {
+        GameManager.instance.DeregsiterPersistent(this);
+        Destroy(material);
+    }
+
+    public override void Save() {
+        if (DoPhysics) {
+            GameManager.instance.SetObject(this, "_pos", transform.position);
+            GameManager.instance.SetObject(this, "_rot", transform.rotation);
+        }
     }
 }

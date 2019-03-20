@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
 			}
 		}
 		RaycastHit hit;
-		Debug.DrawRay(cam.transform.position, cam.transform.forward * 10, new Color(1,0,0));
 		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange, LayerMask.GetMask("PhysNoWorld"))) {
 			Selector[] selectors = hit.collider.gameObject.GetComponents<Selector>();
 			if (selected != selectors[0]) {

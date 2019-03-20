@@ -22,6 +22,7 @@ public class WoodSelector : Selector
     public float depthWoodOffset = 0.1f;
 
     public float dropForce = 2;
+    public float dropTorque = 1.5f;
 
     public override void SetHighlight(bool on) {
         highlightOn = on;
@@ -64,11 +65,15 @@ public class WoodSelector : Selector
             perc += (highlightOn ? 1 : -1) * (Time.timeSinceLevelLoad - lastTime) / highlightTime;
             lastTime = Time.timeSinceLevelLoad;
             foreach (Wood w in wood) {
+                if (w.dead)
+                    continue;
                 w.material.SetFloat("_OutlineWidth", Mathf.Lerp(0, outlineWidth, highlightCurve.Evaluate(perc)));
             }
             yield return null;
         } while(perc <= 1 && perc >= 0);
         foreach (Wood w in wood) {
+            if (w.dead)
+                continue;
             w.material.SetFloat("_OutlineWidth", highlightOn ? outlineWidth : 0);
         }
         highlighting = false;
@@ -123,6 +128,7 @@ public class WoodSelector : Selector
             wood[i].deathOffset = i * Random.Range(0.4f, 0.6f);
             wood[i].DoPhysics = true;
             wood[i].GetComponent<Rigidbody>().AddForce(GameManager.instance.Player.cam.transform.forward * dropForce, ForceMode.Impulse);
+            wood[i].GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-dropTorque, dropTorque), Random.Range(-dropTorque, dropTorque), Random.Range(-dropTorque, dropTorque)), ForceMode.Impulse);
         }
     }
 }

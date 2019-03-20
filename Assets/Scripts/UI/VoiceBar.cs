@@ -27,7 +27,7 @@ public class VoiceBar : MonoBehaviour
         }
     }
 
-    void Start()
+    void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
         noteLines = noteLinesContainer.GetComponentsInChildren<NoteLine>();

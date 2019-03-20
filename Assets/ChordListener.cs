@@ -2,20 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChordListener : MonoBehaviour
+public abstract class ChordListener : Persistent
 {
     protected bool listening;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() != null) {

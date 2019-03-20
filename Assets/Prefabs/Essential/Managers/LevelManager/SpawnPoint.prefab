@@ -58,7 +58,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectTime: 1
   fadeIn: 1
-  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   fadeMaterial: {fileID: 2100000, guid: db71b1987d569934db6b9a9d1079ee5f, type: 2}
   effectCurve:
     serializedVersion: 2

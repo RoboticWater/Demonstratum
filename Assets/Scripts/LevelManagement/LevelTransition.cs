@@ -21,6 +21,7 @@ public class LevelTransition : MonoBehaviour
 		if (outTransition != null) {
 			StartCoroutine(outTransition.Transition(() => {
 				GameManager.instance.SpawnPointID = spawnPointID;
+				GameManager.instance.Save();
 				SceneManager.LoadScene(toLevel);
 			}));
 		} else {
