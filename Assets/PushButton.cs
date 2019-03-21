@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Button : Selector
+public class PushButton : Selector
 {
     public float outlineWidth = 0.1f;
     public float highlightTime = 0.1f;
@@ -42,7 +42,6 @@ public class Button : Selector
     }
 
     private void OnDestroy() {
-        GameManager.instance.DeregsiterPersistent(this);
         Destroy(m);
     }
 }
