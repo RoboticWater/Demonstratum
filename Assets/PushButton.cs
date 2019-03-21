@@ -14,7 +14,7 @@ public class PushButton : Selector
 
     Material m;
 
-    private void Start() {
+    protected void Start() {
         m = GetComponent<Renderer>().material;
     }
 

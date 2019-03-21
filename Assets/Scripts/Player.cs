@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 		if (Input.GetButtonDown("Fire1")) {
+			UI.ShowReticle();
 			if (holding) {
 				holding.Select();
 			} else if (selected != null) {
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
 		}
 		RaycastHit hit;
 		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange, LayerMask.GetMask("PhysNoWorld"))) {
+			UI.ShowReticle();
 			Selector[] selectors = hit.collider.gameObject.GetComponents<Selector>();
 			if (selected != selectors[0]) {
 				if (selected) {
