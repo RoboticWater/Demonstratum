@@ -14,6 +14,10 @@ public class PushButton : Selector
 
     Material m;
 
+    private void Start() {
+        m = GetComponent<Renderer>().material;
+    }
+
     public override void Select()
     {
         throw new System.NotImplementedException();
