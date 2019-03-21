@@ -37,7 +37,7 @@
 
 	SubShader
 	{
-		Tags{ "Queue" = "AlphaTest" "IgnoreProjector" = "True" }
+		Tags{ "Queue" = "AlphaTest+100" "IgnoreProjector" = "True" }
 
 		Pass //Outline
 		{
