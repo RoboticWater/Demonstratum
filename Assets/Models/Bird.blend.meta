@@ -14,16 +14,29 @@ ModelImporter:
     2300000: Cube
     2300002: Cube_001
     2300004: Cube_002
+    2300006: //RootNode
     3300000: Cube
     3300002: Cube_001
     3300004: Cube_002
+    3300006: //RootNode
     4300000: Cube_002
     4300002: Cube_001
     4300004: Cube
+    4300006: Bird
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001__BirdBody
+    second: {fileID: 2100000, guid: f7240dd9d29b54880abd5a0a29aa169e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None__Beak
+    second: {fileID: 2100000, guid: f7240dd9d29b54880abd5a0a29aa169e, type: 2}
   materials:
     importMaterials: 0
     materialName: 0
