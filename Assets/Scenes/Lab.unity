@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bcfa83741bad64aaa10cae81639665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineWidth: 0.1
+  outlineWidth: 0.02
   highlightTime: 0.1
   highlightCurve:
     serializedVersion: 2
@@ -8453,7 +8453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00bcfa83741bad64aaa10cae81639665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineWidth: 0.1
+  outlineWidth: 0.02
   highlightTime: 0.1
   highlightCurve:
     serializedVersion: 2
