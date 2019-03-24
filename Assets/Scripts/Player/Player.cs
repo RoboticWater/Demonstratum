@@ -61,15 +61,19 @@ public class Player : MonoBehaviour
 			}
 		}
 		RaycastHit hit;
-		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange, LayerMask.GetMask("PhysNoWorld"))) {
-			UI.ShowReticle();
+		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange)) {
 			Selector[] selectors = hit.collider.gameObject.GetComponents<Selector>();
-			if (selected != selectors[0]) {
-				if (selected) {
-					selected.SetHighlight(false);
+			if (selectors.Length > 0) {
+				UI.ShowReticle();
+				if (selected != selectors[0]) {
+					if (selected)
+						selected.SetHighlight(false);
+					selected = selectors[0];
+					selected.SetHighlight(true);
 				}
-				selected = selectors[0];
-				selected.SetHighlight(true);
+			} else if (selected) {
+				selected.SetHighlight(false);
+				selected = null;
 			}
 		} else if (selected) {
 			selected.SetHighlight(false);
