@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class PushButton : Selector
 {
     public float outlineWidth = 0.1f;
     public float highlightTime = 0.1f;
     public AnimationCurve highlightCurve;
+    [SerializeField] private UnityEvent pushEvent;
 
     bool highlightOn;
     bool highlighting;
@@ -20,7 +22,7 @@ public class PushButton : Selector
 
     public override void Select()
     {
-        throw new System.NotImplementedException();
+        pushEvent.Invoke();
     }
 
     public override void SetHighlight(bool on)

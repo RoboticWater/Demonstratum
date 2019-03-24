@@ -3,6 +3,7 @@
 	Properties
 	{
 		_Color("Main Color", Color) = (0.5,0.5,0.5,1)
+		_Emission("Emission", Color) = (0,0,0,1)
 		_MainTex ("Texture", 2D) = "white" {}
 		_OutlineColor ("Outline color", Color) = (0,0,0,1)
 		_OutlineWidth ("Outlines width", Range (0.0, 2.0)) = 1.1
@@ -29,6 +30,7 @@
 	uniform float4 _OutlineColor;
 	uniform sampler2D _MainTex;
 	uniform float4 _Color;
+	uniform float4 _Emission;
 
     half _Glossiness;
     half _Metallic;
@@ -37,7 +39,7 @@
 
 	SubShader
 	{
-		Tags{ "Queue" = "AlphaTest+100" "IgnoreProjector" = "True" }
+		Tags{ "Queue" = "AlphaTest+10" "IgnoreProjector" = "True" }
 
 		Pass //Outline
 		{
@@ -93,6 +95,7 @@
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
+			o.Emission = _Emission;
             o.Alpha = c.a;
 		}
 		ENDCG
