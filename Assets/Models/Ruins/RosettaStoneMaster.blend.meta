@@ -97,6 +97,7 @@ ModelImporter:
     100182: Water
     100184: WaterRoom
     100186: WaterRoom_001
+    100188: BigTree
     400000: Cube
     400002: Plane
     400004: //RootNode
@@ -191,6 +192,7 @@ ModelImporter:
     400182: Water
     400184: WaterRoom
     400186: WaterRoom_001
+    400188: BigTree
     2300000: Cube
     2300002: Plane
     2300004: Sphere
@@ -284,6 +286,7 @@ ModelImporter:
     2300180: Water
     2300182: WaterRoom
     2300184: WaterRoom_001
+    2300186: BigTree
     3300000: Cube
     3300002: Plane
     3300004: Sphere
@@ -377,6 +380,7 @@ ModelImporter:
     3300180: Water
     3300182: WaterRoom
     3300184: WaterRoom_001
+    3300186: BigTree
     4300000: Plane
     4300002: Sphere_003
     4300004: Sphere_002
@@ -470,6 +474,7 @@ ModelImporter:
     4300180: RuinsAnteChamber
     4300182: Tree0
     4300184: Tree1
+    4300186: BigTree
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
