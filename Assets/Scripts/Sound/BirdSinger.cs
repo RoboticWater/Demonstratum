@@ -71,6 +71,6 @@ public class BirdSinger : ChordListener
 
     public override void Save()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

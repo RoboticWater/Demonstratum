@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: a2d758498aee30a43bb6c0d4796a5986
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: GearCrank
+    100002: HeatSink
+    100004: HoleBox
+    100006: Jar
+    100008: Juicer
+    100010: //RootNode
+    100012: Metronome
+    100014: Orbo
+    100016: Pumper
+    100018: Pyramid
+    100020: RandomBox
+    100022: Shaft
+    100024: Tube
+    400000: GearCrank
+    400002: HeatSink
+    400004: HoleBox
+    400006: Jar
+    400008: Juicer
+    400010: //RootNode
+    400012: Metronome
+    400014: Orbo
+    400016: Pumper
+    400018: Pyramid
+    400020: RandomBox
+    400022: Shaft
+    400024: Tube
+    2300000: GearCrank
+    2300002: HeatSink
+    2300004: HoleBox
+    2300006: Jar
+    2300008: Juicer
+    2300010: Metronome
+    2300012: Orbo
+    2300014: Pumper
+    2300016: Pyramid
+    2300018: RandomBox
+    2300020: Shaft
+    2300022: Tube
+    3300000: GearCrank
+    3300002: HeatSink
+    3300004: HoleBox
+    3300006: Jar
+    3300008: Juicer
+    3300010: Metronome
+    3300012: Orbo
+    3300014: Pumper
+    3300016: Pyramid
+    3300018: RandomBox
+    3300020: Shaft
+    3300022: Tube
+    4300000: Juicer
+    4300002: HoleBox
+    4300004: Metronome
+    4300006: Jar
+    4300008: Pyramid
+    4300010: Orbo
+    4300012: Tube
+    4300014: Shaft
+    4300016: RandomBox
+    4300018: GearCrank
+    4300020: Pumper
+    4300022: HeatSink
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
