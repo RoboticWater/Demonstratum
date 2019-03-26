@@ -296,10 +296,13 @@ ModelImporter:
     100580: WavyGardenBuilding_001
     100582: WavyGardenBuilding_002
     100584: WavyGardenBuilding_003
+<<<<<<< HEAD
     100586: Building
     100588: Strut
     100590: Strut_001
     100592: Strut_002
+=======
+>>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
     400000: BookFountainFloorTop
     400002: BookFountainPoolWalls
     400004: BookFountainRamp
@@ -593,10 +596,13 @@ ModelImporter:
     400580: WavyGardenBuilding_001
     400582: WavyGardenBuilding_002
     400584: WavyGardenBuilding_003
+<<<<<<< HEAD
     400586: Building
     400588: Strut
     400590: Strut_001
     400592: Strut_002
+=======
+>>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
     2300000: BookFountainFloorTop
     2300002: BookFountainPoolWalls
     2300004: BookFountainRamp
@@ -889,10 +895,13 @@ ModelImporter:
     2300578: WavyGardenBuilding_001
     2300580: WavyGardenBuilding_002
     2300582: WavyGardenBuilding_003
+<<<<<<< HEAD
     2300584: Building
     2300586: Strut
     2300588: Strut_001
     2300590: Strut_002
+=======
+>>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
     3300000: BookFountainFloorTop
     3300002: BookFountainPoolWalls
     3300004: BookFountainRamp
@@ -1185,10 +1194,13 @@ ModelImporter:
     3300578: WavyGardenBuilding_001
     3300580: WavyGardenBuilding_002
     3300582: WavyGardenBuilding_003
+<<<<<<< HEAD
     3300584: Building
     3300586: Strut
     3300588: Strut_001
     3300590: Strut_002
+=======
+>>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
     4300000: BookFountainUpperHallCeilTube_008
     4300002: BookFountainUpperHallCeilTube_007
     4300004: BookFountainUpperHallCeilTube_006
@@ -1481,10 +1493,13 @@ ModelImporter:
     4300578: BookFountainTree
     4300580: FurnaceSail_004
     4300582: WavyGarden
+<<<<<<< HEAD
     4300584: Strut_002
     4300586: Building
     4300588: Strut_001
     4300590: Strut
+=======
+>>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

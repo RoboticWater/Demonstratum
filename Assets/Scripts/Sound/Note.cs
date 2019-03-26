@@ -42,7 +42,11 @@ public class Note : MonoBehaviour
 
     public void Play(float intensity = 1f) {
         voiceNote = AudioManager.instance.GetNote();
+<<<<<<< HEAD
         voiceNote.doReaction = doReaction;
+=======
+        voiceNote.doReaction = false;
+>>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
         voiceNote.mainFrequency = frequency;
         voiceNote.frequencyModulationOscillatorFrequency = oscillation; 
         voiceNote.useFrequencyModulation = oscillation != 0;

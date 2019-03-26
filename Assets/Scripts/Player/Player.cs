@@ -61,7 +61,11 @@ public class Player : MonoBehaviour
 			}
 		}
 		RaycastHit hit;
+<<<<<<< HEAD
 		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange, ~LayerMask.GetMask("Player"))) {
+=======
+		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, selectionRange)) {
+>>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
 			Selector[] selectors = hit.collider.gameObject.GetComponents<Selector>();
 			if (selectors.Length > 0) {
 				UI.ShowReticle();
