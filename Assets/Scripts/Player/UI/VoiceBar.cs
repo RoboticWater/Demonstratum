@@ -62,15 +62,10 @@ public class VoiceBar : MonoBehaviour
             if (!noteLines[i].Empty)
                 lastFilled = i;
         }
-<<<<<<< HEAD
         if (lastFilled < 0) {
             speaking = false;
             yield break;
         }
-=======
-        if (lastFilled < 0)
-            yield break;
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
         for (int i = 0; i < lastFilled + 1; i++) {
             NoteLine nl = noteLines[i];
             nl.Play();

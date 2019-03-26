@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Models/Lab/Furniture/SideTable.blend.meta
 guid: 0e62e9779ae563d4398482727c5411a4
 ModelImporter:
   serializedVersion: 23
@@ -19,18 +18,6 @@ ModelImporter:
     4300000: SideTable
     4300002: Cabinet
     4300004: Collider_SideTable
-=======
-guid: d2ab2bb36f780cf47a87c719f4aeaebf
-ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: unnamed
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Sphere
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce:Assets/Models/HumanHead.blend.meta
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -95,7 +82,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -113,7 +100,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

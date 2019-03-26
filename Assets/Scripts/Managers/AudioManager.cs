@@ -36,10 +36,6 @@ public class AudioManager : MonoBehaviour
     public void GetSoundReactors() {
         var srs = FindObjectsOfType<MonoBehaviour>().OfType<SoundReactor>();
         foreach (SoundReactor s in srs) {
-<<<<<<< HEAD
-=======
-            print(((MonoBehaviour) s).gameObject.name);
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
             soundReactors.Add(s);
         }
     }

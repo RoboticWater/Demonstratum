@@ -1,46 +1,13 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 742b2e9bb92ed0e428b7ef5ccafe7f46
-=======
-<<<<<<< HEAD:Assets/Models/HumanHead.blend.meta
-guid: d2ab2bb36f780cf47a87c719f4aeaebf
-=======
-guid: 742b2e9bb92ed0e428b7ef5ccafe7f46
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce:Assets/Models/tree.blend.meta
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:Assets/Models/HumanHead.blend.meta
     400000: //RootNode
-    2100000: unnamed
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Sphere
-=======
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
-    100002: Tree
-    100004: TreeCollider
-    400000: //RootNode
-    400002: Tree
-    400004: TreeCollider
-    2100000: unnamed
-    2300000: //RootNode
-    2300002: Tree
-    2300004: TreeCollider
-    3300000: //RootNode
-    3300002: Tree
-    3300004: TreeCollider
-    4300000: Plane
-    4300002: Tree
-    4300004: TreeCollider
-<<<<<<< HEAD
-=======
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce:Assets/Models/tree.blend.meta
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
+    4300000: Tree
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -94,11 +61,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-<<<<<<< HEAD
-    useFileScale: 1
-=======
     useFileScale: 0
->>>>>>> ece97262fcf14c7f90a685449b1030ad84e0e8ce
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
@@ -109,7 +72,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -127,7 +90,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

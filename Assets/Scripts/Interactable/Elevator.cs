@@ -9,6 +9,8 @@ public class Elevator : MonoBehaviour
     [SerializeField] private float speedSmooth = 0.3f;
     [SerializeField] private float elevatorError = 0.001f;
     [SerializeField] private float innerDoorOpenDelay = 0.1f;
+    [SerializeField] private float closeDelay = 10f;
+    float closeTimer;
 
     [SerializeField] private int CurFloor = 1;
     [SerializeField] private ElevatorDoor[] floorDoors;
@@ -23,11 +25,16 @@ public class Elevator : MonoBehaviour
 
     private void Start() {
         transform.position = floorTransforms[CurFloor].position;
+        closeTimer = closeDelay;
     }
 
     private void Update() {
         if (moving)
             transform.position = Vector3.SmoothDamp(transform.position, moveTarget, ref velocity, speedSmooth, maxSpeed);
+        if (floorDoors[CurFloor].isOpen && !working)
+            closeTimer -= Time.deltaTime;
+        if (closeTimer <= 0)
+            StartCoroutine(CloseDoors());
     }
 
     public void MoveToFloor(int floor) {
@@ -65,6 +72,17 @@ public class Elevator : MonoBehaviour
             innerDoor.Open();
             CurFloor = floor;
         }
+        working = false;
+    }
+
+    IEnumerator CloseDoors() {;
+        closeTimer = closeDelay;
+        working = true;
+        if (floorDoors[CurFloor].isOpen)
+            floorDoors[CurFloor].Close();
+        if (innerDoor.isOpen)
+            innerDoor.Close();
+        yield return new WaitForSeconds(innerDoorOpenDelay);
         working = false;
     }
 }
