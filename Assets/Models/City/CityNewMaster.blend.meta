@@ -194,6 +194,7 @@ ModelImporter:
     100376: WavyGardenBuilding_003
     100378: Manhole
     100380: ManholeCover
+    100382: ElevatorShaft
     400000: BackgroundBuilding
     400002: BookFountainFloorTop
     400004: BookFountainPoolWalls
@@ -385,6 +386,7 @@ ModelImporter:
     400376: WavyGardenBuilding_003
     400378: Manhole
     400380: ManholeCover
+    400382: ElevatorShaft
     2300000: BackgroundBuilding
     2300002: BookFountainFloorTop
     2300004: BookFountainPoolWalls
@@ -575,6 +577,7 @@ ModelImporter:
     2300374: WavyGardenBuilding_003
     2300376: Manhole
     2300378: ManholeCover
+    2300380: ElevatorShaft
     3300000: BackgroundBuilding
     3300002: BookFountainFloorTop
     3300004: BookFountainPoolWalls
@@ -765,6 +768,7 @@ ModelImporter:
     3300374: WavyGardenBuilding_003
     3300376: Manhole
     3300378: ManholeCover
+    3300380: ElevatorShaft
     4300000: Cube_005
     4300002: Cube_004
     4300004: Cube_003
@@ -955,6 +959,7 @@ ModelImporter:
     4300374: WavyGarden
     4300376: ManholeCover
     4300378: Manhole
+    4300380: ElevatorShaft
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
