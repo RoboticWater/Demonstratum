@@ -13,9 +13,9 @@ public class Elevator : MonoBehaviour
     float closeTimer;
 
     [SerializeField] private int CurFloor = 1;
-    [SerializeField] private ElevatorDoor[] floorDoors;
+    [SerializeField] private Door[] floorDoors;
     [SerializeField] private Transform[] floorTransforms;
-    [SerializeField] private ElevatorInnerDoor innerDoor;
+    [SerializeField] private Door innerDoor;
 
     bool working;
     bool moving;

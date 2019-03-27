@@ -19,6 +19,28 @@ ModelImporter:
     100026: LightBlocker_002
     100028: LightBlocker_003
     100030: LightBlockers
+    100032: ElevatorShaft
+    100034: LightBlocker
+    100036: LightBlocker_004
+    100038: ElevatorShaftExt
+    100040: ElevatorShaftUnderground
+    100042: Cylinder
+    100044: EntranceToRuins
+    100046: Sewers
+    100048: SewerWater
+    100050: SewerGate
+    100052: SewerGate_001
+    100054: LightBlocker_005
+    100056: LightBlocker_006
+    100058: LightStick
+    100060: LightStick_001
+    100062: Spotlight
+    100064: SpotlightLIght
+    100066: Manhole
+    100068: Collider_
+    100070: Collider__001
+    100072: Collider__002
+    100074: Collider__003
     400000: Cube
     400002: ExitRoom
     400004: //RootNode
@@ -35,6 +57,28 @@ ModelImporter:
     400026: LightBlocker_002
     400028: LightBlocker_003
     400030: LightBlockers
+    400032: ElevatorShaft
+    400034: LightBlocker
+    400036: LightBlocker_004
+    400038: ElevatorShaftExt
+    400040: ElevatorShaftUnderground
+    400042: Cylinder
+    400044: EntranceToRuins
+    400046: Sewers
+    400048: SewerWater
+    400050: SewerGate
+    400052: SewerGate_001
+    400054: LightBlocker_005
+    400056: LightBlocker_006
+    400058: LightStick
+    400060: LightStick_001
+    400062: Spotlight
+    400064: SpotlightLIght
+    400066: Manhole
+    400068: Collider_
+    400070: Collider__001
+    400072: Collider__002
+    400074: Collider__003
     2300000: Cube
     2300002: ExitRoom
     2300004: Plane
@@ -48,6 +92,28 @@ ModelImporter:
     2300020: LightBlocker_001
     2300022: LightBlocker_002
     2300024: LightBlocker_003
+    2300026: ElevatorShaft
+    2300028: LightBlocker
+    2300030: LightBlocker_004
+    2300032: ElevatorShaftExt
+    2300034: ElevatorShaftUnderground
+    2300036: Cylinder
+    2300038: EntranceToRuins
+    2300040: Sewers
+    2300042: SewerWater
+    2300044: SewerGate
+    2300046: SewerGate_001
+    2300048: LightBlocker_005
+    2300050: LightBlocker_006
+    2300052: LightStick
+    2300054: LightStick_001
+    2300056: Spotlight
+    2300058: SpotlightLIght
+    2300060: Manhole
+    2300062: Collider_
+    2300064: Collider__001
+    2300066: Collider__002
+    2300068: Collider__003
     3300000: Cube
     3300002: ExitRoom
     3300004: Plane
@@ -61,6 +127,28 @@ ModelImporter:
     3300020: LightBlocker_001
     3300022: LightBlocker_002
     3300024: LightBlocker_003
+    3300026: ElevatorShaft
+    3300028: LightBlocker
+    3300030: LightBlocker_004
+    3300032: ElevatorShaftExt
+    3300034: ElevatorShaftUnderground
+    3300036: Cylinder
+    3300038: EntranceToRuins
+    3300040: Sewers
+    3300042: SewerWater
+    3300044: SewerGate
+    3300046: SewerGate_001
+    3300048: LightBlocker_005
+    3300050: LightBlocker_006
+    3300052: LightStick
+    3300054: LightStick_001
+    3300056: Spotlight
+    3300058: SpotlightLIght
+    3300060: Manhole
+    3300062: Collider_
+    3300064: Collider__001
+    3300066: Collider__002
+    3300068: Collider__003
     4300000: Cube
     4300002: Plane
     4300004: WindowPane_002
@@ -74,6 +162,28 @@ ModelImporter:
     4300020: LightBlocker_001
     4300022: LightBlocker_002
     4300024: LightBlocker_003
+    4300026: ElevatorShaft
+    4300028: LightBlocker_004
+    4300030: LightBlocker
+    4300032: ElevatorShaftExt
+    4300034: ElevatorShaftUnderground
+    4300036: Cylinder
+    4300038: Sewers
+    4300040: EntranceToRuins
+    4300042: SewerWater
+    4300044: SewerGate_001
+    4300046: SewerGate
+    4300048: LightBlocker_006
+    4300050: LightBlocker_005
+    4300052: Spotlight
+    4300054: SpotlightLIght
+    4300056: LightStick_001
+    4300058: LightStick
+    4300060: Manhole
+    4300062: Collider_
+    4300064: Collider__003
+    4300066: Collider__001
+    4300068: Collider__002
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
