@@ -108,6 +108,23 @@ ModelImporter:
     100204: Collider_Terrace
     100206: HoleWaterFall
     100208: HoleWaterPath
+    100210: Collider_FinalRoom
+    100212: Collider_RosettaExitHall
+    100214: Collider_RosettaRoom
+    100216: Collider_WaterRoom
+    100218: Collider_WaterRoomExit
+    100220: EntranceToRuins_001
+    100222: Gate
+    100224: Plane
+    100226: RosettaExitHall
+    100228: RosettaExitRoom
+    100230: RosettaExitRoomEntrance
+    100232: RosettaExitRoomEntrance_001
+    100234: RuinsCol_020
+    100236: RuinsCol_021
+    100238: RuinsCol_022
+    100240: RuinsCol_023
+    100242: Collider_RuinsEntrance
     400000: BigTree
     400002: Candle
     400004: Candle_001
@@ -213,6 +230,23 @@ ModelImporter:
     400204: Collider_Terrace
     400206: HoleWaterFall
     400208: HoleWaterPath
+    400210: Collider_FinalRoom
+    400212: Collider_RosettaExitHall
+    400214: Collider_RosettaRoom
+    400216: Collider_WaterRoom
+    400218: Collider_WaterRoomExit
+    400220: EntranceToRuins_001
+    400222: Gate
+    400224: Plane
+    400226: RosettaExitHall
+    400228: RosettaExitRoom
+    400230: RosettaExitRoomEntrance
+    400232: RosettaExitRoomEntrance_001
+    400234: RuinsCol_020
+    400236: RuinsCol_021
+    400238: RuinsCol_022
+    400240: RuinsCol_023
+    400242: Collider_RuinsEntrance
     2300000: BigTree
     2300002: Candle
     2300004: Candle_001
@@ -317,6 +351,23 @@ ModelImporter:
     2300202: Collider_Terrace
     2300204: HoleWaterFall
     2300206: HoleWaterPath
+    2300208: Collider_FinalRoom
+    2300210: Collider_RosettaExitHall
+    2300212: Collider_RosettaRoom
+    2300214: Collider_WaterRoom
+    2300216: Collider_WaterRoomExit
+    2300218: EntranceToRuins_001
+    2300220: Gate
+    2300222: Plane
+    2300224: RosettaExitHall
+    2300226: RosettaExitRoom
+    2300228: RosettaExitRoomEntrance
+    2300230: RosettaExitRoomEntrance_001
+    2300232: RuinsCol_020
+    2300234: RuinsCol_021
+    2300236: RuinsCol_022
+    2300238: RuinsCol_023
+    2300240: Collider_RuinsEntrance
     3300000: BigTree
     3300002: Candle
     3300004: Candle_001
@@ -421,6 +472,23 @@ ModelImporter:
     3300202: Collider_Terrace
     3300204: HoleWaterFall
     3300206: HoleWaterPath
+    3300208: Collider_FinalRoom
+    3300210: Collider_RosettaExitHall
+    3300212: Collider_RosettaRoom
+    3300214: Collider_WaterRoom
+    3300216: Collider_WaterRoomExit
+    3300218: EntranceToRuins_001
+    3300220: Gate
+    3300222: Plane
+    3300224: RosettaExitHall
+    3300226: RosettaExitRoom
+    3300228: RosettaExitRoomEntrance
+    3300230: RosettaExitRoomEntrance_001
+    3300232: RuinsCol_020
+    3300234: RuinsCol_021
+    3300236: RuinsCol_022
+    3300238: RuinsCol_023
+    3300240: Collider_RuinsEntrance
     4300000: Tree1_003
     4300002: Tree0_003
     4300004: Tree0_002
@@ -525,6 +593,23 @@ ModelImporter:
     4300202: Collider_Terrace
     4300204: HoleWaterPath
     4300206: HoleWaterFall
+    4300208: RuinsCol_023
+    4300210: RuinsCol_022
+    4300212: RuinsCol_021
+    4300214: RuinsCol_020
+    4300216: Plane
+    4300218: RosettaExitRoomEntrance_001
+    4300220: RosettaExitRoom
+    4300222: RosettaExitHall
+    4300224: Collider_FinalRoom
+    4300226: Collider_RosettaRoom
+    4300228: Collider_WaterRoomExit
+    4300230: Collider_WaterRoom
+    4300232: Collider_RosettaExitHall
+    4300234: RosettaExitRoomEntrance
+    4300236: EntranceToRuins_001
+    4300238: Gate
+    4300240: Collider_RuinsEntrance
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
