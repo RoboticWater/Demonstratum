@@ -41,6 +41,7 @@ ModelImporter:
     100070: Collider__001
     100072: Collider__002
     100074: Collider__003
+    100076: LabBottomFloorTrim
     400000: Cube
     400002: ExitRoom
     400004: //RootNode
@@ -79,6 +80,7 @@ ModelImporter:
     400070: Collider__001
     400072: Collider__002
     400074: Collider__003
+    400076: LabBottomFloorTrim
     2300000: Cube
     2300002: ExitRoom
     2300004: Plane
@@ -114,6 +116,7 @@ ModelImporter:
     2300064: Collider__001
     2300066: Collider__002
     2300068: Collider__003
+    2300070: LabBottomFloorTrim
     3300000: Cube
     3300002: ExitRoom
     3300004: Plane
@@ -149,6 +152,7 @@ ModelImporter:
     3300064: Collider__001
     3300066: Collider__002
     3300068: Collider__003
+    3300070: LabBottomFloorTrim
     4300000: Cube
     4300002: Plane
     4300004: WindowPane_002
@@ -184,6 +188,7 @@ ModelImporter:
     4300064: Collider__003
     4300066: Collider__001
     4300068: Collider__002
+    4300070: LabBottomFloorTrim
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
