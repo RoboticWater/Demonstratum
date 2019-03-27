@@ -1627,32 +1627,32 @@ PrefabInstance:
     - target: {fileID: 8290682008981203891, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8290682008981203891, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8290682008981203891, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8290682008981203891, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8290682008981203891, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000029504295
+      value: 0.00000058114523
       objectReference: {fileID: 0}
     - target: {fileID: 8290682008981203891, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180.00002
+      value: 180.00002
       objectReference: {fileID: 0}
     - target: {fileID: 8290682008981203891, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
@@ -1774,11 +1774,26 @@ PrefabInstance:
       propertyPath: colors.Array.data[9].b
       value: 0.035294116
       objectReference: {fileID: 0}
+    - target: {fileID: 8290682007435074127, guid: 8ad770bb15dc49644b36b10d5a384e12,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7682612869400711465, guid: 8ad770bb15dc49644b36b10d5a384e12,
         type: 3}
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 1062115105}
+    - target: {fileID: 7230984232375308335, guid: 8ad770bb15dc49644b36b10d5a384e12,
+        type: 3}
+      propertyPath: MinDistance
+      value: 1.016079
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290682007435074128, guid: 8ad770bb15dc49644b36b10d5a384e12,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ad770bb15dc49644b36b10d5a384e12, type: 3}
 --- !u!1 &217488445
