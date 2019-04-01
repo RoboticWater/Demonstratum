@@ -125,6 +125,9 @@ ModelImporter:
     100238: RuinsCol_022
     100240: RuinsCol_023
     100242: Collider_RuinsEntrance
+    100244: VineBridge_003
+    100246: VineBridge_004
+    100248: VineBridge_005
     400000: BigTree
     400002: Candle
     400004: Candle_001
@@ -247,6 +250,9 @@ ModelImporter:
     400238: RuinsCol_022
     400240: RuinsCol_023
     400242: Collider_RuinsEntrance
+    400244: VineBridge_003
+    400246: VineBridge_004
+    400248: VineBridge_005
     2300000: BigTree
     2300002: Candle
     2300004: Candle_001
@@ -368,6 +374,9 @@ ModelImporter:
     2300236: RuinsCol_022
     2300238: RuinsCol_023
     2300240: Collider_RuinsEntrance
+    2300242: VineBridge_003
+    2300244: VineBridge_004
+    2300246: VineBridge_005
     3300000: BigTree
     3300002: Candle
     3300004: Candle_001
@@ -489,6 +498,9 @@ ModelImporter:
     3300236: RuinsCol_022
     3300238: RuinsCol_023
     3300240: Collider_RuinsEntrance
+    3300242: VineBridge_003
+    3300244: VineBridge_004
+    3300246: VineBridge_005
     4300000: Tree1_003
     4300002: Tree0_003
     4300004: Tree0_002
@@ -610,6 +622,9 @@ ModelImporter:
     4300236: EntranceToRuins_001
     4300238: Gate
     4300240: Collider_RuinsEntrance
+    4300242: VineBridge_004
+    4300244: VineBridge_003
+    4300246: VineBridge_005
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
