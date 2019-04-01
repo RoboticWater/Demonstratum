@@ -195,6 +195,25 @@ ModelImporter:
     100378: Manhole
     100380: ManholeCover
     100382: ElevatorShaft
+    100384: Bool0_001
+    100386: Coals
+    100388: Cube_006
+    100390: Cylinder_010
+    100392: Cylinder_011
+    100394: Cylinder_012
+    100396: Cylinder_013
+    100398: Cylinder_014
+    100400: FrunaceGround
+    100402: FrunaceGroundWall
+    100404: FurnaceCollider
+    100406: FurnaceStairsCap_001
+    100408: ManholeLadder
+    100410: SairsOutBottom_001
+    100412: StairsIn_004
+    100414: StairsIn_005
+    100416: StairsOut_004
+    100418: StairsOut_005
+    100420: TowerPedestal
     400000: BackgroundBuilding
     400002: BookFountainFloorTop
     400004: BookFountainPoolWalls
@@ -387,6 +406,25 @@ ModelImporter:
     400378: Manhole
     400380: ManholeCover
     400382: ElevatorShaft
+    400384: Bool0_001
+    400386: Coals
+    400388: Cube_006
+    400390: Cylinder_010
+    400392: Cylinder_011
+    400394: Cylinder_012
+    400396: Cylinder_013
+    400398: Cylinder_014
+    400400: FrunaceGround
+    400402: FrunaceGroundWall
+    400404: FurnaceCollider
+    400406: FurnaceStairsCap_001
+    400408: ManholeLadder
+    400410: SairsOutBottom_001
+    400412: StairsIn_004
+    400414: StairsIn_005
+    400416: StairsOut_004
+    400418: StairsOut_005
+    400420: TowerPedestal
     2300000: BackgroundBuilding
     2300002: BookFountainFloorTop
     2300004: BookFountainPoolWalls
@@ -578,6 +616,25 @@ ModelImporter:
     2300376: Manhole
     2300378: ManholeCover
     2300380: ElevatorShaft
+    2300382: Bool0_001
+    2300384: Coals
+    2300386: Cube_006
+    2300388: Cylinder_010
+    2300390: Cylinder_011
+    2300392: Cylinder_012
+    2300394: Cylinder_013
+    2300396: Cylinder_014
+    2300398: FrunaceGround
+    2300400: FrunaceGroundWall
+    2300402: FurnaceCollider
+    2300404: FurnaceStairsCap_001
+    2300406: ManholeLadder
+    2300408: SairsOutBottom_001
+    2300410: StairsIn_004
+    2300412: StairsIn_005
+    2300414: StairsOut_004
+    2300416: StairsOut_005
+    2300418: TowerPedestal
     3300000: BackgroundBuilding
     3300002: BookFountainFloorTop
     3300004: BookFountainPoolWalls
@@ -769,6 +826,25 @@ ModelImporter:
     3300376: Manhole
     3300378: ManholeCover
     3300380: ElevatorShaft
+    3300382: Bool0_001
+    3300384: Coals
+    3300386: Cube_006
+    3300388: Cylinder_010
+    3300390: Cylinder_011
+    3300392: Cylinder_012
+    3300394: Cylinder_013
+    3300396: Cylinder_014
+    3300398: FrunaceGround
+    3300400: FrunaceGroundWall
+    3300402: FurnaceCollider
+    3300404: FurnaceStairsCap_001
+    3300406: ManholeLadder
+    3300408: SairsOutBottom_001
+    3300410: StairsIn_004
+    3300412: StairsIn_005
+    3300414: StairsOut_004
+    3300416: StairsOut_005
+    3300418: TowerPedestal
     4300000: Cube_005
     4300002: Cube_004
     4300004: Cube_003
@@ -960,6 +1036,25 @@ ModelImporter:
     4300376: ManholeCover
     4300378: Manhole
     4300380: ElevatorShaft
+    4300382: TowerPedestal
+    4300384: Cube_006
+    4300386: SairsOutBottom_001
+    4300388: StairsIn_005
+    4300390: StairsIn_004
+    4300392: StairsOut_005
+    4300394: StairsOut_004
+    4300396: FurnaceStairsCap_001
+    4300398: Cylinder_014
+    4300400: Cylinder_013
+    4300402: Cylinder_012
+    4300404: Cylinder_011
+    4300406: Cylinder_010
+    4300408: Bool0_001
+    4300410: ManholeLadder
+    4300412: Coals
+    4300414: FrunaceGround
+    4300416: FrunaceGroundWall
+    4300418: FurnaceCollider
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
