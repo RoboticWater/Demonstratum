@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class ChordListener : Persistent, SoundReactor
+public abstract class SoundListener : Persistent, SoundReactor
 {
-    [SerializeField] protected Chord activationChord;
     protected bool listening;
+    [SerializeField] protected UnityEvent soundEvent;
 
-    public abstract void OnSound(float intensity);
+    public abstract void OnSound(Note n);
+    public abstract void OnSoundFinish(Note n);
+    public abstract void OnFail();
 
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>()) {
@@ -21,7 +24,7 @@ public abstract class ChordListener : Persistent, SoundReactor
         }
     }
 
-    private void TestChord(float[] notes) {
+    private void TestSound(float[] notes) {
 
     }
 }

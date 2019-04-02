@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3819403568568243032}
-  - component: {fileID: 6167156126993076467}
   - component: {fileID: 3678452445228498024}
+  - component: {fileID: 7234220444035149156}
   m_Layer: 0
-  m_Name: VoiceNote
+  m_Name: NotePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,35 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6167156126993076467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4811318666638657149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1eade24515e4e6479eff07802afd4dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoPlay: 0
-  masterVolume: 0.5
-  mainFrequency: 500
-  useSinusAudioWave: 0
-  sinusAudioWaveIntensity: 0
-  useSquareAudioWave: 0
-  squareAudioWaveIntensity: 0
-  useSawAudioWave: 0
-  sawAudioWaveIntensity: 0
-  useAmplitudeModulation: 0
-  amplitudeModulationOscillatorFrequency: 1
-  useFrequencyModulation: 0
-  frequencyModulationOscillatorFrequency: 1
-  frequencyModulationOscillatorIntensity: 10
-  amplitudeModulationRangeOut: 0
-  frequencyModulationRangeOut: 0
-  volumeTime: 0.06
 --- !u!82 &3678452445228498024
 AudioSource:
   m_ObjectHideFlags: 0
@@ -157,3 +128,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7234220444035149156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4811318666638657149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc32861278405f48bdff51a55354c62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoPlay: 0
+  masterVolume: 0.5
+  mainFrequency: 500
+  useSinusAudioWave: 0
+  sinusAudioWaveIntensity: 0.25
+  useSquareAudioWave: 0
+  squareAudioWaveIntensity: 0.25
+  useSawAudioWave: 0
+  sawAudioWaveIntensity: 0.25
+  useAmplitudeModulation: 0
+  amplitudeModulationOscillatorFrequency: 1
+  useFrequencyModulation: 0
+  frequencyModulationOscillatorFrequency: 1
+  frequencyModulationOscillatorIntensity: 10
+  amplitudeModulationRangeOut: 0
+  frequencyModulationRangeOut: 0
+  VolumeDelta: 0.1

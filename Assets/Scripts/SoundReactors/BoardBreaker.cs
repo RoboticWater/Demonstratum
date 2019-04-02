@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardBreaker : ChordListener
+public class BoardBreaker : SoundListener
 {
     public Wood[] wood;
     public GameObject woodSelectorPrefab;
@@ -29,7 +29,7 @@ public class BoardBreaker : ChordListener
         GameManager.instance.SetObject(this, "_broken", broken);
     }
 
-    public override void OnSound(float intensity)
+    public override void OnSound(Note n)
     {
         if (listening && !broken) {
             GameManager.instance.SetObject(this, "_broken", true);
@@ -44,5 +44,15 @@ public class BoardBreaker : ChordListener
                 woodSelector.GetComponent<WoodSelector>().wood = new List<Wood>(wood);
             }
         }
+    }
+
+    public override void OnFail()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void OnSoundFinish(Note n)
+    {
+        
     }
 }

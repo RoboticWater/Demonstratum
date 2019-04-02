@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookFountainPool : ChordListener
+public class BookFountainPool : SoundListener
 {
     public WaterSpout[] spouts;
     public WaterRise water;
@@ -21,11 +21,21 @@ public class BookFountainPool : ChordListener
         GameManager.instance.SetObject(this, "_waterLevel", waterLevel);
     }
 
-    public override void OnSound(float intensity)
+    public override void OnSound(Note n)
     {
         if (listening) {
             waterLevel = 1;
             StartCoroutine(StartWater());
         }
+    }
+
+    public override void OnFail()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void OnSoundFinish(Note n)
+    {
+        
     }
 }

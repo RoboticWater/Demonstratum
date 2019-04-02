@@ -5,52 +5,61 @@ using UnityEngine.EventSystems;
 
 public class Note : MonoBehaviour
 {
-    VoiceNote voiceNote;
-    RectTransform rect;
-    public bool doReaction = true;
+    [SerializeField] float sin;
+    public float Sin {
+        get { return sin; }
+        set { sin = value; }
+    }
+    [SerializeField] float saw;
+    public float Saw {
+        get { return saw; }
+        set { saw = value; }
+    }
+    [SerializeField] float square;
+    public float Square {
+        get { return square; }
+        set { square = value; }
+    }
+    [SerializeField] float volume;
+    public float Volume {
+        get { return volume; }
+        set { volume = value; }
+    }
     [SerializeField] float frequency;
-    [SerializeField] float oscillation;
-
-    public float Radius {
-        get { return GetComponent<RectTransform>().sizeDelta.x / 2; }
-    }
-
-    public Vector2 LocalPosition {
-        get { return transform.localPosition; }
-        set { transform.localPosition = value; }
-    }
-
     public float Frequency {
         get { return frequency; }
-        set {
-            if (voiceNote != null)
-                voiceNote.mainFrequency = frequency; 
-            frequency = value; 
-        }
+        set { frequency = value; }
     }
-
+    [SerializeField] float oscillation;
     public float Oscillation {
         get { return oscillation; }
-        set {
-            if (voiceNote != null) {
-                voiceNote.useFrequencyModulation = value != 0;
-                voiceNote.frequencyModulationOscillatorFrequency = value; 
-            }
-            oscillation = value; 
-        }
+        set { oscillation = value; }
+    }
+    [SerializeField] bool hasReaction;
+    public bool HasReaction {
+        get { return hasReaction; }
+        set { hasReaction = value; }
+    }
+    NotePlayer player;
+
+    public void MakeNote(float frequency, bool hasReaction, float oscillation=0, float volume=1, float sin=1, float saw=0, float square=0) {
+        // print(hasReaction);
+        Frequency = frequency;
+        HasReaction = hasReaction;
+        Volume = volume;
+        Oscillation = oscillation;
+        Sin = sin;
+        Saw = saw;
+        Square = square;
     }
 
-    public void Play(float intensity = 1f) {
-        voiceNote = AudioManager.instance.GetNote();
-        voiceNote.doReaction = doReaction;
-        voiceNote.mainFrequency = frequency;
-        voiceNote.frequencyModulationOscillatorFrequency = oscillation; 
-        voiceNote.useFrequencyModulation = oscillation != 0;
-        voiceNote.SetWave(intensity, WaveType.Sine);
+    public void Play() {
+        player = AudioManager.instance.GetNotePlayer();
+        player.Playing = true;
+        player.Note = this;
     }
 
     public void Stop() {
-        voiceNote.Silence();
-        voiceNote = null;
+        player.Playing = false;
     }
 }

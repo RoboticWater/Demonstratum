@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     [Header("Prefabs")]
     public GameObject voiceNotePrefab;
 
-    List<VoiceNote> voiceNotes;
+    List<NotePlayer> notePlayers;
 
     private void Awake()
 	{
@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start() {
         soundReactors = new List<SoundReactor>();
-        voiceNotes = new List<VoiceNote>(voiceNoteContainer.GetComponentsInChildren<VoiceNote>());
+        notePlayers = new List<NotePlayer>(voiceNoteContainer.GetComponentsInChildren<NotePlayer>());
         GetSoundReactors();
     }
 
@@ -40,46 +40,63 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public VoiceNote GetNote() {
-        foreach (VoiceNote n in voiceNotes) {
+    public NotePlayer GetNote() {
+        foreach (NotePlayer n in notePlayers) {
             if (!n.gameObject.activeSelf) {
                 n.gameObject.SetActive(true);
                 return n;
             }
         }
-        List<VoiceNote> pool = ExpandPool();
+        List<NotePlayer> pool = ExpandPool();
         pool[0].gameObject.SetActive(true);
         return pool[0];
     }
 
-    public List<VoiceNote> GetNotes(int num) {
-        List<VoiceNote> outNotes = (from note in voiceNotes where !note.Playing select note).ToList();;
+    public NotePlayer GetNotePlayer() {
+        foreach (NotePlayer n in notePlayers) {
+            if (!n.gameObject.activeSelf) {
+                n.gameObject.SetActive(true);
+                return n;
+            }
+        }
+        List<NotePlayer> pool = ExpandPool();
+        pool[0].gameObject.SetActive(true);
+        return pool[0];
+    }
+
+    public List<NotePlayer> GetNotes(int num) {
+        List<NotePlayer> outNotes = (from note in notePlayers where !note.Playing select note).ToList();
         if (outNotes.Count >= num) {
             outNotes = outNotes.GetRange(0, num);
-            foreach(VoiceNote n in outNotes)
+            foreach(NotePlayer n in outNotes)
                 n.gameObject.SetActive(true);
             return outNotes;
         }
         outNotes = outNotes.Concat(ExpandPool()).ToList().GetRange(0, num);
-        foreach(VoiceNote n in outNotes)
+        foreach(NotePlayer n in outNotes)
             n.gameObject.SetActive(true);
         return outNotes;
     }
 
-    List<VoiceNote> ExpandPool() {
-        List<VoiceNote> newNotes = new List<VoiceNote>();
+    List<NotePlayer> ExpandPool() {
+        List<NotePlayer> newNotes = new List<NotePlayer>();
         for (int i = 0; i < poolStep; i++) {
             GameObject voiceNote = Instantiate(voiceNotePrefab, voiceNoteContainer);
             voiceNote.SetActive(false);
-            voiceNotes.Add(voiceNote.GetComponent<VoiceNote>());
-            newNotes.Add(voiceNote.GetComponent<VoiceNote>());
+            notePlayers.Add(voiceNote.GetComponent<NotePlayer>());
+            newNotes.Add(voiceNote.GetComponent<NotePlayer>());
         }
         return newNotes;
     }
 
-    public void SoundReactions(float intensity) {
+    public void SoundReactions(Note n) {
         foreach (SoundReactor s in soundReactors) {
-            s.OnSound(intensity);
+            s.OnSound(n);
+        }
+    }
+    public void SoundFinishReactions(Note n) {
+        foreach (SoundReactor s in soundReactors) {
+            s.OnSoundFinish(n);
         }
     }
 

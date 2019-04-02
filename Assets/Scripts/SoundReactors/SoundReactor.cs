@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface SoundReactor
 {
-    void OnSound(float intensity);
+    void OnSound(Note n);
+    void OnSoundFinish(Note n);
 }

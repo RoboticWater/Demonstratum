@@ -32,8 +32,8 @@ public class VoiceNote : ProceduralAudioController
     void Update() {
         float intensity = Mathf.SmoothDamp(audioSource.volume, intensityTarget, ref volumeVelocity, volumeTime);
         audioSource.volume = intensity;
-        if (doReaction)
-            AudioManager.instance.SoundReactions(intensity);
+        // if (HasReaction)
+        //     AudioManager.instance.SoundReactions();
         
         if (wave.HasFlag(WaveType.Sine))
             sinusAudioWaveIntensity = 1;

@@ -11,7 +11,12 @@ public class Flower : SoundReactor
         m.SetColor("_ColorFlower", Color.Lerp(c0, c1, 0));
     }
 
-    public void OnSound(float intensity) {
-        m.SetColor("_ColorFlower", Color.Lerp(c0, c1, intensity));
+    public void OnSound(Note n) {
+        m.SetColor("_ColorFlower", Color.Lerp(c0, c1, n.Volume));
+    }
+
+    public void OnSoundFinish(Note n)
+    {
+        
     }
 }

@@ -7,8 +7,8 @@ using Utils;
 
 public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
-    List<Note> notes;
-    Note curNote;
+    List<UINote> notes;
+    UINote curNote;
     RectTransform rect;
 
     [Header("Note Line Values")]
@@ -44,7 +44,7 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     /// </summary>
     void Start()
     {
-        notes = new List<Note>();
+        notes = new List<UINote>();
         rect = GetComponent<RectTransform>();
         chordContainer.SetActive(false);
     }
@@ -54,8 +54,9 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     /// </summary>
     public void Play() {
         playingIcon.SetActive(true);
-        foreach (Note n in notes) {
-            n.Play(1);
+        foreach (UINote n in notes) {
+            n.Play();
+            AudioManager.instance.SoundFinishReactions(n);
         }
     }
 
@@ -64,7 +65,7 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     /// </summary>
     public void Stop() {
         playingIcon.SetActive(false);
-        foreach (Note n in notes) {
+        foreach (UINote n in notes) {
             n.Stop();
         }
     }
@@ -87,17 +88,24 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     }
 
     void ClearNotes() {
-        foreach (Note n in notes) {
+        foreach (UINote n in notes) {
             Destroy(n.gameObject);
         }
         notes.Clear();
     }
 
-    Note makeNote(float frequency) {
+    UINote makeNote(float frequency) {
         GameObject noteObject = Instantiate(notePrefab, notesContainer);
-        Note n = noteObject.GetComponent<Note>();
-        // n.NoteLine = this;
-        SetNoteValuesFromFreq(n, frequency);
+        UINote n = noteObject.GetComponent<UINote>();
+        float localy = Utils.Math.Map(frequency, minFreq, maxFreq, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2);
+        n.MakeNote(frequency, new Vector2(0, localy));
+        return n;
+    }
+
+    UINote makeNote(Vector2 localPos) {
+        GameObject noteObject = Instantiate(notePrefab, notesContainer);
+        UINote n = noteObject.GetComponent<UINote>();
+        n.MakeNote(Utils.Math.Map(localPos.y, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2, minFreq, maxFreq), localPos);
         return n;
     }
 
@@ -110,7 +118,9 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         if (curNote != null) {
             Vector2 localPos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, eventData.position, eventData.pressEventCamera, out localPos);
-            SetNoteValuesFromPos(curNote, localPos);
+            Vector2 constrainedPos = ConstrainedPosition(localPos);
+            curNote.LocalPosition = constrainedPos;
+            curNote.Frequency = Utils.Math.Map(constrainedPos.y, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2, minFreq, maxFreq);
         }
     }
 
@@ -129,17 +139,14 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             }
             Vector2 localPos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, eventData.position, eventData.pressEventCamera, out localPos);
-            Note selected = SelectedNote(localPos);
+            UINote selected = SelectedNote(localPos);
             if (selected != null)
                 DeleteNote(selected);
         } else if (curNote == null) {
-            GameObject noteObject = Instantiate(notePrefab, notesContainer);
-            curNote = noteObject.GetComponent<Note>();
-            // curNote.NoteLine = this;
             Vector2 localPos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, eventData.position, eventData.pressEventCamera, out localPos);
-            SetNoteValuesFromPos(curNote, localPos);
-            curNote.Play(1f);
+            curNote = makeNote(ConstrainedPosition(localPos));
+            curNote.Play();
         }
     }
 
@@ -150,6 +157,7 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnPointerUp(PointerEventData eventData)
     {
         if (curNote != null) {
+            AudioManager.instance.SoundFinishReactions(curNote);
             curNote.Stop();
             Vector2 localPos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, eventData.position, eventData.pressEventCamera, out localPos);
@@ -166,24 +174,9 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     /// Performs all the necessary actions to delete a note from this line
     /// </summary>
     /// <param name="note">The Note object to remove from this line</param>
-    public void DeleteNote(Note note) {
+    public void DeleteNote(UINote note) {
         notes.Remove(note);
         Destroy(note.gameObject);
-    }
-
-    /// <summary>
-    /// Maps a local position value to all the necessary note values. In this case, the x is ignored and the y is mapped to frequency
-    /// </summary>
-    /// <param name="localPos">Position relative to the anchor point of this element</param>
-    void SetNoteValuesFromPos(Note n, Vector2 localPos) {
-        Vector2 constrainedPos = ConstrainedPosition(localPos);
-        n.LocalPosition = constrainedPos;
-        n.Frequency = Utils.Math.Map(constrainedPos.y, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2, minFreq, maxFreq);
-    }
-    void SetNoteValuesFromFreq(Note n, float freq) {
-        float localy = Utils.Math.Map(freq, minFreq, maxFreq, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2);
-        n.LocalPosition = new Vector2(0, localy);
-        n.Frequency = freq;
     }
 
     /// <summary>
@@ -200,8 +193,8 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     /// </summary>
     /// <param name="localPos">Position relative to the anchor point of this element</param>
     /// <returns></returns>
-    Note SelectedNote(Vector2 localPos) {
-        foreach (Note n in notes) {
+    UINote SelectedNote(Vector2 localPos) {
+        foreach (UINote n in notes) {
             if (Vector2.Distance(n.LocalPosition, localPos) < n.Radius)
                 return n;
         }

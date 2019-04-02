@@ -43,5 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b44a86a76f4478cab6c105b67d7296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sin: 0
+  saw: 0
+  square: 0
+  volume: 0
   frequency: 0
   oscillation: 0
+  hasReaction: 0
