@@ -1,0 +1,2 @@
+Assets/Scenes/Lab/** filter=lfs diff=lfs merge=lfs -text
+Assets/Scenes/Forest/** filter=lfs diff=lfs merge=lfs -text
