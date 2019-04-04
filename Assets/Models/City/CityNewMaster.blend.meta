@@ -214,6 +214,22 @@ ModelImporter:
     100416: StairsOut_004
     100418: StairsOut_005
     100420: TowerPedestal
+    100422: Housing_Complex_001
+    100424: Housing_Complex_002
+    100426: CondemnedSign
+    100428: CondemnedSign_001
+    100430: CondemnedSign_002
+    100432: CondemnedSign_003
+    100434: CondemnedSign_004
+    100436: CondemnedSign_005
+    100438: Housing_ComplexStairs
+    100440: Housing_ComplexStairs_001
+    100442: HousingFence
+    100444: Plane_001
+    100446: Plane_002
+    100448: Plane_003
+    100450: Plane_004
+    100452: Plane_005
     400000: BackgroundBuilding
     400002: BookFountainFloorTop
     400004: BookFountainPoolWalls
@@ -425,6 +441,22 @@ ModelImporter:
     400416: StairsOut_004
     400418: StairsOut_005
     400420: TowerPedestal
+    400422: Housing_Complex_001
+    400424: Housing_Complex_002
+    400426: CondemnedSign
+    400428: CondemnedSign_001
+    400430: CondemnedSign_002
+    400432: CondemnedSign_003
+    400434: CondemnedSign_004
+    400436: CondemnedSign_005
+    400438: Housing_ComplexStairs
+    400440: Housing_ComplexStairs_001
+    400442: HousingFence
+    400444: Plane_001
+    400446: Plane_002
+    400448: Plane_003
+    400450: Plane_004
+    400452: Plane_005
     2300000: BackgroundBuilding
     2300002: BookFountainFloorTop
     2300004: BookFountainPoolWalls
@@ -635,6 +667,22 @@ ModelImporter:
     2300414: StairsOut_004
     2300416: StairsOut_005
     2300418: TowerPedestal
+    2300420: Housing_Complex_001
+    2300422: Housing_Complex_002
+    2300424: CondemnedSign
+    2300426: CondemnedSign_001
+    2300428: CondemnedSign_002
+    2300430: CondemnedSign_003
+    2300432: CondemnedSign_004
+    2300434: CondemnedSign_005
+    2300436: Housing_ComplexStairs
+    2300438: Housing_ComplexStairs_001
+    2300440: HousingFence
+    2300442: Plane_001
+    2300444: Plane_002
+    2300446: Plane_003
+    2300448: Plane_004
+    2300450: Plane_005
     3300000: BackgroundBuilding
     3300002: BookFountainFloorTop
     3300004: BookFountainPoolWalls
@@ -845,6 +893,22 @@ ModelImporter:
     3300414: StairsOut_004
     3300416: StairsOut_005
     3300418: TowerPedestal
+    3300420: Housing_Complex_001
+    3300422: Housing_Complex_002
+    3300424: CondemnedSign
+    3300426: CondemnedSign_001
+    3300428: CondemnedSign_002
+    3300430: CondemnedSign_003
+    3300432: CondemnedSign_004
+    3300434: CondemnedSign_005
+    3300436: Housing_ComplexStairs
+    3300438: Housing_ComplexStairs_001
+    3300440: HousingFence
+    3300442: Plane_001
+    3300444: Plane_002
+    3300446: Plane_003
+    3300448: Plane_004
+    3300450: Plane_005
     4300000: Cube_005
     4300002: Cube_004
     4300004: Cube_003
@@ -1055,6 +1119,22 @@ ModelImporter:
     4300414: FrunaceGround
     4300416: FrunaceGroundWall
     4300418: FurnaceCollider
+    4300420: Housing_Complex_002
+    4300422: Housing_Complex_001
+    4300424: Plane_005
+    4300426: Plane_004
+    4300428: Plane_003
+    4300430: Plane_002
+    4300432: Plane_001
+    4300434: CondemnedSign_005
+    4300436: CondemnedSign_004
+    4300438: CondemnedSign_003
+    4300440: CondemnedSign_002
+    4300442: CondemnedSign_001
+    4300444: CondemnedSign
+    4300446: HousingFence
+    4300448: Housing_ComplexStairs_001
+    4300450: Housing_ComplexStairs
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
