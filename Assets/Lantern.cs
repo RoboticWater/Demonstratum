@@ -17,12 +17,12 @@ public class Lantern : MonoBehaviour
         Destroy(m);
     }
 
-    public ToggleLight() {
+    public void ToggleLight() {
         if (!lighting)
             StartCoroutine(ToggleLightRoutine());
     }
 
     IEnumerator ToggleLightRoutine() {
-
+        yield return null;
     }
 }
