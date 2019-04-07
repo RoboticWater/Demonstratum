@@ -40,6 +40,7 @@ public class BoardBreaker : SoundListener
                 Wood w = wood[i];
                 w.deathOffset = i * Random.Range(0.4f, 0.6f);
                 w.Break();
+                w.gameObject.layer = LayerMask.NameToLayer("PhysNoPlayer");
                 GameObject woodSelector = Instantiate(woodSelectorPrefab, w.transform);
                 woodSelector.GetComponent<WoodSelector>().wood = new List<Wood>(wood);
             }

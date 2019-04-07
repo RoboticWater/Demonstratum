@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8678068684794438383}
   - component: {fileID: 8678068684794438380}
   - component: {fileID: 8678068684794438381}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: 'WoodSmall0 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 8678068685838413133}
   - component: {fileID: 8678068685838413130}
   - component: {fileID: 8678068685838413131}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: WoodSmall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 8678068686022399485}
   - component: {fileID: 8678068686022399482}
   - component: {fileID: 8678068686022399483}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: WoodSmall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

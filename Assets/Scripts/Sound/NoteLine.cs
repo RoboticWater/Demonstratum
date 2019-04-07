@@ -37,7 +37,7 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         get { return chord != null; }
     }
 
-    Chord chord;
+    UIChord chord;
 
     /// <summary>
     /// Instantiates all variabes
@@ -70,7 +70,7 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
     }
 
-    public void SetChord(Chord c) {
+    public void SetChord(UIChord c) {
         chordContainer.SetActive(true);
         chordIcon.sprite = c.icon.sprite;
         chordIcon.color = c.icon.color;
