@@ -14,11 +14,14 @@ public class UIChord : Chord
     public ParticleSystem acquireRing;
     [HideInInspector] public Color ChordColor;
     [HideInInspector] public Image icon;
+    [HideInInspector] public Button button;
 
     public bool acquire;
 
     private void Start() {
         icon = GetComponent<Image>();  
+        button = GetComponent<Button>(); 
+        button.interactable = false;
         ChordColor = GetComponent<Image>().color;
         if (!acquired) {
             Color c = ChordColor;
@@ -71,5 +74,6 @@ public class UIChord : Chord
         transform.position = endPos;
         acquired = true;
         acquiring = false;
+        button.interactable = true;
     }
 }
