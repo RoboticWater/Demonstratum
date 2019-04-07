@@ -76,7 +76,7 @@ public class VoiceBar : MonoBehaviour
         speaking = false;
     }
 
-    public void AddChord(Chord c) {
+    public void AddChord(UIChord c) {
         foreach (NoteLine nl in noteLines) {
             if (nl.Empty) {
                 nl.SetChord(c);
