@@ -17,6 +17,7 @@ public class Guard : MonoBehaviour
 	[Range(0.0f, 2.0f)] public float moveError;
 	public float lookSpeed;
 	public AnimationCurve lookCurve;
+    private Transform headModel;
 	[Range(0.0f, 50.0f)]
 	public float viewDistance;
 	[Range(0.0f, 180.0f)]
@@ -52,6 +53,7 @@ public class Guard : MonoBehaviour
 
 	void Start()
 	{
+        headModel = transform.Find("HumanHead").transform;
 		agent = GetComponent<NavMeshAgent>();
 		sight = GetComponentInChildren<Light>();
 		searchPosition = transform.position;
@@ -284,14 +286,14 @@ public class Guard : MonoBehaviour
 		float time = 0;
 		float perc = 0;
 		float lastTime = Time.realtimeSinceStartup;
-		Quaternion curLook = transform.rotation;
+		Quaternion curLook = headModel.rotation;
 		do
 		{
 			time += Time.realtimeSinceStartup - lastTime;
 			lastTime = Time.realtimeSinceStartup;
 			perc = Mathf.Clamp01(time / lookSpeed);
 
-			transform.rotation = Quaternion.Lerp(curLook, Quaternion.Euler(curLook.eulerAngles.x, lookTarget, curLook.eulerAngles.z), lookCurve.Evaluate(perc));
+			headModel.rotation = Quaternion.Lerp(curLook, Quaternion.Euler(curLook.eulerAngles.x, lookTarget, curLook.eulerAngles.z), lookCurve.Evaluate(perc));
 			yield return null;
 		} while (perc < 1);
 	}
