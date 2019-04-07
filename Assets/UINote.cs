@@ -58,20 +58,21 @@ public class UINote : Note
 	// }
 
     IEnumerator ErrorRoutine(float correct) {
-		float time = 0;
-		float perc = 0;
-		float lastTime = Time.realtimeSinceStartup;
-		// Quaternion curLook = transform.rotation;
-		do
-		{
-			time += Time.realtimeSinceStartup - lastTime;
-			lastTime = Time.realtimeSinceStartup;
-			perc = Mathf.Clamp01(time / ErrorLife);
-			// TODO set line visibility
-			Color temp = line.color;
-			temp.a = Mathf.Lerp(0, 1, GameManager.instance.NOTE_CURVE.Evaluate(perc));
-			line.color = temp;
-			yield return null;
-		} while (perc < 1);
+		yield return new WaitForSeconds(1);
+		// float time = 0;
+		// float perc = 0;
+		// float lastTime = Time.realtimeSinceStartup;
+		// // Quaternion curLook = transform.rotation;
+		// do
+		// {
+		// 	time += Time.realtimeSinceStartup - lastTime;
+		// 	lastTime = Time.realtimeSinceStartup;
+		// 	perc = Mathf.Clamp01(time / ErrorLife);
+		// 	// TODO set line visibility
+		// 	Color temp = line.color;
+		// 	temp.a = Mathf.Lerp(0, 1, GameManager.instance.NOTE_CURVE.Evaluate(perc));
+		// 	line.color = temp;
+		// 	yield return null;
+		// } while (perc < 1);
     }
 }

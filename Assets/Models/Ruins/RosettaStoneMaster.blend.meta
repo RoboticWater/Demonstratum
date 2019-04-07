@@ -173,6 +173,9 @@ ModelImporter:
     100334: Terrain_025
     100336: Terrain_026
     100338: Plane_013
+    100340: Plane_014
+    100342: Plane_015
+    100344: Plane_016
     400000: BigTree
     400002: Candle
     400004: Candle_001
@@ -343,6 +346,9 @@ ModelImporter:
     400334: Terrain_025
     400336: Terrain_026
     400338: Plane_013
+    400340: Plane_014
+    400342: Plane_015
+    400344: Plane_016
     2300000: BigTree
     2300002: Candle
     2300004: Candle_001
@@ -512,6 +518,9 @@ ModelImporter:
     2300332: Terrain_025
     2300334: Terrain_026
     2300336: Plane_013
+    2300338: Plane_014
+    2300340: Plane_015
+    2300342: Plane_016
     3300000: BigTree
     3300002: Candle
     3300004: Candle_001
@@ -681,6 +690,9 @@ ModelImporter:
     3300332: Terrain_025
     3300334: Terrain_026
     3300336: Plane_013
+    3300338: Plane_014
+    3300340: Plane_015
+    3300342: Plane_016
     4300000: Tree1_003
     4300002: Tree0_003
     4300004: Tree0_002
@@ -850,6 +862,9 @@ ModelImporter:
     4300332: RuinsAnteChamber_001
     4300334: RuinsAnteChamber_000
     4300336: Plane_013
+    4300338: Plane_016
+    4300340: Plane_015
+    4300342: Plane_014
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

@@ -16,6 +16,8 @@ public class SequenceListener : SoundListener, SoundReactor
     public float successReactionDelay = 0.5f;
 
     public override void OnSoundFinish(Note n) {
+        if (!listening)
+            return;
         if (heardNotes.Contains(n))
             return;
         if (testNote(n, heardNotes.Count)) {
@@ -27,14 +29,14 @@ public class SequenceListener : SoundListener, SoundReactor
             int i = 0;
             foreach (Note note in heardNotes) {
                 success &= testNote(note, i);
-                print(success);
             }
             StartCoroutine(DelayedReaction(success));
         }
     }
 
     bool testNote(Note n, int index) {
-        print(Mathf.Abs(n.Frequency));
+        if (index > frequencies.Length - 1)
+            return false;
         return Mathf.Abs(n.Frequency - frequencies[index]) < error;
     }
 
@@ -55,7 +57,6 @@ public class SequenceListener : SoundListener, SoundReactor
     IEnumerator DelayedReaction(bool success) {
         yield return new WaitForSeconds(successReactionDelay);
         if (success) {
-            print("success");
             soundEvent.Invoke();
         }
         else
