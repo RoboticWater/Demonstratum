@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface SoundReactor
 {
-    void OnSound(Note n);
-    void OnSoundFinish(Note n);
+    void OnSound(Note n, NoteLine l);
+    void OnSoundFinish(Note n, NoteLine l);
 }

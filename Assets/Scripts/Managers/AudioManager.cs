@@ -89,14 +89,14 @@ public class AudioManager : MonoBehaviour
         return newNotes;
     }
 
-    public void SoundReactions(Note n) {
+    public void SoundReactions(Note n, NoteLine l) {
         foreach (SoundReactor s in soundReactors) {
-            s.OnSound(n);
+            s.OnSound(n, l);
         }
     }
-    public void SoundFinishReactions(Note n) {
+    public void SoundFinishReactions(Note n, NoteLine l) {
         foreach (SoundReactor s in soundReactors) {
-            s.OnSoundFinish(n);
+            s.OnSoundFinish(n, l);
         }
     }
 

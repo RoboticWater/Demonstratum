@@ -18,9 +18,10 @@ public class UINote : Note
         set { transform.localPosition = value; }
     }
 
-    public void MakeNote(float frequency, Vector2 localPosition, float oscillation=0, float volume=1, float sin=1, float saw=0, float square=0) {
+    public void MakeNote(float frequency, Vector2 localPosition, NoteLine noteLine, float oscillation=0, float volume=1, float sin=1, float saw=0, float square=0) {
         base.MakeNote(frequency, true, oscillation, volume, sin, saw, square);
 		LocalPosition = localPosition;
+		this.NoteLine = noteLine;
     }
 
     public void ShowError(float correct) {

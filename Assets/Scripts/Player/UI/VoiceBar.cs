@@ -17,11 +17,12 @@ public class VoiceBar : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform noteLinesContainer;
+    bool visible = true;
 
     public bool Visible {
-        get { return canvasGroup.alpha > 0.5f; }
+        get { return visible; }
         set {
-            if (value == canvasGroup.alpha > 0.5f)
+            if (value == visible)
                 return;
             StartCoroutine(Fade(value));
         }
@@ -52,6 +53,7 @@ public class VoiceBar : MonoBehaviour
             canvasGroup.alpha = effectCurve.Evaluate(visible ? perc : 1 - perc);
 			yield return null;
 		} while (perc < 1);
+        this.visible = visible;
         canvasGroup.alpha = visible ? 1 : 0;
     }
 

@@ -61,7 +61,7 @@ public class BirdSinger : SoundListener
         singing = false;
     }
 
-    public override void OnSound(Note n)
+    public override void OnSound(Note n, NoteLine l)
     {
         
     }
@@ -76,7 +76,7 @@ public class BirdSinger : SoundListener
         
     }
 
-    public override void OnSoundFinish(Note n)
+    public override void OnSoundFinish(Note n, NoteLine l)
     {
         
     }

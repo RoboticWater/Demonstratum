@@ -56,7 +56,7 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         playingIcon.SetActive(true);
         foreach (UINote n in notes) {
             n.Play();
-            AudioManager.instance.SoundFinishReactions(n);
+            AudioManager.instance.SoundFinishReactions(n, this);
         }
     }
 
@@ -98,14 +98,14 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         GameObject noteObject = Instantiate(notePrefab, notesContainer);
         UINote n = noteObject.GetComponent<UINote>();
         float localy = Utils.Math.Map(frequency, minFreq, maxFreq, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2);
-        n.MakeNote(frequency, new Vector2(0, localy));
+        n.MakeNote(frequency, new Vector2(0, localy), this);
         return n;
     }
 
     UINote makeNote(Vector2 localPos) {
         GameObject noteObject = Instantiate(notePrefab, notesContainer);
         UINote n = noteObject.GetComponent<UINote>();
-        n.MakeNote(Utils.Math.Map(localPos.y, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2, minFreq, maxFreq), localPos);
+        n.MakeNote(Utils.Math.Map(localPos.y, -rect.sizeDelta.y / 2, rect.sizeDelta.y / 2, minFreq, maxFreq), localPos, this);
         return n;
     }
 
@@ -157,7 +157,7 @@ public class NoteLine : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public void OnPointerUp(PointerEventData eventData)
     {
         if (curNote != null) {
-            AudioManager.instance.SoundFinishReactions(curNote);
+            AudioManager.instance.SoundFinishReactions(curNote, this);
             curNote.Stop();
             Vector2 localPos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(rect, eventData.position, eventData.pressEventCamera, out localPos);

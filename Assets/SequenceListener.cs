@@ -15,7 +15,7 @@ public class SequenceListener : SoundListener, SoundReactor
     public float error = 0.01f;
     public float successReactionDelay = 0.5f;
 
-    public override void OnSoundFinish(Note n) {
+    public override void OnSoundFinish(Note n, NoteLine l) {
         if (!listening)
             return;
         if (heardNotes.Contains(n))
@@ -75,7 +75,7 @@ public class SequenceListener : SoundListener, SoundReactor
         heardNotes = new List<Note>();
     }
 
-    public override void OnSound(Note n)
+    public override void OnSound(Note n, NoteLine l)
     {
         
     }

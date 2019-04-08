@@ -21,7 +21,7 @@ public class BookFountainPool : SoundListener
         GameManager.instance.SetObject(this, "_waterLevel", waterLevel);
     }
 
-    public override void OnSound(Note n)
+    public override void OnSound(Note n, NoteLine l)
     {
         if (listening) {
             waterLevel = 1;
@@ -34,7 +34,7 @@ public class BookFountainPool : SoundListener
         throw new System.NotImplementedException();
     }
 
-    public override void OnSoundFinish(Note n)
+    public override void OnSoundFinish(Note n, NoteLine l)
     {
         
     }

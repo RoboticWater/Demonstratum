@@ -41,6 +41,11 @@ public class Note : MonoBehaviour
         set { hasReaction = value; }
     }
     NotePlayer player;
+    [SerializeField] NoteLine noteLine;
+    public NoteLine NoteLine {
+        get { return noteLine; }
+        set { noteLine = value; }
+    }
 
     public void MakeNote(float frequency, bool hasReaction, float oscillation=0, float volume=1, float sin=1, float saw=0, float square=0) {
         // print(hasReaction);

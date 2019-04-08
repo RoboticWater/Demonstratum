@@ -42,6 +42,8 @@ public class UIChord : Chord
 
     IEnumerator AcquireRoutine() {
         acquiring = true;
+        GameManager.instance.Player.CanSwitch = false;
+        GameManager.instance.Player.MenuOpen = true;
         var main = acquireParticles.main;
         main.startColor = ChordColor;
         main = acquireRing.main;
@@ -74,6 +76,7 @@ public class UIChord : Chord
         transform.position = endPos;
         acquired = true;
         acquiring = false;
+        GameManager.instance.Player.CanSwitch = true;
         button.interactable = true;
     }
 }

@@ -8,8 +8,8 @@ public abstract class SoundListener : Persistent, SoundReactor
     protected bool listening;
     [SerializeField] protected UnityEvent soundEvent;
 
-    public abstract void OnSound(Note n);
-    public abstract void OnSoundFinish(Note n);
+    public abstract void OnSound(Note n, NoteLine l);
+    public abstract void OnSoundFinish(Note n, NoteLine l);
     public abstract void OnFail();
 
     private void OnTriggerEnter(Collider other) {

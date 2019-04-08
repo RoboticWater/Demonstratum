@@ -29,7 +29,7 @@ public class BoardBreaker : SoundListener
         GameManager.instance.SetObject(this, "_broken", broken);
     }
 
-    public override void OnSound(Note n)
+    public override void OnSound(Note n, NoteLine l)
     {
         if (listening && !broken) {
             GameManager.instance.SetObject(this, "_broken", true);
@@ -52,7 +52,7 @@ public class BoardBreaker : SoundListener
         throw new System.NotImplementedException();
     }
 
-    public override void OnSoundFinish(Note n)
+    public override void OnSoundFinish(Note n, NoteLine l)
     {
         
     }

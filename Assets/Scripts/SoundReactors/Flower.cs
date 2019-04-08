@@ -11,11 +11,11 @@ public class Flower : SoundReactor
         m.SetColor("_ColorFlower", Color.Lerp(c0, c1, 0));
     }
 
-    public void OnSound(Note n) {
+    public void OnSound(Note n, NoteLine l) {
         m.SetColor("_ColorFlower", Color.Lerp(c0, c1, n.Volume));
     }
 
-    public void OnSoundFinish(Note n)
+    public void OnSoundFinish(Note n, NoteLine l)
     {
         
     }

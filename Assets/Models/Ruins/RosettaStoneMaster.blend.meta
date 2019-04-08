@@ -176,6 +176,10 @@ ModelImporter:
     100340: Plane_014
     100342: Plane_015
     100344: Plane_016
+    100346: Cube_001
+    100348: Cube_002
+    100350: Cube_003
+    100352: Cube_004
     400000: BigTree
     400002: Candle
     400004: Candle_001
@@ -349,6 +353,10 @@ ModelImporter:
     400340: Plane_014
     400342: Plane_015
     400344: Plane_016
+    400346: Cube_001
+    400348: Cube_002
+    400350: Cube_003
+    400352: Cube_004
     2300000: BigTree
     2300002: Candle
     2300004: Candle_001
@@ -521,6 +529,10 @@ ModelImporter:
     2300338: Plane_014
     2300340: Plane_015
     2300342: Plane_016
+    2300344: Cube_001
+    2300346: Cube_002
+    2300348: Cube_003
+    2300350: Cube_004
     3300000: BigTree
     3300002: Candle
     3300004: Candle_001
@@ -693,6 +705,10 @@ ModelImporter:
     3300338: Plane_014
     3300340: Plane_015
     3300342: Plane_016
+    3300344: Cube_001
+    3300346: Cube_002
+    3300348: Cube_003
+    3300350: Cube_004
     4300000: Tree1_003
     4300002: Tree0_003
     4300004: Tree0_002
@@ -865,6 +881,10 @@ ModelImporter:
     4300338: Plane_016
     4300340: Plane_015
     4300342: Plane_014
+    4300344: Cube_004
+    4300346: Cube_003
+    4300348: Cube_002
+    4300350: Cube_001
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

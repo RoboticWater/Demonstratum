@@ -235,6 +235,25 @@ ModelImporter:
     100458: Cube_009
     100460: Cube_010
     100462: Cube_011
+    100464: Cube_013
+    100466: Cube_023
+    100468: InnerRuinsTerrace
+    100470: Plane_006
+    100472: Plane_007
+    100474: Plane_008
+    100476: Plane_009
+    100478: Plane_010
+    100480: RuinsAnteChamber_001
+    100482: RuinsAnteChamber_002
+    100484: RuinsAnteChamber_003
+    100486: RuinsAnteChamber_004
+    100488: CondemnedSign_006
+    100490: HousingFence_001
+    100492: HousingFence_002
+    100494: HousingFence_003
+    100496: HousingFence_004
+    100498: HousingFence_005
+    100500: HousingFence_006
     400000: BackgroundBuilding
     400002: BookFountainFloorTop
     400004: BookFountainPoolWalls
@@ -467,6 +486,25 @@ ModelImporter:
     400458: Cube_009
     400460: Cube_010
     400462: Cube_011
+    400464: Cube_013
+    400466: Cube_023
+    400468: InnerRuinsTerrace
+    400470: Plane_006
+    400472: Plane_007
+    400474: Plane_008
+    400476: Plane_009
+    400478: Plane_010
+    400480: RuinsAnteChamber_001
+    400482: RuinsAnteChamber_002
+    400484: RuinsAnteChamber_003
+    400486: RuinsAnteChamber_004
+    400488: CondemnedSign_006
+    400490: HousingFence_001
+    400492: HousingFence_002
+    400494: HousingFence_003
+    400496: HousingFence_004
+    400498: HousingFence_005
+    400500: HousingFence_006
     2300000: BackgroundBuilding
     2300002: BookFountainFloorTop
     2300004: BookFountainPoolWalls
@@ -698,6 +736,25 @@ ModelImporter:
     2300456: Cube_009
     2300458: Cube_010
     2300460: Cube_011
+    2300462: Cube_013
+    2300464: Cube_023
+    2300466: InnerRuinsTerrace
+    2300468: Plane_006
+    2300470: Plane_007
+    2300472: Plane_008
+    2300474: Plane_009
+    2300476: Plane_010
+    2300478: RuinsAnteChamber_001
+    2300480: RuinsAnteChamber_002
+    2300482: RuinsAnteChamber_003
+    2300484: RuinsAnteChamber_004
+    2300486: CondemnedSign_006
+    2300488: HousingFence_001
+    2300490: HousingFence_002
+    2300492: HousingFence_003
+    2300494: HousingFence_004
+    2300496: HousingFence_005
+    2300498: HousingFence_006
     3300000: BackgroundBuilding
     3300002: BookFountainFloorTop
     3300004: BookFountainPoolWalls
@@ -929,6 +986,25 @@ ModelImporter:
     3300456: Cube_009
     3300458: Cube_010
     3300460: Cube_011
+    3300462: Cube_013
+    3300464: Cube_023
+    3300466: InnerRuinsTerrace
+    3300468: Plane_006
+    3300470: Plane_007
+    3300472: Plane_008
+    3300474: Plane_009
+    3300476: Plane_010
+    3300478: RuinsAnteChamber_001
+    3300480: RuinsAnteChamber_002
+    3300482: RuinsAnteChamber_003
+    3300484: RuinsAnteChamber_004
+    3300486: CondemnedSign_006
+    3300488: HousingFence_001
+    3300490: HousingFence_002
+    3300492: HousingFence_003
+    3300494: HousingFence_004
+    3300496: HousingFence_005
+    3300498: HousingFence_006
     4300000: Cube_005
     4300002: Cube_004
     4300004: Cube_003
@@ -1160,6 +1236,25 @@ ModelImporter:
     4300456: Cube_010
     4300458: Cube_009
     4300460: Cube_008
+    4300462: Cube_023
+    4300464: Cube_013
+    4300466: InnerRuinsTerrace
+    4300468: Plane_008
+    4300470: Plane_007
+    4300472: Plane_006
+    4300474: Plane_009
+    4300476: Plane_010
+    4300478: RuinsAnteChamber_001
+    4300480: RuinsAnteChamber_002
+    4300482: RuinsAnteChamber_003
+    4300484: RuinsAnteChamber_004
+    4300486: HousingFence_006
+    4300488: HousingFence_005
+    4300490: HousingFence_004
+    4300492: HousingFence_003
+    4300494: HousingFence_002
+    4300496: HousingFence_001
+    4300498: CondemnedSign_006
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs

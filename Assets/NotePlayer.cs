@@ -30,7 +30,7 @@ public class NotePlayer : ProceduralAudioController
     private void Update() {
         UpdateAudioValues();
         if (note.HasReaction) {
-            AudioManager.instance.SoundReactions(note);
+            AudioManager.instance.SoundReactions(note, note.NoteLine);
         }
         if (audioSource.volume < 0.001f && !playing) {
             gameObject.SetActive(false);

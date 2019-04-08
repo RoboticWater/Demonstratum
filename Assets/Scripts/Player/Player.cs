@@ -23,6 +23,21 @@ public class Player : MonoBehaviour
 	
 	Selector selected;
 	[HideInInspector]public Selector holding;
+
+	public bool MenuOpen {
+		get {
+			return UI.voiceBar.Visible;
+		}
+		set {
+			firstPerson.m_MouseLook.SetCursorLock(!value);
+			UI.voiceBar.Visible = value;
+			firstPerson.canLook = !value;
+		}
+	}
+
+	public bool CanSwitch = true;
+
+
 	
 	void Start()
 	{
@@ -43,7 +58,7 @@ public class Player : MonoBehaviour
 				selected.Select();
 			}
 		}
-		if (Input.GetButtonDown("Switch"))
+		if (Input.GetButtonDown("Switch") && CanSwitch)
 		{
 			firstPerson.m_MouseLook.SetCursorLock(!firstPerson.m_MouseLook.lockCursor);
 			UI.voiceBar.Visible = firstPerson.canLook;
